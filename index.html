@@ -16,11 +16,11 @@
         <span>AudioLink Reactive</span>
       </a>
       <nav class="nav-links">
-        <a href="#features"><span data-lang="ja">特徴</span><span data-lang="en">Features</span></a>
-        <a href="#environment"><span data-lang="ja">対応環境</span><span data-lang="en">Environment</span></a>
-        <a href="#status"><span data-lang="ja">開発状況</span><span data-lang="en">Status</span></a>
-        <a href="docs.html"><span data-lang="ja">Docs</span><span data-lang="en">Docs</span></a>
-        <a href="#links"><span data-lang="ja">導線</span><span data-lang="en">Links</span></a>
+        <a href="#download"><span data-lang="ja">Download</span><span data-lang="en">Download</span></a>
+        <a href="#docs"><span data-lang="ja">Documentation</span><span data-lang="en">Documentation</span></a>
+        <a href="#contact"><span data-lang="ja">Contact</span><span data-lang="en">Contact</span></a>
+        <a href="#versions"><span data-lang="ja">Version</span><span data-lang="en">Version</span></a>
+        <a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a>
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
           <button class="lang-btn" type="button" data-set-lang="en">English</button>
@@ -35,138 +35,114 @@
         <article class="hero-main">
           <span class="eyebrow">VRChat / Unity / lilToon</span>
           <h1>AudioLink Reactive</h1>
-          <p class="lead" data-lang-block="ja">AudioLink Reactive は、VRChatアバター向けの Unity Editor ツールです。lilToon の AudioLink 表現を専用Windowで扱いやすくし、Avatarを指定して自動セットアップしたあと、Renderer一覧から対象を選んで Material 単位で調整できます。「光らせる」「膨らませる」に対応し、Preview で見た目を確認しながら設定できます。</p>
-          <p class="lead" data-lang-block="en">AudioLink Reactive is a Unity Editor tool for VRChat avatars. It simplifies lilToon AudioLink workflows in a dedicated window: assign an avatar, run auto setup, select targets from the renderer list, and tune each material independently. It supports both “Glow” and “Inflate” reactions, with Preview to confirm visuals while editing.</p>
+          <p class="lead" data-lang-block="ja">AudioLink Reactive は VRChat アバター向け Unity Editor ツールです。専用Windowで Avatar を指定するとセットアップし、Renderer一覧から対象を選んで Material 単位で調整できます。反応は「光らせる」「膨らませる」に対応し、Previewで確認できます。</p>
+          <p class="lead" data-lang-block="en">AudioLink Reactive is a Unity Editor tool for VRChat avatars. In its dedicated window, assign your avatar, select targets from the renderer list, and tune settings per material. It supports both Glow and Inflate reactions with Preview.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="docs.html"><span data-lang="ja">Docsを見る</span><span data-lang="en">Open Docs</span></a>
-            <a class="btn secondary" href="#links"><span data-lang="ja">導線を確認</span><span data-lang="en">Check Links</span></a>
+            <a class="btn primary" href="docs.html"><span data-lang="ja">詳しくはDocsへ</span><span data-lang="en">See Details in Docs</span></a>
+            <a class="btn secondary" href="#download"><span data-lang="ja">Download</span><span data-lang="en">Download</span></a>
           </div>
           <div class="hero-meta">
             <span class="tag" data-lang-block="ja">専用Window操作</span>
             <span class="tag" data-lang-block="en">Dedicated Window</span>
-            <span class="tag" data-lang-block="ja">Renderer / Material 単位</span>
-            <span class="tag" data-lang-block="en">Renderer / Material Unit</span>
-            <span class="tag" data-lang-block="ja">Preview 対応</span>
-            <span class="tag" data-lang-block="en">Preview Support</span>
+            <span class="tag" data-lang-block="ja">Renderer一覧</span>
+            <span class="tag" data-lang-block="en">Renderer List</span>
+            <span class="tag" data-lang-block="ja">Material単位調整</span>
+            <span class="tag" data-lang-block="en">Per-Material Tuning</span>
           </div>
         </article>
         <aside class="hero-side">
           <div class="stat">
-            <small data-lang-block="ja">初心者向けの考え方</small>
-            <small data-lang-block="en">Beginner-focused flow</small>
-            <strong data-lang-block="ja">技術用語を探さず、UI上で「光らせる」「膨らませる」を目的ベースで選べます。</strong>
-            <strong data-lang-block="en">Use purpose-based controls (“Glow” / “Inflate”) without hunting for low-level shader terms.</strong>
+            <small data-lang-block="ja">操作の流れ</small>
+            <small data-lang-block="en">Flow</small>
+            <strong data-lang-block="ja">Avatar指定 → Renderer追加 → Material調整 → Preview確認</strong>
+            <strong data-lang-block="en">Assign Avatar → Add Renderers → Tune Materials → Preview</strong>
           </div>
           <div class="stat">
-            <small data-lang-block="ja">編集対象の把握</small>
-            <small data-lang-block="en">Editing clarity</small>
-            <strong data-lang-block="ja">どの Renderer / Material を編集中かが分かりやすく、Previewで確認しながら調整できます。</strong>
-            <strong data-lang-block="en">Clearly see which renderer/material is being edited, and tune while watching Preview.</strong>
+            <small data-lang-block="ja">反応モード</small>
+            <small data-lang-block="en">Reaction Modes</small>
+            <strong data-lang-block="ja">光らせる / 膨らませる</strong>
+            <strong data-lang-block="en">Glow / Inflate</strong>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="features">
+    <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2 data-lang-block="ja">主な特徴</h2>
-          <h2 data-lang-block="en">Key Features</h2>
-        </div>
-        <div class="split">
-          <article class="card">
-            <h3 data-lang-block="ja">基本ワークフロー</h3>
-            <h3 data-lang-block="en">Core Workflow</h3>
-            <ul class="checklist">
-              <li data-lang-block="ja">専用Windowで操作</li><li data-lang-block="en">Operate in a dedicated window</li>
-              <li data-lang-block="ja">Avatar指定で自動セットアップ</li><li data-lang-block="en">Auto setup when avatar is assigned</li>
-              <li data-lang-block="ja">Renderer一覧から対象Rendererを選択</li><li data-lang-block="en">Select target renderers from the list</li>
-              <li data-lang-block="ja">Material単位で設定</li><li data-lang-block="en">Configure per material</li>
-              <li data-lang-block="ja">Preview機能で見た目確認</li><li data-lang-block="en">Preview visual results while editing</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3 data-lang-block="ja">表現と運用</h3>
-            <h3 data-lang-block="en">Effects & Operations</h3>
-            <ul class="checklist">
-              <li data-lang-block="ja">光らせる設定 / 膨らませる設定</li><li data-lang-block="en">Glow settings / Inflate settings</li>
-              <li data-lang-block="ja">非破壊的にMaterialを扱う</li><li data-lang-block="en">Non-destructive material handling</li>
-              <li data-lang-block="ja">Material単位の設定書き出し / 読み込み</li><li data-lang-block="en">Per-material export / import of settings</li>
-              <li data-lang-block="ja">アップロード反映ON/OFF（開発中を含む）</li><li data-lang-block="en">Build/upload apply toggle ON/OFF (including in-progress state)</li>
-              <li data-lang-block="ja">Runtime Toggle / MA Menu Installer は調整中</li><li data-lang-block="en">Runtime Toggle / MA Menu Installer are under tuning</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="environment">
-      <div class="container">
-        <div class="section-header">
-          <h2 data-lang-block="ja">開発・確認環境</h2>
-          <h2 data-lang-block="en">Development & Verified Environment</h2>
-        </div>
-        <article class="card">
-          <ul class="checklist">
-            <li><strong>Unity:</strong> 2022.3.22f1</li>
-            <li><strong>VRChat SDK:</strong> 3.10.3</li>
-            <li><strong>lilToon:</strong> 2.3.2</li>
-            <li><strong>Modular Avatar</strong></li>
-            <li><strong>NDMF</strong></li>
-            <li><strong>AudioLink</strong></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="status">
-      <div class="container">
-        <div class="section-header">
-          <h2 data-lang-block="ja">開発状況</h2>
-          <h2 data-lang-block="en">Current Development Status</h2>
-        </div>
-        <article class="card">
-          <ul class="checklist">
-            <li data-lang-block="ja">UIを整理中です</li><li data-lang-block="en">UI is being refined</li>
-            <li data-lang-block="ja">EditorWindow中心の操作へ移行中です</li><li data-lang-block="en">Workflow is moving to an EditorWindow-centered flow</li>
-            <li data-lang-block="ja">Renderer一覧 / Material設定 / Preview / Runtime Toggle周辺を調整中です</li><li data-lang-block="en">Renderer list, material settings, Preview, and Runtime Toggle are being tuned</li>
-            <li data-lang-block="ja">正式配布前のため、内容は変更される可能性があります</li><li data-lang-block="en">Details may change before formal release</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="links">
-      <div class="container">
-        <div class="section-header">
-          <h2 data-lang-block="ja">導線</h2>
-          <h2 data-lang-block="en">Links</h2>
+          <h2 data-lang-block="ja">案内ページ</h2>
+          <h2 data-lang-block="en">Portal</h2>
         </div>
         <div class="portal-grid">
-          <a class="page-card" href="docs.html"><h3>Docs</h3></a>
-          <a class="page-card" href="#"><h3 data-lang-block="ja">Download / VCC導入予定</h3><h3 data-lang-block="en">Download / VCC (Planned)</h3></a>
-          <a class="page-card" href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer"><h3>Booth</h3></a>
-          <a class="page-card" href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer"><h3>X</h3></a>
-          <a class="page-card" href="#contact-discord"><h3>Discord</h3></a>
+          <a class="page-card" href="#download"><h3>Download</h3></a>
+          <a class="page-card" href="#docs"><h3>Documentation</h3></a>
           <a class="page-card" href="#contact"><h3>Contact</h3></a>
-          <a class="page-card" href="#versions"><h3>Version / Changelog</h3></a>
         </div>
-        <div class="split" style="margin-top: 18px;">
-          <article class="card" id="contact">
-            <h3>Contact</h3>
-            <ul class="contact-list">
-              <li><a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">X: @_N4NSY_</a></li>
-              <li><a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">Booth: n4nsy.booth.pm</a></li>
-              <li id="contact-discord">Discord: <strong>_N4NSY_</strong></li>
-            </ul>
-          </article>
-          <article class="card" id="versions">
-            <h3>Version / Changelog</h3>
-            <ul class="changelog-list">
-              <li class="changelog-item"><strong>Beta</strong> - <span data-lang="ja">開発中</span><span data-lang="en">In Development</span></li>
-            </ul>
-          </article>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container">
+        <div class="section-header">
+          <h2>Download</h2>
         </div>
+        <article class="card">
+          <ul class="checklist">
+            <li data-lang-block="ja">配布ページは準備中です。公開後この欄に案内を掲載します。</li>
+            <li data-lang-block="en">Distribution page is being prepared. A link will be listed here after release.</li>
+            <li><strong>Unity:</strong> 2022.3.22f1 / <strong>VRChat SDK:</strong> 3.10.3 / <strong>lilToon:</strong> 2.3.2</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <div class="container">
+        <div class="section-header">
+          <h2>Documentation</h2>
+        </div>
+        <article class="card">
+          <p class="section-lead" data-lang-block="ja">操作の詳細は Docs にまとめています。基本の流れ、光らせる、膨らませる、Preview、トラブル対応を確認できます。</p>
+          <p class="section-lead" data-lang-block="en">Detailed usage is in Docs: basic flow, Glow, Inflate, Preview, and troubleshooting.</p>
+          <div class="hero-actions" style="margin-top:16px;">
+            <a class="btn primary" href="docs.html">Open Docs</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container split">
+        <article class="card">
+          <h3>Contact</h3>
+          <ul class="contact-list">
+            <li><a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">X: @_N4NSY_</a></li>
+            <li><a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">Booth: n4nsy.booth.pm</a></li>
+            <li>Discord: <strong>_N4NSY_</strong></li>
+          </ul>
+        </article>
+        <article class="card" id="versions">
+          <h3>Version / Changelog</h3>
+          <ul class="changelog-list">
+            <li class="changelog-item"><strong>Beta</strong> - <span data-lang="ja">開発中</span><span data-lang="en">In Development</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>FAQ</h2>
+        </div>
+        <article class="card">
+          <ul class="bullet-list">
+            <li data-lang-block="ja">Q. indexだけで全部分かりますか？ A. 概要のみです。詳しい手順はDocsをご確認ください。</li>
+            <li data-lang-block="en">Q. Is this page enough for full setup? A. This is an overview. Please use Docs for detailed steps.</li>
+            <li data-lang-block="ja">Q. 反応は何に対応していますか？ A. 光らせる / 膨らませる に対応しています。</li>
+            <li data-lang-block="en">Q. Which reactions are supported? A. Glow and Inflate.</li>
+          </ul>
+        </article>
       </div>
     </section>
   </main>

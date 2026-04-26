@@ -16,11 +16,11 @@
         <span>AudioLink Reactive</span>
       </a>
       <nav class="nav-links">
-        <a href="#basic"><span data-lang="ja">基本手順</span><span data-lang="en">Basic Flow</span></a>
-        <a href="#window"><span data-lang="ja">Window項目</span><span data-lang="en">Window Items</span></a>
-        <a href="#settings"><span data-lang="ja">設定項目</span><span data-lang="en">Settings</span></a>
-        <a href="#trouble"><span data-lang="ja">トラブルシュート</span><span data-lang="en">Troubleshooting</span></a>
-        <a href="index.html"><span data-lang="ja">Top</span><span data-lang="en">Top</span></a>
+        <a href="#start"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a>
+        <a href="#flow"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></a>
+        <a href="#glow"><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></a>
+        <a href="#inflate"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></a>
+        <a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a>
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
           <button class="lang-btn" type="button" data-set-lang="en">English</button>
@@ -35,14 +35,24 @@
         <article class="hero-main">
           <span class="eyebrow">Documentation</span>
           <h1>AudioLink Reactive Docs</h1>
-          <p class="lead" data-lang-block="ja">このページは実際の操作手順と各機能の説明ページです。Window構成、Renderer一覧、Material設定、Preview、設定書き出し/読み込み、トラブルシュートをまとめています。</p>
-          <p class="lead" data-lang-block="en">This page focuses on practical operations and feature details: window structure, renderer list usage, material settings, preview, export/import, and troubleshooting.</p>
+          <p class="lead" data-lang-block="ja">このページはAudioLink Reactiveの操作ガイドです。旧構成のまま、現在のWindow操作に合わせた内容だけを掲載しています。</p>
+          <p class="lead" data-lang-block="en">This page is the operation guide for AudioLink Reactive. It keeps the simple old structure and updates only current window-based workflow points.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#basic"><span data-lang="ja">基本手順へ</span><span data-lang="en">Go to Basic Flow</span></a>
+            <a class="btn primary" href="#flow"><span data-lang="ja">基本の流れへ</span><span data-lang="en">Go to Basic Flow</span></a>
           </div>
         </article>
         <aside class="hero-side">
-          <div class="stat"><small data-lang-block="ja">開発・確認環境</small><small data-lang-block="en">Verified environment</small><strong>Unity 2022.3.22f1 / VRChat SDK 3.10.3 / lilToon 2.3.2</strong></div>
+          <div class="stat">
+            <small data-lang-block="ja">開き方</small>
+            <small data-lang-block="en">Open Window</small>
+            <strong>Tools / N4NSY / AudioLink Reactive</strong>
+          </div>
+          <div class="stat">
+            <small data-lang-block="ja">主な操作</small>
+            <small data-lang-block="en">Main Actions</small>
+            <strong data-lang-block="ja">Avatar指定 / Renderer追加 / Material調整 / Preview</strong>
+            <strong data-lang-block="en">Assign Avatar / Add Renderers / Tune Materials / Preview</strong>
+          </div>
         </aside>
       </div>
     </section>
@@ -53,152 +63,72 @@
           <div class="toc-card">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#basic">Basic Flow</a></li>
-              <li><a href="#window">Window</a></li>
-              <li><a href="#avatar">Avatar</a></li>
-              <li><a href="#renderers">Renderer List</a></li>
-              <li><a href="#materials">Material Cards</a></li>
-              <li><a href="#settings">Reaction Settings</a></li>
+              <li><a href="#start">Getting Started</a></li>
+              <li><a href="#flow">Basic Flow</a></li>
+              <li><a href="#glow">Glow</a></li>
+              <li><a href="#inflate">Inflate</a></li>
               <li><a href="#preview">Preview</a></li>
-              <li><a href="#io">Export / Import</a></li>
-              <li><a href="#trouble">Troubleshooting</a></li>
-              <li><a href="#report">Error Report</a></li>
+              <li><a href="#faq">FAQ / Troubleshooting</a></li>
             </ul>
           </div>
         </aside>
 
         <div class="content">
-          <section class="card" id="basic">
-            <h2 class="section-title"><span data-lang="ja">基本の使い方</span><span data-lang="en">Basic Flow</span></h2>
+          <section class="card" id="start">
+            <h2 class="section-title"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></h2>
+            <ul class="bullet-list">
+              <li data-lang-block="ja">Unity上部メニューの <strong>Tools / N4NSY / AudioLink Reactive</strong> から専用Windowを開きます。</li>
+              <li data-lang-block="en">Open the dedicated window from <strong>Tools / N4NSY / AudioLink Reactive</strong> in Unity.</li>
+              <li data-lang-block="ja">Avatar欄に対象Avatarを指定します。指定時に必要なセットアップが自動で行われます。</li>
+              <li data-lang-block="en">Assign your target avatar in the Avatar field. Required setup runs automatically.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="flow">
+            <h2 class="section-title"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></h2>
             <ol class="steps">
-              <li data-lang-block="ja">Unity上部メニューから <strong>Tools / N4NSY / AudioLink Reactive</strong> を開きます。</li><li data-lang-block="en">Open <strong>Tools / N4NSY / AudioLink Reactive</strong> from the Unity top menu.</li>
-              <li data-lang-block="ja">Avatar欄に対象アバターを指定します。</li><li data-lang-block="en">Assign the target avatar in the Avatar field.</li>
-              <li data-lang-block="ja">Avatar指定時に必要な項目が自動セットアップされます。</li><li data-lang-block="en">Required items are auto-setup when avatar is assigned.</li>
-              <li data-lang-block="ja">レンダラー一覧を開きます。</li><li data-lang-block="en">Open the renderer list.</li>
-              <li data-lang-block="ja">Avatar配下のRenderer付きGameObjectを選びます。</li><li data-lang-block="en">Pick a renderer GameObject under the avatar.</li>
-              <li data-lang-block="ja">選択したRendererをALR対象に追加します（重複追加なし）。</li><li data-lang-block="en">Add the selected renderer as ALR target (no duplicate add).</li>
-              <li data-lang-block="ja">対象Materialごとに設定します。</li><li data-lang-block="en">Configure each target material.</li>
-              <li data-lang-block="ja">Previewで見た目を確認します。</li><li data-lang-block="en">Check visuals with Preview.</li>
-              <li data-lang-block="ja">必要に応じて設定を書き出し / 読み込みします。</li><li data-lang-block="en">Export/import settings when needed.</li>
-              <li data-lang-block="ja">必要に応じてアップロード反映ON/OFFを切り替えます。</li><li data-lang-block="en">Toggle build/upload apply ON/OFF when needed.</li>
+              <li data-lang-block="ja">レンダラー一覧から Avatar 配下の Renderer を選びます。</li>
+              <li data-lang-block="en">Select a renderer under the avatar from the renderer list.</li>
+              <li data-lang-block="ja">選択した Renderer を ALR 対象に追加します。</li>
+              <li data-lang-block="en">Add the selected renderer as an ALR target.</li>
+              <li data-lang-block="ja">対象Materialは <strong>Renderer名 / Material名</strong> で表示されます。</li>
+              <li data-lang-block="en">Target materials are shown as <strong>Renderer Name / Material Name</strong>.</li>
+              <li data-lang-block="ja">Materialごとに設定し、必要なら保存/読み込みを行います。</li>
+              <li data-lang-block="en">Configure each material, then save/load settings when needed.</li>
             </ol>
           </section>
 
-          <section class="card" id="window">
-            <h2 class="section-title">Window</h2>
-            <ul class="field-list">
-              <li>Avatar / 更新 / プレビュー / プレビュー量</li>
-              <li>レンダラー一覧 / 対象Renderer / 対象Material</li>
-              <li>反応の仕方 / 光らせる / 膨らませる / 詳細設定</li>
-              <li>設定を書き出し / 設定を読み込み / アップロード反映</li>
-            </ul>
+          <section class="card" id="glow">
+            <h2 class="section-title"><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></h2>
+            <p class="section-lead" data-lang-block="ja">反応の仕方で「光らせる」を選ぶと、音に合わせた発光表現を調整できます。</p>
+            <p class="section-lead" data-lang-block="en">Choose “Glow” in reaction mode to tune audio-driven emission behavior.</p>
           </section>
 
-          <section class="card" id="avatar">
-            <h2 class="section-title">Avatar</h2>
-            <ul class="bullet-list">
-              <li data-lang-block="ja">Avatar欄にはアバターRootを指定します。</li><li data-lang-block="en">Assign the avatar root in Avatar field.</li>
-              <li data-lang-block="ja">指定時に必要なALR Controllerが自動セットアップされます。</li><li data-lang-block="en">Required ALR Controller is auto-setup on assignment.</li>
-              <li data-lang-block="ja">Toolsメニューから開いた場合は空の状態で開始します。</li><li data-lang-block="en">When opened from Tools menu, Avatar starts empty.</li>
-              <li data-lang-block="ja">ALRコンポーネント側から開いた場合は該当Avatarが入った状態で開きます。</li><li data-lang-block="en">When opened from ALR component, the related avatar is pre-filled.</li>
-              <li data-lang-block="ja">対象Rendererがない状態で閉じると、条件により空Controllerが削除されます。</li><li data-lang-block="en">If closed with no target renderer, an empty controller may be removed depending on conditions.</li>
-            </ul>
-          </section>
-
-          <section class="card" id="renderers">
-            <h2 class="section-title">Renderer List</h2>
-            <ul class="bullet-list">
-              <li data-lang-block="ja">Avatar配下のMeshRenderer / SkinnedMeshRenderer付きGameObjectを一覧表示します。</li><li data-lang-block="en">Lists MeshRenderer / SkinnedMeshRenderer GameObjects under avatar.</li>
-              <li data-lang-block="ja">表示名はRendererコンポーネントが付いているGameObject名を使います。</li><li data-lang-block="en">Display name uses the renderer GameObject name.</li>
-              <li data-lang-block="ja">一覧から選択したRendererをALR対象に追加できます。</li><li data-lang-block="en">You can add selected renderer to ALR targets.</li>
-              <li data-lang-block="ja">追加済みRendererは重複追加されません。</li><li data-lang-block="en">Already-added renderers are not duplicated.</li>
-              <li data-lang-block="ja">一覧名クリックでHierarchy上の該当GameObjectを選択/Pingします。</li><li data-lang-block="en">Clicking a list name selects/pings the matching GameObject in Hierarchy.</li>
-              <li data-lang-block="ja">HierarchyでRenderer付きGameObjectを選ぶと、一覧側でも強調表示されます。</li><li data-lang-block="en">Selecting renderer objects in Hierarchy also highlights the matching list entry.</li>
-            </ul>
-          </section>
-
-          <section class="card" id="materials">
-            <h2 class="section-title">Target Material Cards</h2>
-            <ul class="bullet-list">
-              <li data-lang-block="ja">対象Materialはカード形式で表示されます。</li><li data-lang-block="en">Target materials are shown as cards.</li>
-              <li data-lang-block="ja">見出しは <strong>Renderer名 / Material名</strong> 形式です。</li><li data-lang-block="en">Header format is <strong>Renderer / Material</strong>.</li>
-              <li data-lang-block="ja"><code>_ALReactive_Slot0</code> のような内部識別サフィックスは表示しません。</li><li data-lang-block="en">Internal suffixes like <code>_ALReactive_Slot0</code> are hidden.</li>
-              <li data-lang-block="ja">カード内の「編集されるマテリアル」「対象Renderer」の重複表示は省略されます。</li><li data-lang-block="en">Redundant in-card target labels are omitted.</li>
-            </ul>
-          </section>
-
-          <section class="card" id="settings">
-            <h2 class="section-title"><span data-lang="ja">反応の仕方と設定項目</span><span data-lang="en">Reactions and Settings</span></h2>
-            <div class="grid-2">
-              <div class="mini">
-                <strong data-lang-block="ja">光らせる</strong><strong data-lang-block="en">Glow</strong>
-                <p data-lang-block="ja">音に合わせて発光を変化させます。反応音域 / 発光色 / 色・マスク / 不透明度から触ると分かりやすいです。</p>
-                <p data-lang-block="en">Changes emission with sound. Start with band, emission color, color/mask, and opacity.</p>
-                <ul class="field-list"><li>反応音域 / 発光色 / 色・マスク / 不透明度 / 点滅の強さ / グラデーション / 視差の強さ / 蛍光 / 詳細設定</li></ul>
-              </div>
-              <div class="mini">
-                <strong data-lang-block="ja">膨らませる</strong><strong data-lang-block="en">Inflate</strong>
-                <p data-lang-block="ja">音に合わせてメッシュを膨らませます。初心者は反応音域とふくらみの強さから始めるのがおすすめです。</p>
-                <p data-lang-block="en">Inflates mesh with sound. Beginners should start from band and inflate strength.</p>
-                <ul class="field-list"><li>反応音域 / ふくらみの強さ / Correction / サイズ自動補正 / 詳細設定</li></ul>
-              </div>
-            </div>
+          <section class="card" id="inflate">
+            <h2 class="section-title"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></h2>
+            <p class="section-lead" data-lang-block="ja">反応の仕方で「膨らませる」を選ぶと、音に合わせたメッシュ変化を調整できます。</p>
+            <p class="section-lead" data-lang-block="en">Choose “Inflate” in reaction mode to tune audio-driven mesh deformation.</p>
           </section>
 
           <section class="card" id="preview">
             <h2 class="section-title">Preview</h2>
             <ul class="bullet-list">
-              <li data-lang-block="ja">プレビュー有効 / プレビュー量 を使って、Editor上で見た目を確認します。</li><li data-lang-block="en">Use Preview Enabled and Preview Amount to check visuals in the Editor.</li>
-              <li data-lang-block="ja">プレビュー量で反応の強さを確認できます。</li><li data-lang-block="en">Preview Amount shows effect strength.</li>
-              <li data-lang-block="ja">Play Mode復帰後に表示が崩れた場合は、更新ボタンで再同期します。</li><li data-lang-block="en">If display breaks after Play Mode return, resync with Refresh.</li>
+              <li data-lang-block="ja">プレビュー有効 / プレビュー量 を使って見た目を確認します。</li>
+              <li data-lang-block="en">Use Preview Enabled / Preview Amount to check visuals.</li>
+              <li data-lang-block="ja">表示がおかしい場合は更新ボタンで再同期します。</li>
+              <li data-lang-block="en">If display looks wrong, press Refresh to resync.</li>
             </ul>
           </section>
 
-          <section class="card" id="io">
-            <h2 class="section-title">設定書き出し / 読み込み</h2>
+          <section class="card" id="faq">
+            <h2 class="section-title"><span data-lang="ja">FAQ / Troubleshooting</span><span data-lang="en">FAQ / Troubleshooting</span></h2>
             <ul class="bullet-list">
-              <li data-lang-block="ja">Material単位で設定を書き出し / 読み込みできます。</li><li data-lang-block="en">Export/import is available per material.</li>
-              <li data-lang-block="ja">ボタンは各MaterialカードではなくWindow側にあります。</li><li data-lang-block="en">Buttons are placed on window side, not inside each material card.</li>
-              <li data-lang-block="ja">実行後に対象Materialを選びます。</li><li data-lang-block="en">After pressing, select the target material.</li>
-              <li data-lang-block="ja">保存対象は設定値のみです（Avatar/Renderer/Scene Object/Material参照は保存しません）。</li><li data-lang-block="en">Only values are saved (no avatar/renderer/scene/material references).</li>
-              <li data-lang-block="ja">別アバターや別Materialへ設定値だけ流用できます。</li><li data-lang-block="en">You can reuse values on other avatars/materials.</li>
-            </ul>
-          </section>
-
-          <section class="card">
-            <h2 class="section-title">アップロード反映ON/OFF / Runtime Toggle</h2>
-            <ul class="bullet-list">
-              <li data-lang-block="ja">アップロード反映ON/OFFは、ALR設定を保持したまま Build / Upload へ反映するか切り替える機能です。</li><li data-lang-block="en">Build/upload apply ON/OFF toggles whether ALR settings are applied while keeping settings data.</li>
-              <li data-lang-block="ja">OFF時は設定は残りますがアップロードに反映しません。一時的に外したい時に使えます。</li><li data-lang-block="en">When OFF, settings remain but are not applied to upload.</li>
-              <li data-lang-block="ja">Runtime Toggle / MA Menu Installer はVRChat内メニューでALR効果ON/OFFする機能で、現在は開発中・調整中です。</li><li data-lang-block="en">Runtime Toggle / MA Menu Installer is for in-game menu ON/OFF control, currently in development/tuning.</li>
-            </ul>
-          </section>
-
-          <section class="card" id="trouble">
-            <h2 class="section-title"><span data-lang="ja">トラブルシュート</span><span data-lang="en">Troubleshooting</span></h2>
-            <ul class="bullet-list">
-              <li data-lang-block="ja">Windowに設定UIが出ない場合は更新ボタンを押してください。</li><li data-lang-block="en">If UI does not appear, press Refresh.</li>
-              <li data-lang-block="ja">Play Modeから戻ったあと表示が消えた場合も更新します。</li><li data-lang-block="en">If display disappears after Play Mode, refresh again.</li>
-              <li data-lang-block="ja">Renderer一覧に出ない場合はAvatar欄を確認します。</li><li data-lang-block="en">If renderer list is empty, verify Avatar field.</li>
-              <li data-lang-block="ja">対象Materialがない場合は先にRendererを追加してください。</li><li data-lang-block="en">If no target material, add renderer first.</li>
-              <li data-lang-block="ja">Rendererが重複追加されないのは仕様です。</li><li data-lang-block="en">No duplicate renderer add is expected behavior.</li>
-              <li data-lang-block="ja">NDMF / Modular Avatar / lilToon / VRChat SDK のバージョン確認をしてください。</li><li data-lang-block="en">Check NDMF / Modular Avatar / lilToon / VRChat SDK versions.</li>
-              <li data-lang-block="ja">Consoleエラーがある場合は問い合わせ時に添えてください。</li><li data-lang-block="en">Include full console errors when reporting issues.</li>
-              <li data-lang-block="ja">Noto Sans CJK JP のログはNDMF側フォント読み込みログで、ALR本体の致命的エラーとは限りません。</li><li data-lang-block="en">Noto Sans CJK JP logs often come from NDMF font loading and are not always fatal ALR errors.</li>
-            </ul>
-          </section>
-
-          <section class="card" id="report">
-            <h2 class="section-title"><span data-lang="ja">エラー報告時に必要な情報</span><span data-lang="en">Required Info for Error Reports</span></h2>
-            <ul class="checklist">
-              <li>Unityバージョン / Unity version</li>
-              <li>VRChat SDKバージョン / VRChat SDK version</li>
-              <li>lilToonバージョン / lilToon version</li>
-              <li>Modular Avatar / NDMFバージョン</li>
-              <li>ALRバージョン / ALR version</li>
-              <li>何をした時に起きたか / What you were doing</li>
-              <li>Consoleエラー全文 / Full console error text</li>
-              <li>可能ならスクリーンショット / Screenshot if possible</li>
+              <li data-lang-block="ja">Renderer一覧が空の場合: Avatar欄の指定を確認し、更新ボタンを押してください。</li>
+              <li data-lang-block="en">If renderer list is empty: verify Avatar assignment and press Refresh.</li>
+              <li data-lang-block="ja">対象Materialが出ない場合: 先にRendererをALR対象へ追加してください。</li>
+              <li data-lang-block="en">If no target material appears: add a renderer to ALR targets first.</li>
+              <li data-lang-block="ja">保存/読み込みはMaterial単位です。</li>
+              <li data-lang-block="en">Save/Load works per material.</li>
             </ul>
           </section>
         </div>
@@ -209,7 +139,11 @@
   <footer>
     <div class="container footer-inner">
       <div>© AudioLink Reactive</div>
-      <div class="footer-links"><a href="index.html">Top</a><a href="#basic">Docs</a><a href="#trouble">Troubleshooting</a></div>
+      <div class="footer-links">
+        <a href="index.html">Top</a>
+        <a href="#flow">Docs</a>
+        <a href="#faq">Troubleshooting</a>
+      </div>
     </div>
   </footer>
   <script src="js/main.js"></script>
