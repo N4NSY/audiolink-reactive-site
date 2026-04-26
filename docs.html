@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AudioLink Reactive | Documentation</title>
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(18, 25, 51, 0.74);
+      --panel-2: rgba(255,255,255,0.04);
+      --text: #eef2ff;
+      --muted: #a9b4d0;
+      --line: rgba(255,255,255,0.1);
+      --accent: #77b7ff;
+      --accent-2: #8ef0d0;
+      --ok: #9ef3bf;
+      --warn: #ffd38a;
+      --shadow: 0 18px 50px rgba(0,0,0,0.28);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(119,183,255,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(142,240,208,0.14), transparent 26%),
+        linear-gradient(180deg, #0a0f1f 0%, #090d19 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(9, 13, 25, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 26px rgba(119,183,255,0.26);
+      display: grid;
+      place-items: center;
+      color: #081222;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a, .lang-btn {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: .18s ease;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .nav-links a:hover, .lang-btn:hover, .lang-btn.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+      border-color: var(--line);
+    }
+
+    .hero {
+      padding: 56px 0 24px;
+    }
+
+    .hero-card, .side-card, .card, .toc-card, .tip, .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+    }
+
+    .hero-card {
+      border-radius: 28px;
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: .18s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #5e95ff);
+      color: #081222;
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .side-card {
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .side-card small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .side-card strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    .layout {
+      padding: 18px 0 72px;
+    }
+
+    .docs-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 92px;
+    }
+
+    .toc-card {
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .toc-card h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .toc-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: .18s ease;
+    }
+
+    .toc-list a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini {
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--panel-2);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .mini p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .steps, .bullet-list, .field-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li, .bullet-list li, .field-list li {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .steps strong, .bullet-list strong, .field-list strong {
+      color: var(--text);
+    }
+
+    .tip {
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .tip.ok { border-color: rgba(158,243,191,0.18); }
+    .tip.warn { border-color: rgba(255,211,138,0.18); }
+
+    .tip strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .tip p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .faq-item {
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 48px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    [data-lang] { display: none !important; }
+    [data-lang-block] { display: none !important; }
+    html[data-current-lang="ja"] [data-lang="ja"],
+    html[data-current-lang="en"] [data-lang="en"] { display: inline !important; }
+    html[data-current-lang="ja"] [data-lang-block="ja"],
+    html[data-current-lang="en"] [data-lang-block="en"] { display: block !important; }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .docs-layout,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-wrap {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        min-height: 64px;
+        align-items: flex-start;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .hero-card, .side-card, .card, .toc-card, .tip, .faq-item {
+        border-radius: 20px;
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">A</span>
+        <span>AudioLink Reactive</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#getting-started"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a>
+        <a href="#emission"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></a>
+        <a href="#vertex"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></a>
+        <a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a>
+        <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
+        <button class="lang-btn" type="button" data-set-lang="en">English</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Documentation</span>
+          <h1>AudioLink Reactive</h1>
+          <p class="lead" data-lang-block="ja">
+            このページは AudioLink Reactive の説明書ページです。導入の流れ、基本的な使い方、発光テクスチャと頂点の設定の考え方、よくある確認ポイントをまとめています。
+          </p>
+          <p class="lead" data-lang-block="en">
+            This page is the documentation page for AudioLink Reactive. It covers the setup flow, basic usage, how to think about Emission Texture and Vertex settings, and common checkpoints.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#getting-started"><span data-lang="ja">まず読む</span><span data-lang="en">Start Here</span></a>
+            <a class="btn secondary" href="#emission"><span data-lang="ja">発光テクスチャを見る</span><span data-lang="en">See Emission Texture</span></a>
+          </div>
+        </div>
+        <div class="side-stack">
+          <div class="side-card">
+            <small data-lang-block="ja">動作確認環境</small>
+            <small data-lang-block="en">Tested Environment</small>
+            <strong>Unity 2022.3.22f1</strong>
+            <strong>VRChat SDK 3.10.3</strong>
+            <strong>lilToon 2.3.2</strong>
+          </div>
+          <div class="side-card">
+            <small data-lang-block="ja">前提</small>
+            <small data-lang-block="en">Prerequisites</small>
+            <strong data-lang-block="ja">lilToon / Modular Avatar / NDMF 前提</strong>
+            <strong data-lang-block="en">Built around lilToon / Modular Avatar / NDMF</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="container docs-layout">
+        <aside class="toc-wrap">
+          <div class="toc-card">
+            <h2><span data-lang="ja">目次</span><span data-lang="en">Contents</span></h2>
+            <ul class="toc-list">
+              <li><a href="#getting-started"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a></li>
+              <li><a href="#basic-flow"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></a></li>
+              <li><a href="#emission"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></a></li>
+              <li><a href="#vertex"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></a></li>
+              <li><a href="#preview"><span data-lang="ja">Preview</span><span data-lang="en">Preview</span></a></li>
+              <li><a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="content">
+          <section class="card" id="getting-started">
+            <h2 class="section-title"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              AudioLink Reactive は、lilToon の AudioLink 設定をまとめて扱いやすくするための Unity ツールです。まずは Controller を追加し、対象の Renderer をドラッグ＆ドロップして、必要な項目だけ有効にする流れになります。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              AudioLink Reactive is a Unity tool designed to make lilToon AudioLink settings easier to manage in one place. The basic flow is: add the Controller, drag and drop target renderers, then enable only the features you need.
+            </p>
+
+            <div class="grid-2">
+              <div class="mini">
+                <strong data-lang-block="ja">このツールでできること</strong>
+                <strong data-lang-block="en">What this tool does</strong>
+                <p data-lang-block="ja">複数 Renderer 管理、非破壊マテリアル複製、Preview、発光テクスチャ、頂点リアクティブを1つの流れで扱えます。</p>
+                <p data-lang-block="en">It lets you handle multi-renderer management, non-destructive material duplication, preview, emission texture, and vertex reactive features within one workflow.</p>
+              </div>
+              <div class="mini">
+                <strong data-lang-block="ja">向いている人</strong>
+                <strong data-lang-block="en">Who it is for</strong>
+                <p data-lang-block="ja">lilToon を直接細かく触る前に、まず AudioLink リアクティブを導入しやすくしたい人に向いています。</p>
+                <p data-lang-block="en">It is suited for users who want an easier entry point into AudioLink reactive setups before working directly with every lilToon field.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" id="basic-flow">
+            <h2 class="section-title"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></h2>
+            <p class="section-lead" data-lang-block="ja">最初は次の順番で進めると分かりやすいです。</p>
+            <p class="section-lead" data-lang-block="en">This order is the easiest way to get started.</p>
+            <ol class="steps">
+              <li data-lang-block="ja"><strong>1.</strong> AudioLink Reactive Controller を追加する</li>
+              <li data-lang-block="en"><strong>1.</strong> Add AudioLink Reactive Controller</li>
+              <li data-lang-block="ja"><strong>2.</strong> Hierarchy から対象のオブジェクトをドラッグ＆ドロップする</li>
+              <li data-lang-block="en"><strong>2.</strong> Drag and drop the target object from the Hierarchy</li>
+              <li data-lang-block="ja"><strong>3.</strong> 一覧に出たマテリアルごとに、発光テクスチャや頂点を有効にする</li>
+              <li data-lang-block="en"><strong>3.</strong> Enable Emission Texture or Vertex for each listed material</li>
+              <li data-lang-block="ja"><strong>4.</strong> Preview を見ながら強さや色を調整する</li>
+              <li data-lang-block="en"><strong>4.</strong> Adjust strength and color while checking the Preview</li>
+            </ol>
+
+            <div class="tip ok">
+              <strong data-lang-block="ja">ポイント</strong>
+              <strong data-lang-block="en">Tip</strong>
+              <p data-lang-block="ja">最初は 1つの Renderer、1つのマテリアルだけで試すと挙動を把握しやすいです。</p>
+              <p data-lang-block="en">Start with one renderer and one material first. It makes the behavior much easier to understand.</p>
+            </div>
+          </section>
+
+          <section class="card" id="emission">
+            <h2 class="section-title"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              発光テクスチャでは、音に反応して光る模様や色を設定します。基本は「どの音に反応するか」「どんな模様で光るか」「どんな色で光るか」を決めるイメージです。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              Emission Texture controls the glow pattern and color that react to audio. The main idea is deciding which band reacts, what pattern glows, and what color it glows with.
+            </p>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>帯域:</strong> どの音域に反応させるかを決めます。</li>
+              <li data-lang-block="en"><strong>Band:</strong> Chooses which audio band drives the effect.</li>
+              <li data-lang-block="ja"><strong>色 / マスク:</strong> 光る模様の元になるテクスチャです。</li>
+              <li data-lang-block="en"><strong>Color / Mask:</strong> Texture used as the glowing pattern source.</li>
+              <li data-lang-block="ja"><strong>発光色:</strong> 光る色の基準です。</li>
+              <li data-lang-block="en"><strong>Emission Color:</strong> The base color of the glow.</li>
+              <li data-lang-block="ja"><strong>合成モード:</strong> 光り方の重ね方です。通常は加算を基準に考えると分かりやすいです。</li>
+              <li data-lang-block="en"><strong>Blend Mode:</strong> Controls how the glow is combined. Add is usually the easiest starting point.</li>
+              <li data-lang-block="ja"><strong>点滅の強さ:</strong> 発光の明滅感を足したい時に使います。</li>
+              <li data-lang-block="en"><strong>Blink Strength:</strong> Adds blinking intensity to the glow.</li>
+            </ul>
+
+            <div class="grid-2">
+              <div class="mini">
+                <strong data-lang-block="ja">最初のおすすめ</strong>
+                <strong data-lang-block="en">Recommended first setup</strong>
+                <p data-lang-block="ja">まずは 帯域 / 色・マスク / 発光色 / 合成モード だけで組むと分かりやすいです。</p>
+                <p data-lang-block="en">Start with just Band, Color/Mask, Emission Color, and Blend Mode.</p>
+              </div>
+              <div class="mini">
+                <strong data-lang-block="ja">詳細設定</strong>
+                <strong data-lang-block="en">Advanced details</strong>
+                <p data-lang-block="ja">Tiling、Offset、角度、スクロールなどは、模様の見え方を詰めたい時に触ります。</p>
+                <p data-lang-block="en">Use Tiling, Offset, Angle, and Scroll when you want to fine-tune how the pattern looks.</p>
+              </div>
+            </div>
+
+            <div class="tip warn">
+              <strong data-lang-block="ja">注意</strong>
+              <strong data-lang-block="en">Note</strong>
+              <p data-lang-block="ja">最初から全部の項目を触るより、少ない項目で見た目を決めてから詳細に入る方が調整しやすいです。</p>
+              <p data-lang-block="en">It is usually easier to decide the overall look with a few key fields first, then move into advanced settings afterward.</p>
+            </div>
+          </section>
+
+          <section class="card" id="vertex">
+            <h2 class="section-title"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              頂点では、音に反応してメッシュがふくらむ動きを設定します。まずは「ふくらみの強さ」だけを見るのがおすすめです。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              Vertex settings control mesh inflation driven by audio. As a starting point, it is best to focus only on the inflation strength.
+            </p>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>音域:</strong> どの帯域で動かすかを決めます。</li>
+              <li data-lang-block="en"><strong>Band:</strong> Chooses which audio band drives the motion.</li>
+              <li data-lang-block="ja"><strong>ふくらみの強さ:</strong> どれだけ膨らませるかの主な項目です。</li>
+              <li data-lang-block="en"><strong>Inflation Strength:</strong> Main field controlling how much the mesh inflates.</li>
+              <li data-lang-block="ja"><strong>サイズ自動補正:</strong> オブジェクトサイズに応じて強さを補正します。</li>
+              <li data-lang-block="en"><strong>Auto Size Correction:</strong> Adjusts strength based on object size.</li>
+            </ul>
+
+            <div class="tip ok">
+              <strong data-lang-block="ja">ポイント</strong>
+              <strong data-lang-block="en">Tip</strong>
+              <p data-lang-block="ja">慣れるまでは moveDirection などの細かい値は触らず、基本項目だけで見た目を決める方が分かりやすいです。</p>
+              <p data-lang-block="en">Until you get used to it, it is easier to ignore detailed values like moveDirection and build the look with only the main fields.</p>
+            </div>
+          </section>
+
+          <section class="card" id="preview">
+            <h2 class="section-title">Preview</h2>
+            <p class="section-lead" data-lang-block="ja">
+              Preview は Editor 上で最大変形や発光の見え方を確認するための機能です。元のマテリアルを直接壊さず、一時的な複製マテリアルで表示します。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              Preview is used to check the maximum deformation or glow appearance in the Editor. It works with temporary duplicated materials instead of directly modifying the original materials.
+            </p>
+
+            <ul class="bullet-list">
+              <li data-lang-block="ja"><strong>プレビュー有効:</strong> Preview を使うかどうかを切り替えます。</li>
+              <li data-lang-block="en"><strong>Preview Enabled:</strong> Toggles Preview on or off.</li>
+              <li data-lang-block="ja"><strong>プレビュー量:</strong> 0 から 1 の範囲で見え方を確認できます。</li>
+              <li data-lang-block="en"><strong>Preview Amount:</strong> Lets you preview the effect from 0 to 1.</li>
+              <li data-lang-block="ja"><strong>最大プレビュー:</strong> 最大状態をすぐ確認したい時に使います。</li>
+              <li data-lang-block="en"><strong>Max Preview:</strong> Quickly checks the maximum state.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="faq">
+            <h2 class="section-title"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></h2>
+            <div class="faq">
+              <article class="faq-item">
+                <h3 data-lang-block="ja">Q. まずどこだけ触ればよいか</h3>
+                <h3 data-lang-block="en">Q. What should I touch first?</h3>
+                <p data-lang-block="ja">発光テクスチャなら 帯域 / 色・マスク / 発光色 / 合成モード、頂点なら 音域 / ふくらみの強さ だけで十分です。</p>
+                <p data-lang-block="en">For Emission Texture, start with Band, Color/Mask, Emission Color, and Blend Mode. For Vertex, start with Band and Inflation Strength.</p>
+              </article>
+              <article class="faq-item">
+                <h3 data-lang-block="ja">Q. lilToon を直接触るのと何が違うか</h3>
+                <h3 data-lang-block="en">Q. How is this different from editing lilToon directly?</h3>
+                <p data-lang-block="ja">複数対象管理、非破壊複製、Preview、将来的なメニュー導線まで含めて、導入と運用をまとめることが目的です。</p>
+                <p data-lang-block="en">The goal is to unify setup and operation, including multi-target management, non-destructive duplication, preview, and future menu workflow support.</p>
+              </article>
+              <article class="faq-item">
+                <h3 data-lang-block="ja">Q. 詳細設定はいつ触るべきか</h3>
+                <h3 data-lang-block="en">Q. When should I touch advanced settings?</h3>
+                <p data-lang-block="ja">基本項目だけで大まかな見た目を作ってからで十分です。最初から全部触る必要はありません。</p>
+                <p data-lang-block="en">After the overall look is built with the main fields. There is no need to touch everything from the start.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© AudioLink Reactive</div>
+      <div class="footer-links">
+        <a href="#top">Top</a>
+        <a href="#getting-started"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a>
+        <a href="#emission"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></a>
+        <a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const buttons = document.querySelectorAll('[data-set-lang]');
+      const saved = localStorage.getItem('alr-docs-lang');
+      const browserLang = (navigator.language || '').toLowerCase();
+      const initial = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
+
+      function setLang(lang) {
+        html.setAttribute('lang', lang);
+        html.setAttribute('data-current-lang', lang);
+        localStorage.setItem('alr-docs-lang', lang);
+        buttons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>
