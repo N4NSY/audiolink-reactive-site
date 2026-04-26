@@ -82,6 +82,8 @@ h4 {
   gap: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
+min-width: 0;
+max-width: 100%;
 }
 
 .brand-mark {
@@ -94,6 +96,16 @@ h4 {
   place-items: center;
   color: #081222;
   font-weight: 900;
+.brand-mark {
+  flex-shrink: 0;
+}
+
+.brand span:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(48vw, 320px);
+}
 }
 
 .nav-links,
@@ -460,11 +472,44 @@ html[data-current-lang="en"] [data-lang-block="en"] {
 
   .nav-inner {
     min-height: 64px;
-    align-items: flex-start;
+flex-direction: column;
+align-items: stretch;
+justify-content: center;
+gap: 10px;
     padding-top: 12px;
     padding-bottom: 12px;
   }
 
+.brand {
+  width: 100%;
+}
+
+.brand span:last-child {
+  font-size: 15px;
+  max-width: calc(100vw - 92px);
+}
+
+.nav-links {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.nav-links a,
+.nav-links .lang-btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 9px 10px;
+}
+
+.lang-switch {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
   .hero,
   .section,
   .layout {
