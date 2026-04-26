@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioLink Reactive | Portal</title>
-  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
-<link rel="shortcut icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -17,11 +16,11 @@
         <span>AudioLink Reactive</span>
       </a>
       <nav class="nav-links">
-        <a href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
-        <a href="docs.html"><span data-lang="ja">使い方</span><span data-lang="en">Docs</span></a>
-        <a href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
-        <a href="#versions"><span data-lang="ja">バージョン</span><span data-lang="en">Versions</span></a>
-        <a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a>
+        <a href="#features"><span data-lang="ja">特徴</span><span data-lang="en">Features</span></a>
+        <a href="#environment"><span data-lang="ja">対応環境</span><span data-lang="en">Environment</span></a>
+        <a href="#status"><span data-lang="ja">開発状況</span><span data-lang="en">Status</span></a>
+        <a href="docs.html"><span data-lang="ja">Docs</span><span data-lang="en">Docs</span></a>
+        <a href="#links"><span data-lang="ja">導線</span><span data-lang="en">Links</span></a>
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
           <button class="lang-btn" type="button" data-set-lang="en">English</button>
@@ -33,363 +32,139 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-main">
+        <article class="hero-main">
           <span class="eyebrow">VRChat / Unity / lilToon</span>
           <h1>AudioLink Reactive</h1>
-          <p class="lead" data-lang-block="ja">
-            AudioLink Reactive は、lilToon の AudioLink 設定をまとめて扱いやすくするための Unity ツールです。
-            非破壊マテリアル複製、複数 Renderer 管理、Preview、発光テクスチャ・頂点リアクティブ対応により、
-            AudioLink 表現の導入と調整をよりスムーズに行えます。
-          </p>
-          <p class="lead" data-lang-block="en">
-            AudioLink Reactive is a Unity tool for organizing and simplifying lilToon AudioLink workflows.
-            With non-destructive material duplication, multi-renderer management, preview, and support for Emission Texture and Vertex reactive features,
-            it helps streamline both setup and adjustment.
-          </p>
+          <p class="lead" data-lang-block="ja">AudioLink Reactive は、VRChatアバター向けの Unity Editor ツールです。lilToon の AudioLink 表現を専用Windowで扱いやすくし、Avatarを指定して自動セットアップしたあと、Renderer一覧から対象を選んで Material 単位で調整できます。「光らせる」「膨らませる」に対応し、Preview で見た目を確認しながら設定できます。</p>
+          <p class="lead" data-lang-block="en">AudioLink Reactive is a Unity Editor tool for VRChat avatars. It simplifies lilToon AudioLink workflows in a dedicated window: assign an avatar, run auto setup, select targets from the renderer list, and tune each material independently. It supports both “Glow” and “Inflate” reactions, with Preview to confirm visuals while editing.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
-            <a class="btn secondary" href="docs.html"><span data-lang="ja">使い方を見る</span><span data-lang="en">Documentation</span></a>
-            <a class="btn secondary" href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
+            <a class="btn primary" href="docs.html"><span data-lang="ja">Docsを見る</span><span data-lang="en">Open Docs</span></a>
+            <a class="btn secondary" href="#links"><span data-lang="ja">導線を確認</span><span data-lang="en">Check Links</span></a>
           </div>
           <div class="hero-meta">
-            <span class="tag" data-lang-block="ja">lilToon 向け</span>
-            <span class="tag" data-lang-block="en">Built for lilToon</span>
-            <span class="tag" data-lang-block="ja">複数 Renderer 管理</span>
-            <span class="tag" data-lang-block="en">Multi-renderer workflow</span>
+            <span class="tag" data-lang-block="ja">専用Window操作</span>
+            <span class="tag" data-lang-block="en">Dedicated Window</span>
+            <span class="tag" data-lang-block="ja">Renderer / Material 単位</span>
+            <span class="tag" data-lang-block="en">Renderer / Material Unit</span>
             <span class="tag" data-lang-block="ja">Preview 対応</span>
-            <span class="tag" data-lang-block="en">Preview supported</span>
+            <span class="tag" data-lang-block="en">Preview Support</span>
           </div>
-        </div>
+        </article>
         <aside class="hero-side">
           <div class="stat">
-            <div data-lang-block="ja">
-              <small>現在の主機能</small>
-              <strong>頂点 / 発光テクスチャ / Preview / 非破壊複製</strong>
-            </div>
-            <div data-lang-block="en">
-              <small>Current core features</small>
-              <strong>Vertex / Emission Texture / Preview / Non-destructive duplication</strong>
-            </div>
+            <small data-lang-block="ja">初心者向けの考え方</small>
+            <small data-lang-block="en">Beginner-focused flow</small>
+            <strong data-lang-block="ja">技術用語を探さず、UI上で「光らせる」「膨らませる」を目的ベースで選べます。</strong>
+            <strong data-lang-block="en">Use purpose-based controls (“Glow” / “Inflate”) without hunting for low-level shader terms.</strong>
           </div>
           <div class="stat">
-            <div data-lang-block="ja">
-              <small>配布形式</small>
-              <strong>VCC 経由インストール予定</strong>
-            </div>
-            <div data-lang-block="en">
-              <small>Distribution</small>
-              <strong>Planned VCC-based installation</strong>
-            </div>
-          </div>
-          <div class="stat">
-            <div data-lang-block="ja">
-              <small>販売前必須ライン</small>
-              <strong>発光テクスチャ整理 + MA Menu Installer ON/OFF</strong>
-            </div>
-            <div data-lang-block="en">
-              <small>Pre-release must-have</small>
-              <strong>Emission Texture refinement + MA Menu Installer ON/OFF</strong>
-            </div>
+            <small data-lang-block="ja">編集対象の把握</small>
+            <small data-lang-block="en">Editing clarity</small>
+            <strong data-lang-block="ja">どの Renderer / Material を編集中かが分かりやすく、Previewで確認しながら調整できます。</strong>
+            <strong data-lang-block="en">Clearly see which renderer/material is being edited, and tune while watching Preview.</strong>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="features">
       <div class="container">
         <div class="section-header">
-          <h2 data-lang-block="ja">案内ページ</h2>
-          <h2 data-lang-block="en">Portal</h2>
-          <p data-lang-block="ja">このページでは、ダウンロード案内、使い方、問い合わせ先をまとめて案内しています。</p>
-          <p data-lang-block="en">This page provides a central entry point for downloads, documentation, and contact information.</p>
+          <h2 data-lang-block="ja">主な特徴</h2>
+          <h2 data-lang-block="en">Key Features</h2>
+        </div>
+        <div class="split">
+          <article class="card">
+            <h3 data-lang-block="ja">基本ワークフロー</h3>
+            <h3 data-lang-block="en">Core Workflow</h3>
+            <ul class="checklist">
+              <li data-lang-block="ja">専用Windowで操作</li><li data-lang-block="en">Operate in a dedicated window</li>
+              <li data-lang-block="ja">Avatar指定で自動セットアップ</li><li data-lang-block="en">Auto setup when avatar is assigned</li>
+              <li data-lang-block="ja">Renderer一覧から対象Rendererを選択</li><li data-lang-block="en">Select target renderers from the list</li>
+              <li data-lang-block="ja">Material単位で設定</li><li data-lang-block="en">Configure per material</li>
+              <li data-lang-block="ja">Preview機能で見た目確認</li><li data-lang-block="en">Preview visual results while editing</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-lang-block="ja">表現と運用</h3>
+            <h3 data-lang-block="en">Effects & Operations</h3>
+            <ul class="checklist">
+              <li data-lang-block="ja">光らせる設定 / 膨らませる設定</li><li data-lang-block="en">Glow settings / Inflate settings</li>
+              <li data-lang-block="ja">非破壊的にMaterialを扱う</li><li data-lang-block="en">Non-destructive material handling</li>
+              <li data-lang-block="ja">Material単位の設定書き出し / 読み込み</li><li data-lang-block="en">Per-material export / import of settings</li>
+              <li data-lang-block="ja">アップロード反映ON/OFF（開発中を含む）</li><li data-lang-block="en">Build/upload apply toggle ON/OFF (including in-progress state)</li>
+              <li data-lang-block="ja">Runtime Toggle / MA Menu Installer は調整中</li><li data-lang-block="en">Runtime Toggle / MA Menu Installer are under tuning</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="environment">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-lang-block="ja">開発・確認環境</h2>
+          <h2 data-lang-block="en">Development & Verified Environment</h2>
+        </div>
+        <article class="card">
+          <ul class="checklist">
+            <li><strong>Unity:</strong> 2022.3.22f1</li>
+            <li><strong>VRChat SDK:</strong> 3.10.3</li>
+            <li><strong>lilToon:</strong> 2.3.2</li>
+            <li><strong>Modular Avatar</strong></li>
+            <li><strong>NDMF</strong></li>
+            <li><strong>AudioLink</strong></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="status">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-lang-block="ja">開発状況</h2>
+          <h2 data-lang-block="en">Current Development Status</h2>
+        </div>
+        <article class="card">
+          <ul class="checklist">
+            <li data-lang-block="ja">UIを整理中です</li><li data-lang-block="en">UI is being refined</li>
+            <li data-lang-block="ja">EditorWindow中心の操作へ移行中です</li><li data-lang-block="en">Workflow is moving to an EditorWindow-centered flow</li>
+            <li data-lang-block="ja">Renderer一覧 / Material設定 / Preview / Runtime Toggle周辺を調整中です</li><li data-lang-block="en">Renderer list, material settings, Preview, and Runtime Toggle are being tuned</li>
+            <li data-lang-block="ja">正式配布前のため、内容は変更される可能性があります</li><li data-lang-block="en">Details may change before formal release</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-lang-block="ja">導線</h2>
+          <h2 data-lang-block="en">Links</h2>
         </div>
         <div class="portal-grid">
-          <a class="page-card" href="#download">
-            <div class="icon">⇩</div>
-            <h3>Download</h3>
-            <p data-lang-block="ja">VCC 経由での導入案内、対応環境、更新方法、利用条件をまとめるための入口です。</p>
-            <p data-lang-block="en">Entry point for VCC installation guidance, compatibility notes, update instructions, and usage terms.</p>
-            <span class="linkline" data-lang-block="ja">ダウンロード案内へ →</span>
-            <span class="linkline" data-lang-block="en">Open Download →</span>
-          </a>
-          <a class="page-card" href="docs.html">
-            <div class="icon">☰</div>
-            <h3>Documentation</h3>
-            <p data-lang-block="ja">ツール概要、導入手順、発光テクスチャ、頂点、Preview、Menu Installer などの説明書ページです。</p>
-            <p data-lang-block="en">Documentation pages for tool overview, setup, emission texture, vertex settings, preview, Menu Installer, and more.</p>
-            <span class="linkline" data-lang-block="ja">使い方ページへ →</span>
-            <span class="linkline" data-lang-block="en">Open Docs →</span>
-          </a>
-          <a class="page-card" href="#contact">
-            <div class="icon">✉</div>
+          <a class="page-card" href="docs.html"><h3>Docs</h3></a>
+          <a class="page-card" href="#"><h3 data-lang-block="ja">Download / VCC導入予定</h3><h3 data-lang-block="en">Download / VCC (Planned)</h3></a>
+          <a class="page-card" href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer"><h3>Booth</h3></a>
+          <a class="page-card" href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer"><h3>X</h3></a>
+          <a class="page-card" href="#contact-discord"><h3>Discord</h3></a>
+          <a class="page-card" href="#contact"><h3>Contact</h3></a>
+          <a class="page-card" href="#versions"><h3>Version / Changelog</h3></a>
+        </div>
+        <div class="split" style="margin-top: 18px;">
+          <article class="card" id="contact">
             <h3>Contact</h3>
-            <p data-lang-block="ja">不具合報告、要望、問い合わせ、既知の注意事項への導線を置くためのページです。</p>
-            <p data-lang-block="en">Page for bug reports, feature requests, contact details, and links to known notes and support guidance.</p>
-            <span class="linkline" data-lang-block="ja">問い合わせ先へ →</span>
-            <span class="linkline" data-lang-block="en">Open Contact →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="download">
-      <div class="container">
-        <div class="section-header">
-          <h2><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></h2>
-          <p data-lang-block="ja">ここでは導入方法、動作確認環境、配布ページへの導線を案内します。</p>
-          <p data-lang-block="en">This section covers installation guidance, tested environment details, and links to the distribution page.</p>
-        </div>
-        <div class="split">
-          <article class="card">
-            <h3 data-lang-block="ja">VCC で入れる</h3>
-            <h3 data-lang-block="en">Install via VCC</h3>
-            <ul class="timeline">
-              <li data-lang-block="ja"><strong>Step 1:</strong> VCC 用の配布ページを開く</li>
-              <li data-lang-block="en"><strong>Step 1:</strong> Open the VCC distribution page</li>
-              <li data-lang-block="ja"><strong>Step 2:</strong> リポジトリ追加手順を説明</li>
-              <li data-lang-block="en"><strong>Step 2:</strong> Explain how to add the repository</li>
-              <li data-lang-block="ja"><strong>Step 3:</strong> Project へ AudioLink Reactive を追加</li>
-              <li data-lang-block="en"><strong>Step 3:</strong> Add AudioLink Reactive to the project</li>
-              <li data-lang-block="ja"><strong>Step 4:</strong> Unity でコンポーネントを追加して利用開始</li>
-              <li data-lang-block="en"><strong>Step 4:</strong> Add the component in Unity and begin setup</li>
-            </ul>
-            <div class="hero-actions" style="margin-top:18px;">
-              <a class="btn primary" href="#" target="_blank" rel="noopener noreferrer"><span data-lang="ja">VCC 配布ページへ</span><span data-lang="en">Open VCC Page</span></a>
-              <a class="btn secondary" href="docs.html"><span data-lang="ja">導入手順を見る</span><span data-lang="en">Setup Guide</span></a>
-            </div>
-          </article>
-          <article class="card">
-            <h3 data-lang-block="ja">対応環境</h3>
-            <h3 data-lang-block="en">Compatibility</h3>
-            <ul class="checklist">
-              <li data-lang-block="ja"><strong>Unity:</strong> 2022.3.22f1</li>
-              <li data-lang-block="en"><strong>Unity:</strong> 2022.3.22f1</li>
-              <li data-lang-block="ja"><strong>VRChat SDK:</strong> 3.10.3</li>
-              <li data-lang-block="en"><strong>VRChat SDK:</strong> 3.10.3</li>
-              <li data-lang-block="ja"><strong>Shader:</strong> lilToon 2.3.2</li>
-              <li data-lang-block="en"><strong>Shader:</strong> lilToon 2.3.2</li>
-              <li data-lang-block="ja"><strong>Avatar Setup:</strong> Modular Avatar + NDMF 前提</li>
-              <li data-lang-block="en"><strong>Avatar Setup:</strong> Built around Modular Avatar + NDMF</li>
-            </ul>
-          </article>
-        </div>
-        <div class="notice">
-          <strong data-lang-block="ja">補足</strong>
-          <strong data-lang-block="en">Notes</strong>
-          <p data-lang-block="ja">
-            配布開始後は、この欄に利用規約、再配布可否、サポート範囲、更新履歴へのリンクを置くと整理しやすいです。
-            Download ページは「すぐ導入したい人」のためのページなので、説明は短く、詳細は Docs へ送る構成が向いています。
-          </p>
-          <p data-lang-block="en">
-            After release, this area should contain usage terms, redistribution rules, support scope, and links to changelogs.
-            The Download page should stay short and direct, while sending detailed explanations to the Docs section.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="docs">
-      <div class="container">
-        <div class="section-header">
-          <h2><span data-lang="ja">使い方</span><span data-lang="en">Documentation</span></h2>
-          <p data-lang-block="ja">使い方ページでは、導入から基本操作、各機能の概要までを順番に確認できます。</p>
-          <p data-lang-block="en">The documentation page covers setup, basic operation, and a guided overview of each feature.</p>
-        </div>
-        <div class="docs-grid">
-          <article class="card">
-            <h3 data-lang-block="ja">できること</h3>
-            <h3 data-lang-block="en">Overview</h3>
-            <ul class="feature-list">
-              <li data-lang-block="ja"><strong>非破壊マテリアル複製:</strong> 元のマテリアルを直接壊さずに設定を扱う</li>
-              <li data-lang-block="en"><strong>Non-destructive duplication:</strong> Work with settings without directly altering the original material</li>
-              <li data-lang-block="ja"><strong>D&amp;D 追加:</strong> Hierarchy から Renderer を追加</li>
-              <li data-lang-block="en"><strong>Drag &amp; Drop:</strong> Add renderers directly from the Hierarchy</li>
-              <li data-lang-block="ja"><strong>複数対象管理:</strong> Renderer / Material 単位で一覧化</li>
-              <li data-lang-block="en"><strong>Multi-target management:</strong> Organize by renderer and material unit</li>
-              <li data-lang-block="ja"><strong>Preview:</strong> Editor 上で変形や発光の確認が可能</li>
-              <li data-lang-block="en"><strong>Preview:</strong> Check deformation and emission directly in the Editor</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3 data-lang-block="ja">説明ページ一覧</h3>
-            <h3 data-lang-block="en">Docs Sections</h3>
-            <div class="mini-grid">
-              <div class="mini-card">
-                <strong><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></strong>
-                <p data-lang-block="ja">導入から最初の追加、基本操作まで。</p>
-                <p data-lang-block="en">From installation to first setup and basic usage.</p>
-              </div>
-              <div class="mini-card">
-                <strong><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></strong>
-                <p data-lang-block="ja">発光テクスチャ機能と主要項目の説明。</p>
-                <p data-lang-block="en">Emission Texture features and explanation of the main fields.</p>
-              </div>
-              <div class="mini-card">
-                <strong><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></strong>
-                <p data-lang-block="ja">頂点リアクティブと強度調整の説明。</p>
-                <p data-lang-block="en">Vertex reactive settings and strength adjustment.</p>
-              </div>
-              <div class="mini-card">
-                <strong><span data-lang="ja">プレビュー / メニュー</span><span data-lang="en">Preview / Menu</span></strong>
-                <p data-lang-block="ja">Preview と将来の MA Menu Installer 機能。</p>
-                <p data-lang-block="en">Preview and the planned MA Menu Installer feature.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="split" style="margin-top:18px;">
-          <article class="card">
-            <h3 data-lang-block="ja">主な特徴</h3>
-            <h3 data-lang-block="en">Highlights</h3>
-            <ul class="checklist">
-              <li data-lang-block="ja"><strong>Preview:</strong> Editor 上で見え方を確認しながら調整できます</li>
-              <li data-lang-block="en"><strong>Preview:</strong> Adjust while checking the result directly in the Editor</li>
-              <li data-lang-block="ja"><strong>非破壊複製:</strong> 元のマテリアルを直接編集せずに扱えます</li>
-              <li data-lang-block="en"><strong>Non-destructive duplication:</strong> Work without directly editing the original material</li>
-              <li data-lang-block="ja"><strong>複数対象管理:</strong> Renderer / Material 単位でまとめて確認できます</li>
-              <li data-lang-block="en"><strong>Multi-target management:</strong> Review targets by renderer and material unit</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3 data-lang-block="ja">掲載予定の内容</h3>
-            <h3 data-lang-block="en">Planned Content</h3>
-            <ul class="checklist">
-              <li data-lang-block="ja"><strong>導入手順:</strong> 初回設定の流れをより詳しく案内予定</li>
-              <li data-lang-block="en"><strong>Setup Guide:</strong> More detailed first-time setup instructions will be added</li>
-              <li data-lang-block="ja"><strong>トラブルシュート:</strong> よくある問題と確認項目を掲載予定</li>
-              <li data-lang-block="en"><strong>Troubleshooting:</strong> Common issues and checkpoints will be added</li>
-              <li data-lang-block="ja"><strong>更新履歴:</strong> 公開後はバージョンごとの内容を掲載します</li>
-              <li data-lang-block="en"><strong>Changelog:</strong> Version-by-version updates will be listed after release</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <h2><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></h2>
-          <p data-lang-block="ja">不具合報告、問い合わせ、各種連絡先を確認できるページです。</p>
-          <p data-lang-block="en">This section provides contact details for bug reports, questions, and general support.</p>
-        </div>
-        <div class="split">
-          <article class="card">
-            <h3 data-lang-block="ja">連絡先</h3>
-            <h3 data-lang-block="en">Contact Channels</h3>
             <ul class="contact-list">
-              <li data-lang-block="ja"><strong>X / DM:</strong> <a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">@_N4NSY_</a> のプロフィールから連絡できます</li>
-              <li data-lang-block="en"><strong>X / DM:</strong> Contact via the <a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">@_N4NSY_</a> profile</li>
-              <li data-lang-block="ja"><strong>Booth Message:</strong> <a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">n4nsy.booth.pm</a> のショップページから確認できます</li>
-              <li data-lang-block="en"><strong>Booth Message:</strong> Available from the <a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">n4nsy.booth.pm</a> shop page</li>
-              <li data-lang-block="ja"><strong>Discord:</strong> ID は <strong>_N4NSY_</strong> です</li>
-              <li data-lang-block="en"><strong>Discord:</strong> The ID is <strong>_N4NSY_</strong></li>
+              <li><a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">X: @_N4NSY_</a></li>
+              <li><a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">Booth: n4nsy.booth.pm</a></li>
+              <li id="contact-discord">Discord: <strong>_N4NSY_</strong></li>
             </ul>
           </article>
-          <article class="card">
-            <h3 data-lang-block="ja">問い合わせ前に確認したいこと</h3>
-            <h3 data-lang-block="en">Before Contacting</h3>
-            <ul class="checklist">
-              <li data-lang-block="ja"><strong>Unity バージョン</strong> を控える</li>
-              <li data-lang-block="en"><strong>Unity version:</strong> Note it down first</li>
-              <li data-lang-block="ja"><strong>lilToon / Modular Avatar / NDMF のバージョン</strong> を確認する</li>
-              <li data-lang-block="en"><strong>lilToon / Modular Avatar / NDMF versions:</strong> Check them in advance</li>
-              <li data-lang-block="ja"><strong>何をした時に起きたか</strong> を簡単にまとめる</li>
-              <li data-lang-block="en"><strong>What happened and when:</strong> Summarize it briefly</li>
-              <li data-lang-block="ja"><strong>Console のエラー</strong> があれば添える</li>
-              <li data-lang-block="en"><strong>Console errors:</strong> Include them if available</li>
-            </ul>
-          </article>
-        </div>
-        <div class="notice">
-          <strong data-lang-block="ja">対応できる範囲</strong>
-          <strong data-lang-block="en">Support Scope</strong>
-          <p data-lang-block="ja">
-            Contact ページには、サポート対象外の範囲も先に書いておくと運用が楽です。
-            たとえば「他ツールとの相性」「改変済み特殊環境」「古い Unity バージョン」は参考対応まで、のように整理できます。
-          </p>
-          <p data-lang-block="en">
-            It helps to clearly state out-of-scope cases here as well.
-            For example: compatibility with other tools, heavily customized environments, or very old Unity versions may be support-limited.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="versions">
-      <div class="container">
-        <div class="section-header">
-          <h2><span data-lang="ja">バージョン情報</span><span data-lang="en">Version Info</span></h2>
-          <p data-lang-block="ja">公開バージョンと更新履歴を確認できるページです。</p>
-          <p data-lang-block="en">This section shows the public version number and release history.</p>
-        </div>
-        <div class="version-grid">
-          <article class="card version-current">
-            <div>
-              <span class="version-badge"><span data-lang="ja">現在の実装バージョン</span><span data-lang="en">Current Version</span></span>
-              <p class="big-version">β</p>
-            </div>
-            <p class="version-note" data-lang-block="ja">
-              公開後は、現在配布中のバージョンをここに掲載します。
-            </p>
-            <p class="version-note" data-lang-block="en">
-              After release, the currently distributed version will be shown here.
-            </p>
-            <ul class="checklist">
-              <li data-lang-block="ja"><strong>状態:</strong> 公開後に更新</li>
-              <li data-lang-block="en"><strong>Status:</strong> Updated after release</li>
-              <li data-lang-block="ja"><strong>更新内容:</strong> 新機能追加や修正内容を掲載します</li>
-              <li data-lang-block="en"><strong>Update Notes:</strong> New features and fixes will be listed here</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3><span data-lang="ja">バージョン履歴</span><span data-lang="en">Changelog</span></h3>
+          <article class="card" id="versions">
+            <h3>Version / Changelog</h3>
             <ul class="changelog-list">
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>β</strong>
-                  <span class="changelog-date">YYYY-MM-DD</span>
-                </div>
-                <ul>
-                  <li data-lang-block="ja">現在公開中のベータ版の内容をここに記載予定</li>
-                  <li data-lang-block="en">Details for the current beta release will be listed here</li>
-                  <li data-lang-block="ja">主要機能や対応範囲をこの欄で整理予定</li>
-                  <li data-lang-block="en">Core features and supported scope will be summarized here</li>
-                </ul>
-              </li>
+              <li class="changelog-item"><strong>Beta</strong> - <span data-lang="ja">開発中</span><span data-lang="en">In Development</span></li>
             </ul>
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-header">
-          <h2><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></h2>
-          <p data-lang-block="ja">利用前によく確認される内容をまとめています。</p>
-          <p data-lang-block="en">This section covers questions that are commonly checked before use.</p>
-        </div>
-        <div class="faq">
-          <article class="faq-item">
-            <h3 data-lang-block="ja">Q. lilToon を直接触るのと何が違うのか</h3>
-            <h3 data-lang-block="en">Q. How is this different from editing lilToon directly?</h3>
-            <p data-lang-block="ja">複数 Renderer 管理、非破壊複製、Preview、将来的な Menu Installer まで含めて、導入と運用の導線をまとめることが目的です。</p>
-            <p data-lang-block="en">The goal is to unify setup and workflow, including multi-renderer management, non-destructive duplication, preview, and future Menu Installer support.</p>
-          </article>
-          <article class="faq-item">
-            <h3 data-lang-block="ja">Q. 初心者でも使えるのか</h3>
-            <h3 data-lang-block="en">Q. Is it suitable for beginners?</h3>
-            <p data-lang-block="ja">「入れるだけで動く」方向を重視していますが、Docs に最低限の導入手順と用語説明を置く前提です。</p>
-            <p data-lang-block="en">It is designed around a “drop in and start” flow, with the expectation that the Docs will provide the minimum setup and terminology guidance.</p>
-          </article>
-          <article class="faq-item">
-            <h3 data-lang-block="ja">Q. 今後のアップデート予定はあるのか</h3>
-            <h3 data-lang-block="en">Q. Are future updates planned?</h3>
-            <p data-lang-block="ja">発光テクスチャ欄の整理、MA Menu Installer 連携、既存設定読み込み、一括編集、プリセットなどを段階的に追加予定です。</p>
-            <p data-lang-block="en">Planned updates include Emission Texture UI refinement, MA Menu Installer integration, existing setup import, bulk editing, and presets.</p>
           </article>
         </div>
       </div>
@@ -401,10 +176,8 @@
       <div>© AudioLink Reactive</div>
       <div class="footer-links">
         <a href="#top">Top</a>
-        <a href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
-        <a href="docs.html"><span data-lang="ja">使い方</span><span data-lang="en">Docs</span></a>
-        <a href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
-        <a href="#versions"><span data-lang="ja">バージョン</span><span data-lang="en">Versions</span></a>
+        <a href="docs.html">Docs</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
