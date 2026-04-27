@@ -383,153 +383,155 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card changelog-card">
             <h3 data-lang-block="ja">更新履歴</h3>
             <h3 data-lang-block="en">Changelog</h3>
 
-            <ul class="changelog-list">
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>v1.0.0</strong>
-                  <span class="changelog-date">
-                    <span data-lang="ja">2026年5月1日</span>
-                    <span data-lang="en">May 1, 2026</span>
-                  </span>
-                </div>
-                <ul data-lang-block="ja">
-                  <li>AudioLink Reactive 初回公開版</li>
-                  <li>専用WindowからAvatarを指定してセットアップできる機能を追加</li>
-                  <li>Avatar配下のRenderer一覧表示と対象追加に対応</li>
-                  <li>Material単位で「光らせる」「膨らませる」を設定可能</li>
-                  <li>Editor上で反応を確認できるPreview機能を追加</li>
-                  <li>Material単位の設定書き出し / 読み込みに対応</li>
-                </ul>
-                <ul data-lang-block="en">
-                  <li>Initial public release of AudioLink Reactive</li>
-                  <li>Added Avatar setup through the dedicated window</li>
-                  <li>Added Renderer list display and target registration under the Avatar</li>
-                  <li>Added per-material Glow and Inflate settings</li>
-                  <li>Added Preview for checking reactions in the Unity Editor</li>
-                  <li>Added per-material setting export and import</li>
-                </ul>
-              </li>
+            <div class="changelog-scroll">
+              <ul class="changelog-list">
+                <li class="changelog-item">
+                  <div class="changelog-head">
+                    <strong>v1.0.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">2026年5月1日</span>
+                      <span data-lang="en">May 1, 2026</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>AudioLink Reactive 初回公開版</li>
+                    <li>専用WindowからAvatarを指定してセットアップできる機能を追加</li>
+                    <li>Avatar配下のRenderer一覧表示と対象追加に対応</li>
+                    <li>Material単位で「光らせる」「膨らませる」を設定可能</li>
+                    <li>Editor上で反応を確認できるPreview機能を追加</li>
+                    <li>Material単位の設定書き出し / 読み込みに対応</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Initial public release of AudioLink Reactive</li>
+                    <li>Added Avatar setup through the dedicated window</li>
+                    <li>Added Renderer list display and target registration under the Avatar</li>
+                    <li>Added per-material Glow and Inflate settings</li>
+                    <li>Added Preview for checking reactions in the Unity Editor</li>
+                    <li>Added per-material setting export and import</li>
+                  </ul>
+                </li>
 
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>v0.5.0</strong>
-                  <span class="changelog-date">
-                    <span data-lang="ja">開発版</span>
-                    <span data-lang="en">Development</span>
-                  </span>
-                </div>
-                <ul data-lang-block="ja">
-                  <li>専用EditorWindow中心の操作へ移行</li>
-                  <li>Avatar欄指定による自動セットアップを追加</li>
-                  <li>レンダラー一覧から対象Rendererを選択・追加できるUIを追加</li>
-                  <li>Hierarchy選択とレンダラー一覧の連動表示を追加</li>
-                  <li>ToolsメニューからAudioLink Reactiveを開けるように変更</li>
-                </ul>
-                <ul data-lang-block="en">
-                  <li>Moved the workflow to a dedicated EditorWindow</li>
-                  <li>Added automatic setup from the Avatar field</li>
-                  <li>Added a UI for selecting and adding target renderers from the Renderer list</li>
-                  <li>Added linked selection display between the Hierarchy and Renderer list</li>
-                  <li>Changed the entry point to open AudioLink Reactive from the Tools menu</li>
-                </ul>
-              </li>
+                <li class="changelog-item">
+                  <div class="changelog-head">
+                    <strong>v0.5.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">開発版</span>
+                      <span data-lang="en">Development</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>専用EditorWindow中心の操作へ移行</li>
+                    <li>Avatar欄指定による自動セットアップを追加</li>
+                    <li>レンダラー一覧から対象Rendererを選択・追加できるUIを追加</li>
+                    <li>Hierarchy選択とレンダラー一覧の連動表示を追加</li>
+                    <li>ToolsメニューからAudioLink Reactiveを開けるように変更</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Moved the workflow to a dedicated EditorWindow</li>
+                    <li>Added automatic setup from the Avatar field</li>
+                    <li>Added a UI for selecting and adding target renderers from the Renderer list</li>
+                    <li>Added linked selection display between the Hierarchy and Renderer list</li>
+                    <li>Changed the entry point to open AudioLink Reactive from the Tools menu</li>
+                  </ul>
+                </li>
 
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>v0.4.0</strong>
-                  <span class="changelog-date">
-                    <span data-lang="ja">開発版</span>
-                    <span data-lang="en">Development</span>
-                  </span>
-                </div>
-                <ul data-lang-block="ja">
-                  <li>Material単位の設定管理を整理</li>
-                  <li>対象Materialカードの表示を「Renderer名 / Material名」形式に変更</li>
-                  <li>内部識別用の_ALReactive_Slot表記をUI上から非表示化</li>
-                  <li>設定の書き出し / 読み込みをMaterial単位で扱う方針に変更</li>
-                  <li>カード内の重複表示を削減し、UIを簡略化</li>
-                </ul>
-                <ul data-lang-block="en">
-                  <li>Improved per-material setting management</li>
-                  <li>Changed target material card titles to the “Renderer name / Material name” format</li>
-                  <li>Hidden internal _ALReactive_Slot suffixes from the UI</li>
-                  <li>Changed export / import behavior to work per material</li>
-                  <li>Reduced duplicated information inside material cards</li>
-                </ul>
-              </li>
+                <li class="changelog-item">
+                  <div class="changelog-head">
+                    <strong>v0.4.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">開発版</span>
+                      <span data-lang="en">Development</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>Material単位の設定管理を整理</li>
+                    <li>対象Materialカードの表示を「Renderer名 / Material名」形式に変更</li>
+                    <li>内部識別用の_ALReactive_Slot表記をUI上から非表示化</li>
+                    <li>設定の書き出し / 読み込みをMaterial単位で扱う方針に変更</li>
+                    <li>カード内の重複表示を削減し、UIを簡略化</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Improved per-material setting management</li>
+                    <li>Changed target material card titles to the “Renderer name / Material name” format</li>
+                    <li>Hidden internal _ALReactive_Slot suffixes from the UI</li>
+                    <li>Changed export / import behavior to work per material</li>
+                    <li>Reduced duplicated information inside material cards</li>
+                  </ul>
+                </li>
 
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>v0.3.0</strong>
-                  <span class="changelog-date">
-                    <span data-lang="ja">開発版</span>
-                    <span data-lang="en">Development</span>
-                  </span>
-                </div>
-                <ul data-lang-block="ja">
-                  <li>「発光テクスチャ」「頂点」中心のUIを整理</li>
-                  <li>UI表記を「光らせる」「膨らませる」の目的ベースに変更</li>
-                  <li>「帯域」を「反応音域」に変更</li>
-                  <li>発光設定内の不要なマスク詳細表示を削減</li>
-                  <li>点滅、グラデーション、視差、蛍光などを詳細設定として整理</li>
-                </ul>
-                <ul data-lang-block="en">
-                  <li>Refined the UI around Emission Texture and Vertex features</li>
-                  <li>Changed UI wording to goal-based labels: Glow and Inflate</li>
-                  <li>Renamed Band to Reaction Band</li>
-                  <li>Reduced unnecessary mask-related details in glow settings</li>
-                  <li>Organized blink, gradient, parallax, and fluorescence as advanced settings</li>
-                </ul>
-              </li>
+                <li class="changelog-item">
+                  <div class="changelog-head">
+                    <strong>v0.3.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">開発版</span>
+                      <span data-lang="en">Development</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>「発光テクスチャ」「頂点」中心のUIを整理</li>
+                    <li>UI表記を「光らせる」「膨らませる」の目的ベースに変更</li>
+                    <li>「帯域」を「反応音域」に変更</li>
+                    <li>発光設定内の不要なマスク詳細表示を削減</li>
+                    <li>点滅、グラデーション、視差、蛍光などを詳細設定として整理</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Refined the UI around Emission Texture and Vertex features</li>
+                    <li>Changed UI wording to goal-based labels: Glow and Inflate</li>
+                    <li>Renamed Band to Reaction Band</li>
+                    <li>Reduced unnecessary mask-related details in glow settings</li>
+                    <li>Organized blink, gradient, parallax, and fluorescence as advanced settings</li>
+                  </ul>
+                </li>
 
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>v0.2.0</strong>
-                  <span class="changelog-date">
-                    <span data-lang="ja">開発版</span>
-                    <span data-lang="en">Development</span>
-                  </span>
-                </div>
-                <ul data-lang-block="ja">
-                  <li>Preview機能を追加</li>
-                  <li>プレビュー量による反応確認に対応</li>
-                  <li>Play Mode復帰後の表示更新に対応するため、更新操作を追加</li>
-                  <li>発光側と頂点側でPreview挙動を揃える方針に変更</li>
-                </ul>
-                <ul data-lang-block="en">
-                  <li>Added Preview functionality</li>
-                  <li>Added Preview Amount for checking reactions</li>
-                  <li>Added refresh behavior for window state after returning from Play Mode</li>
-                  <li>Aligned Preview behavior between Glow and Inflate workflows</li>
-                </ul>
-              </li>
+                <li class="changelog-item">
+                  <div class="changelog-head">
+                    <strong>v0.2.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">開発版</span>
+                      <span data-lang="en">Development</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>Preview機能を追加</li>
+                    <li>プレビュー量による反応確認に対応</li>
+                    <li>Play Mode復帰後の表示更新に対応するため、更新操作を追加</li>
+                    <li>発光側と頂点側でPreview挙動を揃える方針に変更</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Added Preview functionality</li>
+                    <li>Added Preview Amount for checking reactions</li>
+                    <li>Added refresh behavior for window state after returning from Play Mode</li>
+                    <li>Aligned Preview behavior between Glow and Inflate workflows</li>
+                  </ul>
+                </li>
 
-              <li class="changelog-item">
-                <div class="changelog-head">
-                  <strong>v0.1.0</strong>
-                  <span class="changelog-date">
-                    <span data-lang="ja">開発版</span>
-                    <span data-lang="en">Development</span>
-                  </span>
-                </div>
-                <ul data-lang-block="ja">
-                  <li>AudioLink Reactive の初期開発版</li>
-                  <li>lilToonのAudioLink設定を扱う基本構想を作成</li>
-                  <li>Renderer / Materialを対象にした非破壊的な設定管理を検討開始</li>
-                  <li>発光と頂点リアクティブを中心とした基本機能の実装を開始</li>
-                </ul>
-                <ul data-lang-block="en">
-                  <li>Initial development version of AudioLink Reactive</li>
-                  <li>Created the basic concept for managing lilToon AudioLink settings</li>
-                  <li>Started designing non-destructive setting management for Renderer / Material targets</li>
-                  <li>Started implementing core features around glow and vertex reactive behavior</li>
-                </ul>
-              </li>
-            </ul>
+                <li class="changelog-item">
+                  <div class="changelog-head">
+                    <strong>v0.1.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">開発版</span>
+                      <span data-lang="en">Development</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>AudioLink Reactive の初期開発版</li>
+                    <li>lilToonのAudioLink設定を扱う基本構想を作成</li>
+                    <li>Renderer / Materialを対象にした非破壊的な設定管理を検討開始</li>
+                    <li>発光と頂点リアクティブを中心とした基本機能の実装を開始</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Initial development version of AudioLink Reactive</li>
+                    <li>Created the basic concept for managing lilToon AudioLink settings</li>
+                    <li>Started designing non-destructive setting management for Renderer / Material targets</li>
+                    <li>Started implementing core features around glow and vertex reactive behavior</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>
