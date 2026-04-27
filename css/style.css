@@ -575,6 +575,39 @@ h1 {
   line-height: 1.8;
 }
 
+.changelog-card {
+  max-height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+.changelog-scroll {
+  margin-top: 12px;
+  padding-right: 6px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  flex: 1;
+  min-height: 0;
+}
+
+.changelog-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.changelog-scroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+}
+
+.changelog-scroll::-webkit-scrollbar-thumb {
+  background: rgba(119,183,255,0.35);
+  border-radius: 999px;
+}
+
+.changelog-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(119,183,255,0.55);
+}
+
 .changelog-list {
   display: grid;
   gap: 12px;
@@ -784,6 +817,10 @@ html[data-current-lang="en"] [data-lang-block="en"] {
   .toc-wrap {
     position: static;
   }
+
+  .changelog-card {
+    max-height: 560px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -943,5 +980,9 @@ html[data-current-lang="en"] [data-lang-block="en"] {
 
   .footer-inner {
     align-items: flex-start;
+  }
+
+  .changelog-card {
+    max-height: 520px;
   }
 }
