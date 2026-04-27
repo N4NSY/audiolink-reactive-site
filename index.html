@@ -36,14 +36,12 @@
           <span class="eyebrow">VRChat / Unity / lilToon</span>
           <h1>AudioLink Reactive</h1>
           <p class="lead" data-lang-block="ja">
-            AudioLink Reactive は、lilToon の AudioLink 設定をまとめて扱いやすくするための Unity ツールです。
-            非破壊マテリアル複製、複数 Renderer 管理、Preview、発光テクスチャ・頂点リアクティブ対応により、
-            AudioLink 表現の導入と調整をよりスムーズに行えます。
+            AudioLink Reactive は、VRChatアバター向けに lilToon の AudioLink 表現を扱いやすくする Unity Editor ツールです。
+            専用Windowから Avatar を指定し、Renderer 一覧から対象を選び、Material 単位で「光らせる」「膨らませる」を調整できます。
           </p>
           <p class="lead" data-lang-block="en">
-            AudioLink Reactive is a Unity tool for organizing and simplifying lilToon AudioLink workflows.
-            With non-destructive material duplication, multi-renderer management, preview, and support for Emission Texture and Vertex reactive features,
-            it helps streamline both setup and adjustment.
+            AudioLink Reactive is a Unity Editor tool for VRChat avatars that makes lilToon AudioLink expressions easier to set up.
+            Select an Avatar in the dedicated window, choose targets from the Renderer list, and adjust glow or inflate behavior per material.
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
@@ -53,41 +51,42 @@
           <div class="hero-meta">
             <span class="tag" data-lang-block="ja">lilToon 向け</span>
             <span class="tag" data-lang-block="en">Built for lilToon</span>
-            <span class="tag" data-lang-block="ja">複数 Renderer 管理</span>
-            <span class="tag" data-lang-block="en">Multi-renderer workflow</span>
+            <span class="tag" data-lang-block="ja">Renderer 一覧から追加</span>
+            <span class="tag" data-lang-block="en">Renderer list workflow</span>
             <span class="tag" data-lang-block="ja">Preview 対応</span>
             <span class="tag" data-lang-block="en">Preview supported</span>
           </div>
         </div>
+
         <aside class="hero-side">
           <div class="stat">
             <div data-lang-block="ja">
               <small>現在の主機能</small>
-              <strong>頂点 / 発光テクスチャ / Preview / 非破壊複製</strong>
+              <strong>光らせる / 膨らませる / Preview / Material単位設定</strong>
             </div>
             <div data-lang-block="en">
               <small>Current core features</small>
-              <strong>Vertex / Emission Texture / Preview / Non-destructive duplication</strong>
+              <strong>Glow / Inflate / Preview / Per-material settings</strong>
             </div>
           </div>
           <div class="stat">
             <div data-lang-block="ja">
-              <small>配布形式</small>
-              <strong>VCC 経由インストール予定</strong>
+              <small>操作方法</small>
+              <strong>Toolsメニューから専用Windowを開いて設定</strong>
             </div>
             <div data-lang-block="en">
-              <small>Distribution</small>
-              <strong>Planned VCC-based installation</strong>
+              <small>Workflow</small>
+              <strong>Open the dedicated window from the Tools menu</strong>
             </div>
           </div>
           <div class="stat">
             <div data-lang-block="ja">
-              <small>販売前必須ライン</small>
-              <strong>発光テクスチャ整理 + MA Menu Installer ON/OFF</strong>
+              <small>設定の再利用</small>
+              <strong>Material単位で書き出し / 読み込みに対応</strong>
             </div>
             <div data-lang-block="en">
-              <small>Pre-release must-have</small>
-              <strong>Emission Texture refinement + MA Menu Installer ON/OFF</strong>
+              <small>Reuse settings</small>
+              <strong>Export and import settings per material</strong>
             </div>
           </div>
         </aside>
@@ -102,28 +101,31 @@
           <p data-lang-block="ja">このページでは、ダウンロード案内、使い方、問い合わせ先をまとめて案内しています。</p>
           <p data-lang-block="en">This page provides a central entry point for downloads, documentation, and contact information.</p>
         </div>
+
         <div class="portal-grid">
           <a class="page-card" href="#download">
             <div class="icon">⇩</div>
             <h3>Download</h3>
-            <p data-lang-block="ja">VCC 経由での導入案内、対応環境、更新方法、利用条件をまとめるための入口です。</p>
-            <p data-lang-block="en">Entry point for VCC installation guidance, compatibility notes, update instructions, and usage terms.</p>
+            <p data-lang-block="ja">VCC 経由での導入案内、対応環境、更新方法、配布ページへの導線をまとめています。</p>
+            <p data-lang-block="en">Entry point for VCC installation guidance, compatibility notes, update instructions, and distribution links.</p>
             <span class="linkline" data-lang-block="ja">ダウンロード案内へ →</span>
             <span class="linkline" data-lang-block="en">Open Download →</span>
           </a>
+
           <a class="page-card" href="docs.html">
             <div class="icon">☰</div>
             <h3>Documentation</h3>
-            <p data-lang-block="ja">ツール概要、導入手順、発光テクスチャ、頂点、Preview、Menu Installer などの説明書ページです。</p>
-            <p data-lang-block="en">Documentation pages for tool overview, setup, emission texture, vertex settings, preview, Menu Installer, and more.</p>
+            <p data-lang-block="ja">Avatar指定、Renderer一覧、Material設定、Preview、設定保存などの使い方を確認できます。</p>
+            <p data-lang-block="en">Learn how to use Avatar selection, Renderer list, material settings, Preview, and setting profiles.</p>
             <span class="linkline" data-lang-block="ja">使い方ページへ →</span>
             <span class="linkline" data-lang-block="en">Open Docs →</span>
           </a>
+
           <a class="page-card" href="#contact">
             <div class="icon">✉</div>
             <h3>Contact</h3>
-            <p data-lang-block="ja">不具合報告、要望、問い合わせ、既知の注意事項への導線を置くためのページです。</p>
-            <p data-lang-block="en">Page for bug reports, feature requests, contact details, and links to known notes and support guidance.</p>
+            <p data-lang-block="ja">不具合報告、要望、問い合わせ、サポート範囲の確認はこちらから行えます。</p>
+            <p data-lang-block="en">Use this section for bug reports, feature requests, support scope, and contact channels.</p>
             <span class="linkline" data-lang-block="ja">問い合わせ先へ →</span>
             <span class="linkline" data-lang-block="en">Open Contact →</span>
           </a>
@@ -138,6 +140,7 @@
           <p data-lang-block="ja">ここでは導入方法、動作確認環境、配布ページへの導線を案内します。</p>
           <p data-lang-block="en">This section covers installation guidance, tested environment details, and links to the distribution page.</p>
         </div>
+
         <div class="split">
           <article class="card">
             <h3 data-lang-block="ja">VCC で入れる</h3>
@@ -145,21 +148,22 @@
             <ul class="timeline">
               <li data-lang-block="ja"><strong>Step 1:</strong> VCC 用の配布ページを開く</li>
               <li data-lang-block="en"><strong>Step 1:</strong> Open the VCC distribution page</li>
-              <li data-lang-block="ja"><strong>Step 2:</strong> リポジトリ追加手順を説明</li>
-              <li data-lang-block="en"><strong>Step 2:</strong> Explain how to add the repository</li>
-              <li data-lang-block="ja"><strong>Step 3:</strong> Project へ AudioLink Reactive を追加</li>
+              <li data-lang-block="ja"><strong>Step 2:</strong> リポジトリを VCC に追加する</li>
+              <li data-lang-block="en"><strong>Step 2:</strong> Add the repository to VCC</li>
+              <li data-lang-block="ja"><strong>Step 3:</strong> Project に AudioLink Reactive を追加する</li>
               <li data-lang-block="en"><strong>Step 3:</strong> Add AudioLink Reactive to the project</li>
-              <li data-lang-block="ja"><strong>Step 4:</strong> Unity でコンポーネントを追加して利用開始</li>
-              <li data-lang-block="en"><strong>Step 4:</strong> Add the component in Unity and begin setup</li>
+              <li data-lang-block="ja"><strong>Step 4:</strong> Unity の Tools メニューから AudioLink Reactive を開く</li>
+              <li data-lang-block="en"><strong>Step 4:</strong> Open AudioLink Reactive from the Unity Tools menu</li>
             </ul>
             <div class="hero-actions" style="margin-top:18px;">
               <a class="btn primary" href="#" target="_blank" rel="noopener noreferrer"><span data-lang="ja">VCC 配布ページへ</span><span data-lang="en">Open VCC Page</span></a>
               <a class="btn secondary" href="docs.html"><span data-lang="ja">導入手順を見る</span><span data-lang="en">Setup Guide</span></a>
             </div>
           </article>
+
           <article class="card">
-            <h3 data-lang-block="ja">対応環境</h3>
-            <h3 data-lang-block="en">Compatibility</h3>
+            <h3 data-lang-block="ja">動作確認環境</h3>
+            <h3 data-lang-block="en">Tested Environment</h3>
             <ul class="checklist">
               <li data-lang-block="ja"><strong>Unity:</strong> 2022.3.22f1</li>
               <li data-lang-block="en"><strong>Unity:</strong> 2022.3.22f1</li>
@@ -172,16 +176,17 @@
             </ul>
           </article>
         </div>
+
         <div class="notice">
           <strong data-lang-block="ja">補足</strong>
           <strong data-lang-block="en">Notes</strong>
           <p data-lang-block="ja">
-            配布開始後は、この欄に利用規約、再配布可否、サポート範囲、更新履歴へのリンクを置くと整理しやすいです。
-            Download ページは「すぐ導入したい人」のためのページなので、説明は短く、詳細は Docs へ送る構成が向いています。
+            配布開始後は、この欄に再配布可否、サポート範囲、更新履歴へのリンクを掲載します。
+            Download セクションは「すぐ導入したい人」のための入口として、詳細説明は Docs にまとめます。
           </p>
           <p data-lang-block="en">
-            After release, this area should contain usage terms, redistribution rules, support scope, and links to changelogs.
-            The Download page should stay short and direct, while sending detailed explanations to the Docs section.
+            After release, this area will include redistribution rules, support scope, and links to the changelog.
+            The Download section is designed as a quick entry point, while detailed explanations are collected in Docs.
           </p>
         </div>
       </div>
@@ -191,75 +196,82 @@
       <div class="container">
         <div class="section-header">
           <h2><span data-lang="ja">使い方</span><span data-lang="en">Documentation</span></h2>
-          <p data-lang-block="ja">使い方ページでは、導入から基本操作、各機能の概要までを順番に確認できます。</p>
-          <p data-lang-block="en">The documentation page covers setup, basic operation, and a guided overview of each feature.</p>
+          <p data-lang-block="ja">AudioLink Reactive は、専用Windowから Avatar を指定して使います。Renderer を一覧から選び、Materialごとに光り方や膨らみ方を調整できます。</p>
+          <p data-lang-block="en">AudioLink Reactive is configured from a dedicated window. Select an Avatar, choose renderers from the list, and adjust glow or inflate behavior per material.</p>
         </div>
+
         <div class="docs-grid">
           <article class="card">
-            <h3 data-lang-block="ja">できること</h3>
-            <h3 data-lang-block="en">Overview</h3>
+            <h3 data-lang-block="ja">基本の流れ</h3>
+            <h3 data-lang-block="en">Basic Flow</h3>
             <ul class="feature-list">
-              <li data-lang-block="ja"><strong>非破壊マテリアル複製:</strong> 元のマテリアルを直接壊さずに設定を扱う</li>
-              <li data-lang-block="en"><strong>Non-destructive duplication:</strong> Work with settings without directly altering the original material</li>
-              <li data-lang-block="ja"><strong>D&amp;D 追加:</strong> Hierarchy から Renderer を追加</li>
-              <li data-lang-block="en"><strong>Drag &amp; Drop:</strong> Add renderers directly from the Hierarchy</li>
-              <li data-lang-block="ja"><strong>複数対象管理:</strong> Renderer / Material 単位で一覧化</li>
-              <li data-lang-block="en"><strong>Multi-target management:</strong> Organize by renderer and material unit</li>
-              <li data-lang-block="ja"><strong>Preview:</strong> Editor 上で変形や発光の確認が可能</li>
-              <li data-lang-block="en"><strong>Preview:</strong> Check deformation and emission directly in the Editor</li>
+              <li data-lang-block="ja"><strong>1.</strong> Unity の Tools メニューから AudioLink Reactive を開く</li>
+              <li data-lang-block="en"><strong>1.</strong> Open AudioLink Reactive from the Unity Tools menu</li>
+              <li data-lang-block="ja"><strong>2.</strong> Avatar 欄に対象アバターを指定する</li>
+              <li data-lang-block="en"><strong>2.</strong> Assign the target avatar in the Avatar field</li>
+              <li data-lang-block="ja"><strong>3.</strong> レンダラー一覧から対象Rendererを追加する</li>
+              <li data-lang-block="en"><strong>3.</strong> Add target renderers from the Renderer list</li>
+              <li data-lang-block="ja"><strong>4.</strong> Materialごとに「光らせる」「膨らませる」を調整する</li>
+              <li data-lang-block="en"><strong>4.</strong> Adjust Glow or Inflate settings per material</li>
             </ul>
           </article>
+
           <article class="card">
-            <h3 data-lang-block="ja">説明ページ一覧</h3>
-            <h3 data-lang-block="en">Docs Sections</h3>
+            <h3 data-lang-block="ja">主な機能</h3>
+            <h3 data-lang-block="en">Main Features</h3>
             <div class="mini-grid">
               <div class="mini-card">
-                <strong><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></strong>
-                <p data-lang-block="ja">導入から最初の追加、基本操作まで。</p>
-                <p data-lang-block="en">From installation to first setup and basic usage.</p>
+                <strong><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></strong>
+                <p data-lang-block="ja">音に合わせて発光色や発光テクスチャを変化させます。</p>
+                <p data-lang-block="en">Changes emission color and texture behavior based on audio.</p>
               </div>
               <div class="mini-card">
-                <strong><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></strong>
-                <p data-lang-block="ja">発光テクスチャ機能と主要項目の説明。</p>
-                <p data-lang-block="en">Emission Texture features and explanation of the main fields.</p>
+                <strong><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></strong>
+                <p data-lang-block="ja">音に合わせてメッシュを膨らませるように動かします。</p>
+                <p data-lang-block="en">Moves the mesh as if it inflates in response to audio.</p>
               </div>
               <div class="mini-card">
-                <strong><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></strong>
-                <p data-lang-block="ja">頂点リアクティブと強度調整の説明。</p>
-                <p data-lang-block="en">Vertex reactive settings and strength adjustment.</p>
+                <strong>Preview</strong>
+                <p data-lang-block="ja">Unity Editor上で見た目を確認しながら調整できます。</p>
+                <p data-lang-block="en">Preview the effect directly in the Unity Editor while adjusting values.</p>
               </div>
               <div class="mini-card">
-                <strong><span data-lang="ja">プレビュー / メニュー</span><span data-lang="en">Preview / Menu</span></strong>
-                <p data-lang-block="ja">Preview と将来の MA Menu Installer 機能。</p>
-                <p data-lang-block="en">Preview and the planned MA Menu Installer feature.</p>
+                <strong><span data-lang="ja">設定保存</span><span data-lang="en">Profiles</span></strong>
+                <p data-lang-block="ja">Material単位で設定を書き出し、別Materialへ読み込めます。</p>
+                <p data-lang-block="en">Export settings per material and import them into another material.</p>
               </div>
             </div>
           </article>
         </div>
+
         <div class="split" style="margin-top:18px;">
           <article class="card">
-            <h3 data-lang-block="ja">主な特徴</h3>
-            <h3 data-lang-block="en">Highlights</h3>
+            <h3 data-lang-block="ja">分かりやすさ重視</h3>
+            <h3 data-lang-block="en">Designed to be approachable</h3>
             <ul class="checklist">
-              <li data-lang-block="ja"><strong>Preview:</strong> Editor 上で見え方を確認しながら調整できます</li>
-              <li data-lang-block="en"><strong>Preview:</strong> Adjust while checking the result directly in the Editor</li>
-              <li data-lang-block="ja"><strong>非破壊複製:</strong> 元のマテリアルを直接編集せずに扱えます</li>
-              <li data-lang-block="en"><strong>Non-destructive duplication:</strong> Work without directly editing the original material</li>
-              <li data-lang-block="ja"><strong>複数対象管理:</strong> Renderer / Material 単位でまとめて確認できます</li>
-              <li data-lang-block="en"><strong>Multi-target management:</strong> Review targets by renderer and material unit</li>
+              <li data-lang-block="ja"><strong>目的ベース:</strong> 「光らせる」「膨らませる」から選んで調整できます</li>
+              <li data-lang-block="en"><strong>Goal-based UI:</strong> Choose Glow or Inflate instead of searching through shader fields</li>
+              <li data-lang-block="ja"><strong>Renderer一覧:</strong> Avatar配下の対象を一覧から選べます</li>
+              <li data-lang-block="en"><strong>Renderer list:</strong> Select targets from renderers under the Avatar</li>
+              <li data-lang-block="ja"><strong>Material単位:</strong> どのMaterialを編集しているか確認しながら設定できます</li>
+              <li data-lang-block="en"><strong>Per-material:</strong> Configure settings while checking which material is being edited</li>
             </ul>
           </article>
+
           <article class="card">
-            <h3 data-lang-block="ja">掲載予定の内容</h3>
-            <h3 data-lang-block="en">Planned Content</h3>
+            <h3 data-lang-block="ja">詳しい説明</h3>
+            <h3 data-lang-block="en">Detailed Guide</h3>
             <ul class="checklist">
-              <li data-lang-block="ja"><strong>導入手順:</strong> 初回設定の流れをより詳しく案内予定</li>
-              <li data-lang-block="en"><strong>Setup Guide:</strong> More detailed first-time setup instructions will be added</li>
-              <li data-lang-block="ja"><strong>トラブルシュート:</strong> よくある問題と確認項目を掲載予定</li>
-              <li data-lang-block="en"><strong>Troubleshooting:</strong> Common issues and checkpoints will be added</li>
-              <li data-lang-block="ja"><strong>更新履歴:</strong> 公開後はバージョンごとの内容を掲載します</li>
-              <li data-lang-block="en"><strong>Changelog:</strong> Version-by-version updates will be listed after release</li>
+              <li data-lang-block="ja"><strong>導入手順:</strong> 初回セットアップの流れを確認できます</li>
+              <li data-lang-block="en"><strong>Setup:</strong> Check the first-time setup flow</li>
+              <li data-lang-block="ja"><strong>各項目の意味:</strong> 反応音域、発光色、プレビュー量などを確認できます</li>
+              <li data-lang-block="en"><strong>Fields:</strong> Learn what band, emission color, preview amount, and other fields mean</li>
+              <li data-lang-block="ja"><strong>トラブルシュート:</strong> 表示や動作がおかしい時の確認項目を掲載します</li>
+              <li data-lang-block="en"><strong>Troubleshooting:</strong> Check common points when display or behavior looks wrong</li>
             </ul>
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn secondary" href="docs.html"><span data-lang="ja">Docsを開く</span><span data-lang="en">Open Docs</span></a>
+            </div>
           </article>
         </div>
       </div>
@@ -272,6 +284,7 @@
           <p data-lang-block="ja">不具合報告、問い合わせ、各種連絡先を確認できるページです。</p>
           <p data-lang-block="en">This section provides contact details for bug reports, questions, and general support.</p>
         </div>
+
         <div class="split">
           <article class="card">
             <h3 data-lang-block="ja">連絡先</h3>
@@ -285,6 +298,7 @@
               <li data-lang-block="en"><strong>Discord:</strong> The ID is <strong>_N4NSY_</strong></li>
             </ul>
           </article>
+
           <article class="card">
             <h3 data-lang-block="ja">問い合わせ前に確認したいこと</h3>
             <h3 data-lang-block="en">Before Contacting</h3>
@@ -300,16 +314,17 @@
             </ul>
           </article>
         </div>
+
         <div class="notice">
-          <strong data-lang-block="ja">対応できる範囲</strong>
+          <strong data-lang-block="ja">サポート範囲</strong>
           <strong data-lang-block="en">Support Scope</strong>
           <p data-lang-block="ja">
-            Contact ページには、サポート対象外の範囲も先に書いておくと運用が楽です。
-            たとえば「他ツールとの相性」「改変済み特殊環境」「古い Unity バージョン」は参考対応まで、のように整理できます。
+            AudioLink Reactive本体の不具合や使い方に関する問い合わせを受け付けます。
+            他ツールとの競合、特殊な改変環境、古いUnityバージョンでの問題は、状況確認までの対応になる場合があります。
           </p>
           <p data-lang-block="en">
-            It helps to clearly state out-of-scope cases here as well.
-            For example: compatibility with other tools, heavily customized environments, or very old Unity versions may be support-limited.
+            Support is available for AudioLink Reactive issues and usage questions.
+            Compatibility with other tools, heavily customized environments, or older Unity versions may be handled on a best-effort basis.
           </p>
         </div>
       </div>
@@ -322,41 +337,46 @@
           <p data-lang-block="ja">公開バージョンと更新履歴を確認できるページです。</p>
           <p data-lang-block="en">This section shows the public version number and release history.</p>
         </div>
+
         <div class="version-grid">
           <article class="card version-current">
             <div>
-              <span class="version-badge"><span data-lang="ja">現在の実装バージョン</span><span data-lang="en">Current Version</span></span>
-              <p class="big-version">β</p>
+              <span class="version-badge"><span data-lang="ja">現在の公開予定バージョン</span><span data-lang="en">Planned Release Version</span></span>
+              <p class="big-version">v1.0.0</p>
             </div>
             <p class="version-note" data-lang-block="ja">
-              公開後は、現在配布中のバージョンをここに掲載します。
+              初回公開版です。専用WindowによるAvatar指定、Renderer一覧、Material単位設定、光らせる / 膨らませる、Preview、設定書き出し / 読み込みを中心に提供します。
             </p>
             <p class="version-note" data-lang-block="en">
-              After release, the currently distributed version will be shown here.
+              Initial release. It focuses on Avatar selection through the dedicated window, Renderer list workflow, per-material settings, Glow / Inflate, Preview, and setting export / import.
             </p>
-            <ul class="checklist">
-              <li data-lang-block="ja"><strong>状態:</strong> 公開後に更新</li>
-              <li data-lang-block="en"><strong>Status:</strong> Updated after release</li>
-              <li data-lang-block="ja"><strong>更新内容:</strong> 新機能追加や修正内容を掲載します</li>
-              <li data-lang-block="en"><strong>Update Notes:</strong> New features and fixes will be listed here</li>
-            </ul>
           </article>
+
           <article class="card">
-            <h3><span data-lang="ja">バージョン履歴</span><span data-lang="en">Changelog</span></h3>
+            <h3 data-lang-block="ja">更新履歴</h3>
+            <h3 data-lang-block="en">Changelog</h3>
             <ul class="changelog-list">
               <li class="changelog-item">
                 <div class="changelog-head">
-                  <strong>β</strong>
-                  <span class="changelog-date">YYYY-MM-DD</span>
+                  <strong>v1.0.0</strong>
+                  <span class="changelog-date">2026/5/1</span>
                 </div>
-                <ul>
-                  <li data-lang-block="ja">現在公開中のベータ版の内容をここに記載予定</li>
-                  <li data-lang-block="en">Details for the current beta release will be listed here</li>
-                  <li data-lang-block="ja">主要機能や対応範囲をこの欄で整理予定</li>
-                  <li data-lang-block="en">Core features and supported scope will be summarized here</li>
+                <ul data-lang-block="ja">
+                  <li>AudioLink Reactive 初回公開版</li>
+                  <li>専用WindowからAvatarを指定してセットアップできる機能を追加</li>
+                  <li>Avatar配下のRenderer一覧表示と対象追加に対応</li>
+                  <li>Material単位で「光らせる」「膨らませる」を設定可能</li>
+                  <li>Preview機能とプレビュー量の調整に対応</li>
+                  <li>Material単位の設定書き出し / 読み込みに対応</li>
                 </ul>
-              </li>
-            </ul>
+                <ul data-lang-block="en">
+                  <li>Initial public release of AudioLink Reactive</li>
+                  <li>Added Avatar setup through the dedicated window</li>
+                  <li>Added Renderer list display and target registration</li>
+                  <li>Added per-material Glow and Inflate settings</li>
+                  <li>Added Preview and preview amount controls</li>
+                  <li>Added per-material setting export and import</li>
+                </ul>
               </li>
             </ul>
           </article>
@@ -368,27 +388,30 @@
       <div class="container">
         <div class="section-header">
           <h2><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></h2>
-          <p data-lang-block="ja">利用前によく確認される内容をまとめています。</p>
-          <p data-lang-block="en">This section covers questions that are commonly checked before use.</p>
+          <p data-lang-block="ja">導入前に確認されやすい内容をまとめています。</p>
+          <p data-lang-block="en">Common questions before installing or using the tool.</p>
         </div>
+
         <div class="faq">
           <article class="faq-item">
-            <h3 data-lang-block="ja">Q. lilToon を直接触るのと何が違うのか</h3>
+            <h3 data-lang-block="ja">Q. lilToonを直接触るのと何が違いますか？</h3>
             <h3 data-lang-block="en">Q. How is this different from editing lilToon directly?</h3>
-            <p data-lang-block="ja">複数 Renderer 管理、非破壊複製、Preview、将来的な Menu Installer まで含めて、導入と運用の導線をまとめることが目的です。</p>
-            <p data-lang-block="en">The goal is to unify setup and workflow, including multi-renderer management, non-destructive duplication, preview, and future Menu Installer support.</p>
+            <p data-lang-block="ja">Renderer一覧、Material単位設定、Preview、設定保存などを専用Windowにまとめ、AudioLink表現を扱いやすくするためのツールです。</p>
+            <p data-lang-block="en">It brings Renderer selection, per-material settings, Preview, and setting profiles into one dedicated window for easier AudioLink setup.</p>
           </article>
+
           <article class="faq-item">
-            <h3 data-lang-block="ja">Q. 初心者でも使えるのか</h3>
-            <h3 data-lang-block="en">Q. Is it suitable for beginners?</h3>
-            <p data-lang-block="ja">「入れるだけで動く」方向を重視していますが、Docs に最低限の導入手順と用語説明を置く前提です。</p>
-            <p data-lang-block="en">It is designed around a “drop in and start” flow, with the expectation that the Docs will provide the minimum setup and terminology guidance.</p>
+            <h3 data-lang-block="ja">Q. 元のMaterialは壊れますか？</h3>
+            <h3 data-lang-block="en">Q. Will it damage the original material?</h3>
+            <p data-lang-block="ja">元のMaterialを直接壊さない運用を前提にしています。設定や適用の詳細はDocsで確認してください。</p>
+            <p data-lang-block="en">The workflow is designed around avoiding direct damage to the original material. See Docs for details.</p>
           </article>
+
           <article class="faq-item">
-            <h3 data-lang-block="ja">Q. 今後のアップデート予定はあるのか</h3>
-            <h3 data-lang-block="en">Q. Are future updates planned?</h3>
-            <p data-lang-block="ja">発光テクスチャ欄の整理、MA Menu Installer 連携、既存設定読み込み、一括編集、プリセットなどを段階的に追加予定です。</p>
-            <p data-lang-block="en">Planned updates include Emission Texture UI refinement, MA Menu Installer integration, existing setup import, bulk editing, and presets.</p>
+            <h3 data-lang-block="ja">Q. AudioLinkに詳しくなくても使えますか？</h3>
+            <h3 data-lang-block="en">Q. Can I use it without knowing AudioLink deeply?</h3>
+            <p data-lang-block="ja">「光らせる」「膨らませる」という目的ベースで設定できるようにしています。最初はPreviewを見ながら少ない項目だけ触るのがおすすめです。</p>
+            <p data-lang-block="en">The UI is organized around goals like Glow and Inflate. Starting with a few fields while checking Preview is recommended.</p>
           </article>
         </div>
       </div>
@@ -397,42 +420,32 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© AudioLink Reactive</div>
+      <span>© 2026 N4NSY / AudioLink Reactive</span>
       <div class="footer-links">
-        <a href="#top">Top</a>
-        <a href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
-        <a href="docs.html"><span data-lang="ja">使い方</span><span data-lang="en">Docs</span></a>
-        <a href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
-        <a href="#versions"><span data-lang="ja">バージョン</span><span data-lang="en">Versions</span></a>
+        <a href="#download">Download</a>
+        <a href="docs.html">Docs</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    (function () {
-      const html = document.documentElement;
-      const buttons = document.querySelectorAll('[data-set-lang]');
-      const saved = localStorage.getItem('alr-lang');
-      const browserLang = (navigator.language || '').toLowerCase();
-      const initial = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
+    const root = document.documentElement;
+    const savedLang = localStorage.getItem("alr-lang") || "ja";
 
-      function setLang(lang) {
-        html.setAttribute('lang', lang);
-        html.setAttribute('data-current-lang', lang);
-        localStorage.setItem('alr-lang', lang);
-        buttons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
-        });
-      }
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', function () {
-          setLang(btn.getAttribute('data-set-lang'));
-        });
+    function setLang(lang) {
+      root.setAttribute("data-current-lang", lang);
+      localStorage.setItem("alr-lang", lang);
+      document.querySelectorAll("[data-set-lang]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.setLang === lang);
       });
+    }
 
-      setLang(initial);
-    })();
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLang(button.dataset.setLang));
+    });
+
+    setLang(savedLang);
   </script>
 </body>
 </html>
