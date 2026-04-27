@@ -18,8 +18,8 @@
       <nav class="nav-links">
         <a href="#start"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a>
         <a href="#flow"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></a>
-        <a href="#glow"><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></a>
-        <a href="#inflate"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></a>
+        <a href="#glow"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Glow Texture</span></a>
+        <a href="#vertex"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex Motion</span></a>
         <a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a>
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
@@ -35,23 +35,24 @@
         <article class="hero-main">
           <span class="eyebrow">Documentation</span>
           <h1>AudioLink Reactive Docs</h1>
-          <p class="lead" data-lang-block="ja">このページはAudioLink Reactiveの操作ガイドです。旧構成のまま、現在のWindow操作に合わせた内容だけを掲載しています。</p>
-          <p class="lead" data-lang-block="en">This page is the operation guide for AudioLink Reactive. It keeps the simple old structure and updates only current window-based workflow points.</p>
+          <p class="lead" data-lang-block="ja">初期版に近いシンプルな説明ページです。AudioLink Reactive の基本操作と、光らせる / 膨らませる の調整ポイントを短くまとめています。</p>
+          <p class="lead" data-lang-block="en">This is a simplified docs page close to the first version. It briefly explains core workflow and how to tune Glow / Inflate.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#flow"><span data-lang="ja">基本の流れへ</span><span data-lang="en">Go to Basic Flow</span></a>
+            <a class="btn secondary" href="index.html"><span data-lang="ja">ポータルへ戻る</span><span data-lang="en">Back to Portal</span></a>
           </div>
         </article>
         <aside class="hero-side">
           <div class="stat">
             <small data-lang-block="ja">開き方</small>
-            <small data-lang-block="en">Open Window</small>
+            <small data-lang-block="en">Open</small>
             <strong>Tools / N4NSY / AudioLink Reactive</strong>
           </div>
           <div class="stat">
-            <small data-lang-block="ja">主な操作</small>
-            <small data-lang-block="en">Main Actions</small>
-            <strong data-lang-block="ja">Avatar指定 / Renderer追加 / Material調整 / Preview</strong>
-            <strong data-lang-block="en">Assign Avatar / Add Renderers / Tune Materials / Preview</strong>
+            <small data-lang-block="ja">対応</small>
+            <small data-lang-block="en">Modes</small>
+            <strong data-lang-block="ja">発光テクスチャ（光らせる）/ 頂点の動き（膨らませる）</strong>
+            <strong data-lang-block="en">Glow Texture (Glow) / Vertex Motion (Inflate)</strong>
           </div>
         </aside>
       </div>
@@ -61,14 +62,15 @@
       <div class="container docs-layout">
         <aside class="toc-wrap">
           <div class="toc-card">
-            <h2>Contents</h2>
+            <h2 data-lang-block="ja">目次</h2>
+            <h2 data-lang-block="en">Contents</h2>
             <ul class="toc-list">
-              <li><a href="#start">Getting Started</a></li>
-              <li><a href="#flow">Basic Flow</a></li>
-              <li><a href="#glow">Glow</a></li>
-              <li><a href="#inflate">Inflate</a></li>
+              <li><a href="#start"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a></li>
+              <li><a href="#flow"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></a></li>
+              <li><a href="#glow"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Glow Texture</span></a></li>
+              <li><a href="#vertex"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex Motion</span></a></li>
               <li><a href="#preview">Preview</a></li>
-              <li><a href="#faq">FAQ / Troubleshooting</a></li>
+              <li><a href="#faq">FAQ</a></li>
             </ul>
           </div>
         </aside>
@@ -77,58 +79,54 @@
           <section class="card" id="start">
             <h2 class="section-title"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></h2>
             <ul class="bullet-list">
-              <li data-lang-block="ja">Unity上部メニューの <strong>Tools / N4NSY / AudioLink Reactive</strong> から専用Windowを開きます。</li>
-              <li data-lang-block="en">Open the dedicated window from <strong>Tools / N4NSY / AudioLink Reactive</strong> in Unity.</li>
-              <li data-lang-block="ja">Avatar欄に対象Avatarを指定します。指定時に必要なセットアップが自動で行われます。</li>
-              <li data-lang-block="en">Assign your target avatar in the Avatar field. Required setup runs automatically.</li>
+              <li data-lang-block="ja">Unity の <strong>Tools / N4NSY / AudioLink Reactive</strong> から専用Windowを開きます。</li>
+              <li data-lang-block="en">Open the dedicated window from <strong>Tools / N4NSY / AudioLink Reactive</strong>.</li>
+              <li data-lang-block="ja">Avatarを指定し、対象にしたいRendererを追加します。</li>
+              <li data-lang-block="en">Assign your avatar, then add renderers you want to control.</li>
             </ul>
           </section>
 
           <section class="card" id="flow">
             <h2 class="section-title"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></h2>
             <ol class="steps">
-              <li data-lang-block="ja">レンダラー一覧から Avatar 配下の Renderer を選びます。</li>
-              <li data-lang-block="en">Select a renderer under the avatar from the renderer list.</li>
-              <li data-lang-block="ja">選択した Renderer を ALR 対象に追加します。</li>
-              <li data-lang-block="en">Add the selected renderer as an ALR target.</li>
-              <li data-lang-block="ja">対象Materialは <strong>Renderer名 / Material名</strong> で表示されます。</li>
-              <li data-lang-block="en">Target materials are shown as <strong>Renderer Name / Material Name</strong>.</li>
-              <li data-lang-block="ja">Materialごとに設定し、必要なら保存/読み込みを行います。</li>
-              <li data-lang-block="en">Configure each material, then save/load settings when needed.</li>
+              <li data-lang-block="ja">Rendererを追加する。</li>
+              <li data-lang-block="en">Add target renderers.</li>
+              <li data-lang-block="ja">Materialごとにパラメータを調整する。</li>
+              <li data-lang-block="en">Tune parameters per material.</li>
+              <li data-lang-block="ja">Previewで見た目を確認する。</li>
+              <li data-lang-block="en">Check appearance with Preview.</li>
             </ol>
           </section>
 
           <section class="card" id="glow">
-            <h2 class="section-title"><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></h2>
-            <p class="section-lead" data-lang-block="ja">反応の仕方で「光らせる」を選ぶと、音に合わせた発光表現を調整できます。</p>
-            <p class="section-lead" data-lang-block="en">Choose “Glow” in reaction mode to tune audio-driven emission behavior.</p>
+            <h2 class="section-title"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Glow Texture</span></h2>
+            <p class="section-lead" data-lang-block="ja">光らせる設定です。音に合わせた発光の強さや見え方をMaterial単位で調整できます。</p>
+            <p class="section-lead" data-lang-block="en">Glow settings. You can tune audio-driven emission intensity and look per material.</p>
           </section>
 
-          <section class="card" id="inflate">
-            <h2 class="section-title"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></h2>
-            <p class="section-lead" data-lang-block="ja">反応の仕方で「膨らませる」を選ぶと、音に合わせたメッシュ変化を調整できます。</p>
-            <p class="section-lead" data-lang-block="en">Choose “Inflate” in reaction mode to tune audio-driven mesh deformation.</p>
+          <section class="card" id="vertex">
+            <h2 class="section-title"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex Motion</span></h2>
+            <p class="section-lead" data-lang-block="ja">膨らませる設定です。音に合わせた頂点の動きをMaterial単位で調整できます。</p>
+            <p class="section-lead" data-lang-block="en">Inflate settings. You can tune audio-driven vertex movement per material.</p>
           </section>
 
           <section class="card" id="preview">
             <h2 class="section-title">Preview</h2>
             <ul class="bullet-list">
-              <li data-lang-block="ja">プレビュー有効 / プレビュー量 を使って見た目を確認します。</li>
-              <li data-lang-block="en">Use Preview Enabled / Preview Amount to check visuals.</li>
-              <li data-lang-block="ja">表示がおかしい場合は更新ボタンで再同期します。</li>
-              <li data-lang-block="en">If display looks wrong, press Refresh to resync.</li>
+              <li data-lang-block="ja">プレビュー量を上げると、変化の強さをすぐ確認できます。</li>
+              <li data-lang-block="en">Increase Preview amount to quickly check stronger reactions.</li>
+              <li data-lang-block="ja">見た目を確認しながら、Material単位で微調整してください。</li>
+              <li data-lang-block="en">Fine-tune per material while watching the result.</li>
             </ul>
           </section>
 
           <section class="card" id="faq">
-            <h2 class="section-title"><span data-lang="ja">FAQ / Troubleshooting</span><span data-lang="en">FAQ / Troubleshooting</span></h2>
+            <h2 class="section-title">FAQ</h2>
             <ul class="bullet-list">
-              <li data-lang-block="ja">Renderer一覧が空の場合: Avatar欄の指定を確認し、更新ボタンを押してください。</li>
-              <li data-lang-block="en">If renderer list is empty: verify Avatar assignment and press Refresh.</li>
-              <li data-lang-block="ja">対象Materialが出ない場合: 先にRendererをALR対象へ追加してください。</li>
-              <li data-lang-block="en">If no target material appears: add a renderer to ALR targets first.</li>
-              <li data-lang-block="ja">保存/読み込みはMaterial単位です。</li>
-              <li data-lang-block="en">Save/Load works per material.</li>
+              <li data-lang-block="ja">Q. Rendererが表示されません。 A. Avatar指定を確認して再読み込みしてください。</li>
+              <li data-lang-block="en">Q. Renderer list is empty. A. Check avatar assignment and refresh.</li>
+              <li data-lang-block="ja">Q. 設定はどの単位ですか？ A. Material単位です。</li>
+              <li data-lang-block="en">Q. At what level are settings applied? A. Per material.</li>
             </ul>
           </section>
         </div>
@@ -142,7 +140,7 @@
       <div class="footer-links">
         <a href="index.html">Top</a>
         <a href="#flow">Docs</a>
-        <a href="#faq">Troubleshooting</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
   </footer>
