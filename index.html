@@ -19,7 +19,7 @@
         <a href="#download"><span data-lang="ja">Download</span><span data-lang="en">Download</span></a>
         <a href="#docs"><span data-lang="ja">Documentation</span><span data-lang="en">Documentation</span></a>
         <a href="#contact"><span data-lang="ja">Contact</span><span data-lang="en">Contact</span></a>
-        <a href="#versions"><span data-lang="ja">Version</span><span data-lang="en">Version</span></a>
+        <a href="#version"><span data-lang="ja">Version</span><span data-lang="en">Version</span></a>
         <a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a>
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
@@ -35,33 +35,32 @@
         <article class="hero-main">
           <span class="eyebrow">VRChat / Unity / lilToon</span>
           <h1>AudioLink Reactive</h1>
-          <p class="lead" data-lang-block="ja">AudioLink Reactive は VRChat アバター向け Unity Editor ツールです。専用Windowで Avatar を指定するとセットアップし、Renderer一覧から対象を選んで Material 単位で調整できます。反応は「光らせる」「膨らませる」に対応し、Previewで確認できます。</p>
-          <p class="lead" data-lang-block="en">AudioLink Reactive is a Unity Editor tool for VRChat avatars. In its dedicated window, assign your avatar, select targets from the renderer list, and tune settings per material. It supports both Glow and Inflate reactions with Preview.</p>
+          <p class="lead" data-lang-block="ja">AudioLink Reactive は、lilToon の AudioLink 設定を扱いやすくする Unity Editor ツールです。複数Rendererをまとめて管理し、マテリアル単位で非破壊に調整できます。</p>
+          <p class="lead" data-lang-block="en">AudioLink Reactive is a Unity Editor tool that makes lilToon AudioLink setup easier. Manage multiple renderers and tune settings per material in a non-destructive workflow.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="docs.html"><span data-lang="ja">詳しくはDocsへ</span><span data-lang="en">See Details in Docs</span></a>
+            <a class="btn primary" href="docs.html"><span data-lang="ja">Documentationを見る</span><span data-lang="en">Open Documentation</span></a>
             <a class="btn secondary" href="#download"><span data-lang="ja">Download</span><span data-lang="en">Download</span></a>
           </div>
           <div class="hero-meta">
-            <span class="tag" data-lang-block="ja">専用Window操作</span>
-            <span class="tag" data-lang-block="en">Dedicated Window</span>
-            <span class="tag" data-lang-block="ja">Renderer一覧</span>
-            <span class="tag" data-lang-block="en">Renderer List</span>
+            <span class="tag" data-lang-block="ja">光らせる / 膨らませる</span>
+            <span class="tag" data-lang-block="en">Glow / Inflate</span>
             <span class="tag" data-lang-block="ja">Material単位調整</span>
-            <span class="tag" data-lang-block="en">Per-Material Tuning</span>
+            <span class="tag" data-lang-block="en">Per-Material Control</span>
+            <span class="tag">Preview</span>
           </div>
         </article>
         <aside class="hero-side">
           <div class="stat">
-            <small data-lang-block="ja">操作の流れ</small>
-            <small data-lang-block="en">Flow</small>
-            <strong data-lang-block="ja">Avatar指定 → Renderer追加 → Material調整 → Preview確認</strong>
-            <strong data-lang-block="en">Assign Avatar → Add Renderers → Tune Materials → Preview</strong>
+            <small data-lang-block="ja">かんたんフロー</small>
+            <small data-lang-block="en">Quick Flow</small>
+            <strong data-lang-block="ja">AudioLink Reactiveを開く → 対象を選ぶ → 調整する → Preview</strong>
+            <strong data-lang-block="en">Open AudioLink Reactive → Pick target → Tune settings → Preview</strong>
           </div>
           <div class="stat">
-            <small data-lang-block="ja">反応モード</small>
-            <small data-lang-block="en">Reaction Modes</small>
-            <strong data-lang-block="ja">光らせる / 膨らませる</strong>
-            <strong data-lang-block="en">Glow / Inflate</strong>
+            <small data-lang-block="ja">案内</small>
+            <small data-lang-block="en">Guide</small>
+            <strong data-lang-block="ja">このページはポータルです。詳細はDocsへ。</strong>
+            <strong data-lang-block="en">This page is a portal. See Docs for details.</strong>
           </div>
         </aside>
       </div>
@@ -71,7 +70,7 @@
       <div class="container">
         <div class="section-header">
           <h2 data-lang-block="ja">案内ページ</h2>
-          <h2 data-lang-block="en">Portal</h2>
+          <h2 data-lang-block="en">Pages</h2>
         </div>
         <div class="portal-grid">
           <a class="page-card" href="#download"><h3>Download</h3></a>
@@ -83,14 +82,11 @@
 
     <section class="section" id="download">
       <div class="container">
-        <div class="section-header">
-          <h2>Download</h2>
-        </div>
+        <div class="section-header"><h2>Download</h2></div>
         <article class="card">
           <ul class="checklist">
-            <li data-lang-block="ja">配布ページは準備中です。公開後この欄に案内を掲載します。</li>
-            <li data-lang-block="en">Distribution page is being prepared. A link will be listed here after release.</li>
-            <li><strong>Unity:</strong> 2022.3.22f1 / <strong>VRChat SDK:</strong> 3.10.3 / <strong>lilToon:</strong> 2.3.2</li>
+            <li data-lang-block="ja">配布先は公開準備中です。公開後にリンクを掲載します。</li>
+            <li data-lang-block="en">The distribution page is being prepared. A link will be posted after release.</li>
           </ul>
         </article>
       </div>
@@ -98,31 +94,32 @@
 
     <section class="section" id="docs">
       <div class="container">
-        <div class="section-header">
-          <h2>Documentation</h2>
-        </div>
+        <div class="section-header"><h2>Documentation</h2></div>
         <article class="card">
-          <p class="section-lead" data-lang-block="ja">操作の詳細は Docs にまとめています。基本の流れ、光らせる、膨らませる、Preview、トラブル対応を確認できます。</p>
-          <p class="section-lead" data-lang-block="en">Detailed usage is in Docs: basic flow, Glow, Inflate, Preview, and troubleshooting.</p>
-          <div class="hero-actions" style="margin-top:16px;">
-            <a class="btn primary" href="docs.html">Open Docs</a>
-          </div>
+          <p class="section-lead" data-lang-block="ja">使い方はDocsページにまとめています。はじめかた、基本の流れ、発光テクスチャ、頂点の動き、Previewを確認できます。</p>
+          <p class="section-lead" data-lang-block="en">Usage details are in Docs: Getting Started, Basic Flow, Glow Texture, Vertex Motion, and Preview.</p>
+          <div class="hero-actions" style="margin-top:16px;"><a class="btn primary" href="docs.html">Open Docs</a></div>
         </article>
       </div>
     </section>
 
     <section class="section" id="contact">
-      <div class="container split">
+      <div class="container">
+        <div class="section-header"><h2>Contact</h2></div>
         <article class="card">
-          <h3>Contact</h3>
           <ul class="contact-list">
-            <li><a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">X: @_N4NSY_</a></li>
             <li><a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">Booth: n4nsy.booth.pm</a></li>
+            <li><a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">X: @_N4NSY_</a></li>
             <li>Discord: <strong>_N4NSY_</strong></li>
           </ul>
         </article>
-        <article class="card" id="versions">
-          <h3>Version / Changelog</h3>
+      </div>
+    </section>
+
+    <section class="section" id="version">
+      <div class="container">
+        <div class="section-header"><h2>Version / Changelog</h2></div>
+        <article class="card">
           <ul class="changelog-list">
             <li class="changelog-item"><strong>Beta</strong> - <span data-lang="ja">開発中</span><span data-lang="en">In Development</span></li>
           </ul>
@@ -132,15 +129,13 @@
 
     <section class="section" id="faq">
       <div class="container">
-        <div class="section-header">
-          <h2>FAQ</h2>
-        </div>
+        <div class="section-header"><h2>FAQ</h2></div>
         <article class="card">
           <ul class="bullet-list">
-            <li data-lang-block="ja">Q. indexだけで全部分かりますか？ A. 概要のみです。詳しい手順はDocsをご確認ください。</li>
-            <li data-lang-block="en">Q. Is this page enough for full setup? A. This is an overview. Please use Docs for detailed steps.</li>
-            <li data-lang-block="ja">Q. 反応は何に対応していますか？ A. 光らせる / 膨らませる に対応しています。</li>
-            <li data-lang-block="en">Q. Which reactions are supported? A. Glow and Inflate.</li>
+            <li data-lang-block="ja">Q. このページだけで設定できますか？ A. 概要ページです。手順はDocsをご確認ください。</li>
+            <li data-lang-block="en">Q. Is this page enough for setup? A. It is an overview. See Docs for steps.</li>
+            <li data-lang-block="ja">Q. 何ができますか？ A. 光らせる / 膨らませる をMaterial単位で調整できます。</li>
+            <li data-lang-block="en">Q. What can it do? A. Tune Glow / Inflate per material.</li>
           </ul>
         </article>
       </div>
