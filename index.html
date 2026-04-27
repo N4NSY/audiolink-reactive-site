@@ -4,9 +4,744 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioLink Reactive | Portal</title>
-  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --panel: rgba(18, 25, 51, 0.72);
+      --panel-strong: rgba(20, 28, 58, 0.92);
+      --text: #eef2ff;
+      --muted: #a9b4d0;
+      --line: rgba(255,255,255,0.1);
+      --accent: #77b7ff;
+      --accent-2: #8ef0d0;
+      --shadow: 0 18px 50px rgba(0,0,0,0.32);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Hiragino Sans", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(119, 183, 255, 0.22), transparent 32%),
+        radial-gradient(circle at top right, rgba(142, 240, 208, 0.16), transparent 28%),
+        linear-gradient(180deg, #0a0f1f 0%, #090d19 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .contact-list a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      transition: 0.18s ease;
+    }
+
+    .contact-list a:hover {
+      color: var(--accent-2);
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(9, 13, 25, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 30px rgba(119, 183, 255, 0.28);
+      display: grid;
+      place-items: center;
+      color: #081222;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a,
+    .lang-btn {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.18s ease;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .nav-links a:hover,
+    .lang-btn:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      border-color: var(--line);
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .card,
+    .page-card,
+    .faq-item,
+    .notice {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      border-radius: 28px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -32% auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(119,183,255,0.22), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.18s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #5e95ff);
+      color: #081222;
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(119,183,255,0.25);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-meta {
+      margin-top: 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero-side {
+      border-radius: 28px;
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .section {
+      padding: 28px 0 72px;
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 40px);
+      letter-spacing: -0.03em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .page-card {
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: 0.18s ease;
+      min-height: 100%;
+    }
+
+    .page-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(119,183,255,0.35);
+    }
+
+    .page-card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(119,183,255,0.12);
+      border: 1px solid rgba(119,183,255,0.16);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .page-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .page-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .linkline {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+    }
+
+    .checklist,
+    .timeline,
+    .contact-list,
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li,
+    .timeline li,
+    .contact-list li,
+    .feature-list li {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .checklist strong,
+    .timeline strong,
+    .contact-list strong,
+    .feature-list strong {
+      color: var(--text);
+    }
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .notice {
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-top: 18px;
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .notice p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .version-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+    }
+
+    .version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(119,183,255,0.12);
+      border: 1px solid rgba(119,183,255,0.18);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .version-current {
+      display: grid;
+      gap: 12px;
+    }
+
+    .version-current .big-version {
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .version-current .version-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .changelog-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .changelog-item {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .changelog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .changelog-head strong {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .changelog-date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .changelog-item ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .changelog-item li + li {
+      margin-top: 6px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 48px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    [data-lang] { display: none; }
+    html[data-current-lang="ja"] [data-lang="ja"],
+    html[data-current-lang="en"] [data-lang="en"] {
+      display: inline;
+    }
+
+    html[data-current-lang="ja"] [data-lang-block="ja"],
+    html[data-current-lang="en"] [data-lang-block="en"] {
+      display: block;
+    }
+
+    [data-lang-block] { display: none; }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .portal-grid,
+      .split,
+      .docs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding-top: 28px;
+      }
+
+      .container {
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .nav {
+        position: static;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card,
+      .page-card,
+      .notice,
+      .faq-item {
+        border-radius: 18px;
+      }
+
+      .hero-main {
+        padding: 22px;
+      }
+
+      .nav-inner {
+        min-height: 0;
+        align-items: stretch;
+        flex-direction: column;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        gap: 12px;
+      }
+
+      .brand {
+        gap: 10px;
+        align-self: flex-start;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      .brand span:last-child {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .nav-links > a,
+      .nav-links > .lang-switch {
+        width: 100%;
+      }
+
+      .nav-links a,
+      .lang-btn {
+        width: 100%;
+        min-height: 42px;
+        padding: 10px 12px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .lang-switch {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .hero-grid,
+      .portal-grid,
+      .split,
+      .docs-grid,
+      .version-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .hero-side {
+        padding: 18px;
+      }
+
+      .stat {
+        padding: 16px;
+      }
+
+      .stat strong {
+        font-size: 19px;
+      }
+
+      .section {
+        padding: 22px 0 56px;
+      }
+
+      .section-header {
+        margin-bottom: 16px;
+      }
+
+      .section-header h2 {
+        font-size: 28px;
+      }
+
+      .page-card,
+      .card,
+      .faq-item,
+      .notice {
+        padding: 18px;
+      }
+
+      .page-card h3,
+      .card h3 {
+        font-size: 20px;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .footer-links {
+        gap: 8px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="nav">
@@ -16,11 +751,11 @@
         <span>AudioLink Reactive</span>
       </a>
       <nav class="nav-links">
-        <a href="#download"><span data-lang="ja">Download</span><span data-lang="en">Download</span></a>
-        <a href="#docs"><span data-lang="ja">Documentation</span><span data-lang="en">Documentation</span></a>
-        <a href="#contact"><span data-lang="ja">Contact</span><span data-lang="en">Contact</span></a>
-        <a href="#version"><span data-lang="ja">Version</span><span data-lang="en">Version</span></a>
-        <a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a>
+        <a href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
+        <a href="docs.html"><span data-lang="ja">使い方</span><span data-lang="en">Docs</span></a>
+        <a href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
+        <a href="#versions"><span data-lang="ja">バージョン</span><span data-lang="en">Versions</span></a>
+        <a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a>
         <div class="lang-switch">
           <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
           <button class="lang-btn" type="button" data-set-lang="en">English</button>
@@ -32,35 +767,63 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <article class="hero-main">
+        <div class="hero-main">
           <span class="eyebrow">VRChat / Unity / lilToon</span>
           <h1>AudioLink Reactive</h1>
-          <p class="lead" data-lang-block="ja">AudioLink Reactive は、lilToon の AudioLink 設定を扱いやすくする Unity Editor ツールです。複数Rendererをまとめて管理し、マテリアル単位で非破壊に調整できます。</p>
-          <p class="lead" data-lang-block="en">AudioLink Reactive is a Unity Editor tool that makes lilToon AudioLink setup easier. Manage multiple renderers and tune settings per material in a non-destructive workflow.</p>
+          <p class="lead" data-lang-block="ja">
+            AudioLink Reactive は、lilToon の AudioLink 設定をまとめて扱いやすくするための Unity ツールです。
+            非破壊マテリアル複製、複数 Renderer 管理、Preview、発光テクスチャ・頂点リアクティブ対応により、
+            AudioLink 表現の導入と調整をよりスムーズに行えます。
+          </p>
+          <p class="lead" data-lang-block="en">
+            AudioLink Reactive is a Unity tool for organizing and simplifying lilToon AudioLink workflows.
+            With non-destructive material duplication, multi-renderer management, preview, and support for Emission Texture and Vertex reactive features,
+            it helps streamline both setup and adjustment.
+          </p>
           <div class="hero-actions">
-            <a class="btn primary" href="docs.html"><span data-lang="ja">Documentationを見る</span><span data-lang="en">Open Documentation</span></a>
-            <a class="btn secondary" href="#download"><span data-lang="ja">Download</span><span data-lang="en">Download</span></a>
+            <a class="btn primary" href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
+            <a class="btn secondary" href="docs.html"><span data-lang="ja">使い方を見る</span><span data-lang="en">Documentation</span></a>
+            <a class="btn secondary" href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
           </div>
           <div class="hero-meta">
-            <span class="tag" data-lang-block="ja">光らせる / 膨らませる</span>
-            <span class="tag" data-lang-block="en">Glow / Inflate</span>
-            <span class="tag" data-lang-block="ja">Material単位調整</span>
-            <span class="tag" data-lang-block="en">Per-Material Control</span>
-            <span class="tag">Preview</span>
+            <span class="tag" data-lang-block="ja">lilToon 向け</span>
+            <span class="tag" data-lang-block="en">Built for lilToon</span>
+            <span class="tag" data-lang-block="ja">複数 Renderer 管理</span>
+            <span class="tag" data-lang-block="en">Multi-renderer workflow</span>
+            <span class="tag" data-lang-block="ja">Preview 対応</span>
+            <span class="tag" data-lang-block="en">Preview supported</span>
           </div>
-        </article>
+        </div>
         <aside class="hero-side">
           <div class="stat">
-            <small data-lang-block="ja">かんたんフロー</small>
-            <small data-lang-block="en">Quick Flow</small>
-            <strong data-lang-block="ja">AudioLink Reactiveを開く → 対象を選ぶ → 調整する → Preview</strong>
-            <strong data-lang-block="en">Open AudioLink Reactive → Pick target → Tune settings → Preview</strong>
+            <div data-lang-block="ja">
+              <small>現在の主機能</small>
+              <strong>頂点 / 発光テクスチャ / Preview / 非破壊複製</strong>
+            </div>
+            <div data-lang-block="en">
+              <small>Current core features</small>
+              <strong>Vertex / Emission Texture / Preview / Non-destructive duplication</strong>
+            </div>
           </div>
           <div class="stat">
-            <small data-lang-block="ja">案内</small>
-            <small data-lang-block="en">Guide</small>
-            <strong data-lang-block="ja">このページはポータルです。詳細はDocsへ。</strong>
-            <strong data-lang-block="en">This page is a portal. See Docs for details.</strong>
+            <div data-lang-block="ja">
+              <small>配布形式</small>
+              <strong>VCC 経由インストール予定</strong>
+            </div>
+            <div data-lang-block="en">
+              <small>Distribution</small>
+              <strong>Planned VCC-based installation</strong>
+            </div>
+          </div>
+          <div class="stat">
+            <div data-lang-block="ja">
+              <small>販売前必須ライン</small>
+              <strong>発光テクスチャ整理 + MA Menu Installer ON/OFF</strong>
+            </div>
+            <div data-lang-block="en">
+              <small>Pre-release must-have</small>
+              <strong>Emission Texture refinement + MA Menu Installer ON/OFF</strong>
+            </div>
           </div>
         </aside>
       </div>
@@ -70,74 +833,299 @@
       <div class="container">
         <div class="section-header">
           <h2 data-lang-block="ja">案内ページ</h2>
-          <h2 data-lang-block="en">Pages</h2>
+          <h2 data-lang-block="en">Portal</h2>
+          <p data-lang-block="ja">このページでは、ダウンロード案内、使い方、問い合わせ先をまとめて案内しています。</p>
+          <p data-lang-block="en">This page provides a central entry point for downloads, documentation, and contact information.</p>
         </div>
         <div class="portal-grid">
-          <a class="page-card" href="#download"><h3>Download</h3></a>
-          <a class="page-card" href="#docs"><h3>Documentation</h3></a>
-          <a class="page-card" href="#contact"><h3>Contact</h3></a>
+          <a class="page-card" href="#download">
+            <div class="icon">⇩</div>
+            <h3>Download</h3>
+            <p data-lang-block="ja">VCC 経由での導入案内、対応環境、更新方法、利用条件をまとめるための入口です。</p>
+            <p data-lang-block="en">Entry point for VCC installation guidance, compatibility notes, update instructions, and usage terms.</p>
+            <span class="linkline" data-lang-block="ja">ダウンロード案内へ →</span>
+            <span class="linkline" data-lang-block="en">Open Download →</span>
+          </a>
+          <a class="page-card" href="docs.html">
+            <div class="icon">☰</div>
+            <h3>Documentation</h3>
+            <p data-lang-block="ja">ツール概要、導入手順、発光テクスチャ、頂点、Preview、Menu Installer などの説明書ページです。</p>
+            <p data-lang-block="en">Documentation pages for tool overview, setup, emission texture, vertex settings, preview, Menu Installer, and more.</p>
+            <span class="linkline" data-lang-block="ja">使い方ページへ →</span>
+            <span class="linkline" data-lang-block="en">Open Docs →</span>
+          </a>
+          <a class="page-card" href="#contact">
+            <div class="icon">✉</div>
+            <h3>Contact</h3>
+            <p data-lang-block="ja">不具合報告、要望、問い合わせ、既知の注意事項への導線を置くためのページです。</p>
+            <p data-lang-block="en">Page for bug reports, feature requests, contact details, and links to known notes and support guidance.</p>
+            <span class="linkline" data-lang-block="ja">問い合わせ先へ →</span>
+            <span class="linkline" data-lang-block="en">Open Contact →</span>
+          </a>
         </div>
       </div>
     </section>
 
     <section class="section" id="download">
       <div class="container">
-        <div class="section-header"><h2>Download</h2></div>
-        <article class="card">
-          <ul class="checklist">
-            <li data-lang-block="ja">配布先は公開準備中です。公開後にリンクを掲載します。</li>
-            <li data-lang-block="en">The distribution page is being prepared. A link will be posted after release.</li>
-          </ul>
-        </article>
+        <div class="section-header">
+          <h2><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></h2>
+          <p data-lang-block="ja">ここでは導入方法、動作確認環境、配布ページへの導線を案内します。</p>
+          <p data-lang-block="en">This section covers installation guidance, tested environment details, and links to the distribution page.</p>
+        </div>
+        <div class="split">
+          <article class="card">
+            <h3 data-lang-block="ja">VCC で入れる</h3>
+            <h3 data-lang-block="en">Install via VCC</h3>
+            <ul class="timeline">
+              <li data-lang-block="ja"><strong>Step 1:</strong> VCC 用の配布ページを開く</li>
+              <li data-lang-block="en"><strong>Step 1:</strong> Open the VCC distribution page</li>
+              <li data-lang-block="ja"><strong>Step 2:</strong> リポジトリ追加手順を説明</li>
+              <li data-lang-block="en"><strong>Step 2:</strong> Explain how to add the repository</li>
+              <li data-lang-block="ja"><strong>Step 3:</strong> Project へ AudioLink Reactive を追加</li>
+              <li data-lang-block="en"><strong>Step 3:</strong> Add AudioLink Reactive to the project</li>
+              <li data-lang-block="ja"><strong>Step 4:</strong> Unity でコンポーネントを追加して利用開始</li>
+              <li data-lang-block="en"><strong>Step 4:</strong> Add the component in Unity and begin setup</li>
+            </ul>
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn primary" href="#" target="_blank" rel="noopener noreferrer"><span data-lang="ja">VCC 配布ページへ</span><span data-lang="en">Open VCC Page</span></a>
+              <a class="btn secondary" href="docs.html"><span data-lang="ja">導入手順を見る</span><span data-lang="en">Setup Guide</span></a>
+            </div>
+          </article>
+          <article class="card">
+            <h3 data-lang-block="ja">対応環境</h3>
+            <h3 data-lang-block="en">Compatibility</h3>
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>Unity:</strong> 2022.3.22f1</li>
+              <li data-lang-block="en"><strong>Unity:</strong> 2022.3.22f1</li>
+              <li data-lang-block="ja"><strong>VRChat SDK:</strong> 3.10.3</li>
+              <li data-lang-block="en"><strong>VRChat SDK:</strong> 3.10.3</li>
+              <li data-lang-block="ja"><strong>Shader:</strong> lilToon 2.3.2</li>
+              <li data-lang-block="en"><strong>Shader:</strong> lilToon 2.3.2</li>
+              <li data-lang-block="ja"><strong>Avatar Setup:</strong> Modular Avatar + NDMF 前提</li>
+              <li data-lang-block="en"><strong>Avatar Setup:</strong> Built around Modular Avatar + NDMF</li>
+            </ul>
+          </article>
+        </div>
+        <div class="notice">
+          <strong data-lang-block="ja">補足</strong>
+          <strong data-lang-block="en">Notes</strong>
+          <p data-lang-block="ja">
+            配布開始後は、この欄に利用規約、再配布可否、サポート範囲、更新履歴へのリンクを置くと整理しやすいです。
+            Download ページは「すぐ導入したい人」のためのページなので、説明は短く、詳細は Docs へ送る構成が向いています。
+          </p>
+          <p data-lang-block="en">
+            After release, this area should contain usage terms, redistribution rules, support scope, and links to changelogs.
+            The Download page should stay short and direct, while sending detailed explanations to the Docs section.
+          </p>
+        </div>
       </div>
     </section>
 
     <section class="section" id="docs">
       <div class="container">
-        <div class="section-header"><h2>Documentation</h2></div>
-        <article class="card">
-          <p class="section-lead" data-lang-block="ja">使い方はDocsページにまとめています。はじめかた、基本の流れ、発光テクスチャ、頂点の動き、Previewを確認できます。</p>
-          <p class="section-lead" data-lang-block="en">Usage details are in Docs: Getting Started, Basic Flow, Glow Texture, Vertex Motion, and Preview.</p>
-          <div class="hero-actions" style="margin-top:16px;"><a class="btn primary" href="docs.html">Open Docs</a></div>
-        </article>
+        <div class="section-header">
+          <h2><span data-lang="ja">使い方</span><span data-lang="en">Documentation</span></h2>
+          <p data-lang-block="ja">使い方ページでは、導入から基本操作、各機能の概要までを順番に確認できます。</p>
+          <p data-lang-block="en">The documentation page covers setup, basic operation, and a guided overview of each feature.</p>
+        </div>
+        <div class="docs-grid">
+          <article class="card">
+            <h3 data-lang-block="ja">できること</h3>
+            <h3 data-lang-block="en">Overview</h3>
+            <ul class="feature-list">
+              <li data-lang-block="ja"><strong>非破壊マテリアル複製:</strong> 元のマテリアルを直接壊さずに設定を扱う</li>
+              <li data-lang-block="en"><strong>Non-destructive duplication:</strong> Work with settings without directly altering the original material</li>
+              <li data-lang-block="ja"><strong>D&amp;D 追加:</strong> Hierarchy から Renderer を追加</li>
+              <li data-lang-block="en"><strong>Drag &amp; Drop:</strong> Add renderers directly from the Hierarchy</li>
+              <li data-lang-block="ja"><strong>複数対象管理:</strong> Renderer / Material 単位で一覧化</li>
+              <li data-lang-block="en"><strong>Multi-target management:</strong> Organize by renderer and material unit</li>
+              <li data-lang-block="ja"><strong>Preview:</strong> Editor 上で変形や発光の確認が可能</li>
+              <li data-lang-block="en"><strong>Preview:</strong> Check deformation and emission directly in the Editor</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-lang-block="ja">説明ページ一覧</h3>
+            <h3 data-lang-block="en">Docs Sections</h3>
+            <div class="mini-grid">
+              <div class="mini-card">
+                <strong><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></strong>
+                <p data-lang-block="ja">導入から最初の追加、基本操作まで。</p>
+                <p data-lang-block="en">From installation to first setup and basic usage.</p>
+              </div>
+              <div class="mini-card">
+                <strong><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></strong>
+                <p data-lang-block="ja">発光テクスチャ機能と主要項目の説明。</p>
+                <p data-lang-block="en">Emission Texture features and explanation of the main fields.</p>
+              </div>
+              <div class="mini-card">
+                <strong><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></strong>
+                <p data-lang-block="ja">頂点リアクティブと強度調整の説明。</p>
+                <p data-lang-block="en">Vertex reactive settings and strength adjustment.</p>
+              </div>
+              <div class="mini-card">
+                <strong><span data-lang="ja">プレビュー / メニュー</span><span data-lang="en">Preview / Menu</span></strong>
+                <p data-lang-block="ja">Preview と将来の MA Menu Installer 機能。</p>
+                <p data-lang-block="en">Preview and the planned MA Menu Installer feature.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="split" style="margin-top:18px;">
+          <article class="card">
+            <h3 data-lang-block="ja">主な特徴</h3>
+            <h3 data-lang-block="en">Highlights</h3>
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>Preview:</strong> Editor 上で見え方を確認しながら調整できます</li>
+              <li data-lang-block="en"><strong>Preview:</strong> Adjust while checking the result directly in the Editor</li>
+              <li data-lang-block="ja"><strong>非破壊複製:</strong> 元のマテリアルを直接編集せずに扱えます</li>
+              <li data-lang-block="en"><strong>Non-destructive duplication:</strong> Work without directly editing the original material</li>
+              <li data-lang-block="ja"><strong>複数対象管理:</strong> Renderer / Material 単位でまとめて確認できます</li>
+              <li data-lang-block="en"><strong>Multi-target management:</strong> Review targets by renderer and material unit</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-lang-block="ja">掲載予定の内容</h3>
+            <h3 data-lang-block="en">Planned Content</h3>
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>導入手順:</strong> 初回設定の流れをより詳しく案内予定</li>
+              <li data-lang-block="en"><strong>Setup Guide:</strong> More detailed first-time setup instructions will be added</li>
+              <li data-lang-block="ja"><strong>トラブルシュート:</strong> よくある問題と確認項目を掲載予定</li>
+              <li data-lang-block="en"><strong>Troubleshooting:</strong> Common issues and checkpoints will be added</li>
+              <li data-lang-block="ja"><strong>更新履歴:</strong> 公開後はバージョンごとの内容を掲載します</li>
+              <li data-lang-block="en"><strong>Changelog:</strong> Version-by-version updates will be listed after release</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" id="contact">
       <div class="container">
-        <div class="section-header"><h2>Contact</h2></div>
-        <article class="card">
-          <ul class="contact-list">
-            <li><a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">Booth: n4nsy.booth.pm</a></li>
-            <li><a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">X: @_N4NSY_</a></li>
-            <li>Discord: <strong>_N4NSY_</strong></li>
-          </ul>
-        </article>
+        <div class="section-header">
+          <h2><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></h2>
+          <p data-lang-block="ja">不具合報告、問い合わせ、各種連絡先を確認できるページです。</p>
+          <p data-lang-block="en">This section provides contact details for bug reports, questions, and general support.</p>
+        </div>
+        <div class="split">
+          <article class="card">
+            <h3 data-lang-block="ja">連絡先</h3>
+            <h3 data-lang-block="en">Contact Channels</h3>
+            <ul class="contact-list">
+              <li data-lang-block="ja"><strong>X / DM:</strong> <a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">@_N4NSY_</a> のプロフィールから連絡できます</li>
+              <li data-lang-block="en"><strong>X / DM:</strong> Contact via the <a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">@_N4NSY_</a> profile</li>
+              <li data-lang-block="ja"><strong>Booth Message:</strong> <a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">n4nsy.booth.pm</a> のショップページから確認できます</li>
+              <li data-lang-block="en"><strong>Booth Message:</strong> Available from the <a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">n4nsy.booth.pm</a> shop page</li>
+              <li data-lang-block="ja"><strong>Discord:</strong> ID は <strong>_N4NSY_</strong> です</li>
+              <li data-lang-block="en"><strong>Discord:</strong> The ID is <strong>_N4NSY_</strong></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 data-lang-block="ja">問い合わせ前に確認したいこと</h3>
+            <h3 data-lang-block="en">Before Contacting</h3>
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>Unity バージョン</strong> を控える</li>
+              <li data-lang-block="en"><strong>Unity version:</strong> Note it down first</li>
+              <li data-lang-block="ja"><strong>lilToon / Modular Avatar / NDMF のバージョン</strong> を確認する</li>
+              <li data-lang-block="en"><strong>lilToon / Modular Avatar / NDMF versions:</strong> Check them in advance</li>
+              <li data-lang-block="ja"><strong>何をした時に起きたか</strong> を簡単にまとめる</li>
+              <li data-lang-block="en"><strong>What happened and when:</strong> Summarize it briefly</li>
+              <li data-lang-block="ja"><strong>Console のエラー</strong> があれば添える</li>
+              <li data-lang-block="en"><strong>Console errors:</strong> Include them if available</li>
+            </ul>
+          </article>
+        </div>
+        <div class="notice">
+          <strong data-lang-block="ja">対応できる範囲</strong>
+          <strong data-lang-block="en">Support Scope</strong>
+          <p data-lang-block="ja">
+            Contact ページには、サポート対象外の範囲も先に書いておくと運用が楽です。
+            たとえば「他ツールとの相性」「改変済み特殊環境」「古い Unity バージョン」は参考対応まで、のように整理できます。
+          </p>
+          <p data-lang-block="en">
+            It helps to clearly state out-of-scope cases here as well.
+            For example: compatibility with other tools, heavily customized environments, or very old Unity versions may be support-limited.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="version">
+    <section class="section" id="versions">
       <div class="container">
-        <div class="section-header"><h2>Version / Changelog</h2></div>
-        <article class="card">
-          <ul class="changelog-list">
-            <li class="changelog-item"><strong>Beta</strong> - <span data-lang="ja">開発中</span><span data-lang="en">In Development</span></li>
-          </ul>
-        </article>
+        <div class="section-header">
+          <h2><span data-lang="ja">バージョン情報</span><span data-lang="en">Version Info</span></h2>
+          <p data-lang-block="ja">公開バージョンと更新履歴を確認できるページです。</p>
+          <p data-lang-block="en">This section shows the public version number and release history.</p>
+        </div>
+        <div class="version-grid">
+          <article class="card version-current">
+            <div>
+              <span class="version-badge"><span data-lang="ja">現在の実装バージョン</span><span data-lang="en">Current Version</span></span>
+              <p class="big-version">β</p>
+            </div>
+            <p class="version-note" data-lang-block="ja">
+              公開後は、現在配布中のバージョンをここに掲載します。
+            </p>
+            <p class="version-note" data-lang-block="en">
+              After release, the currently distributed version will be shown here.
+            </p>
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>状態:</strong> 公開後に更新</li>
+              <li data-lang-block="en"><strong>Status:</strong> Updated after release</li>
+              <li data-lang-block="ja"><strong>更新内容:</strong> 新機能追加や修正内容を掲載します</li>
+              <li data-lang-block="en"><strong>Update Notes:</strong> New features and fixes will be listed here</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3><span data-lang="ja">バージョン履歴</span><span data-lang="en">Changelog</span></h3>
+            <ul class="changelog-list">
+              <li class="changelog-item">
+                <div class="changelog-head">
+                  <strong>β</strong>
+                  <span class="changelog-date">YYYY-MM-DD</span>
+                </div>
+                <ul>
+                  <li data-lang-block="ja">現在公開中のベータ版の内容をここに記載予定</li>
+                  <li data-lang-block="en">Details for the current beta release will be listed here</li>
+                  <li data-lang-block="ja">主要機能や対応範囲をこの欄で整理予定</li>
+                  <li data-lang-block="en">Core features and supported scope will be summarized here</li>
+                </ul>
+              </li>
+            </ul>
+              </li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" id="faq">
       <div class="container">
-        <div class="section-header"><h2>FAQ</h2></div>
-        <article class="card">
-          <ul class="bullet-list">
-            <li data-lang-block="ja">Q. このページだけで設定できますか？ A. 概要ページです。手順はDocsをご確認ください。</li>
-            <li data-lang-block="en">Q. Is this page enough for setup? A. It is an overview. See Docs for steps.</li>
-            <li data-lang-block="ja">Q. 何ができますか？ A. 光らせる / 膨らませる をMaterial単位で調整できます。</li>
-            <li data-lang-block="en">Q. What can it do? A. Tune Glow / Inflate per material.</li>
-          </ul>
-        </article>
+        <div class="section-header">
+          <h2><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></h2>
+          <p data-lang-block="ja">利用前によく確認される内容をまとめています。</p>
+          <p data-lang-block="en">This section covers questions that are commonly checked before use.</p>
+        </div>
+        <div class="faq">
+          <article class="faq-item">
+            <h3 data-lang-block="ja">Q. lilToon を直接触るのと何が違うのか</h3>
+            <h3 data-lang-block="en">Q. How is this different from editing lilToon directly?</h3>
+            <p data-lang-block="ja">複数 Renderer 管理、非破壊複製、Preview、将来的な Menu Installer まで含めて、導入と運用の導線をまとめることが目的です。</p>
+            <p data-lang-block="en">The goal is to unify setup and workflow, including multi-renderer management, non-destructive duplication, preview, and future Menu Installer support.</p>
+          </article>
+          <article class="faq-item">
+            <h3 data-lang-block="ja">Q. 初心者でも使えるのか</h3>
+            <h3 data-lang-block="en">Q. Is it suitable for beginners?</h3>
+            <p data-lang-block="ja">「入れるだけで動く」方向を重視していますが、Docs に最低限の導入手順と用語説明を置く前提です。</p>
+            <p data-lang-block="en">It is designed around a “drop in and start” flow, with the expectation that the Docs will provide the minimum setup and terminology guidance.</p>
+          </article>
+          <article class="faq-item">
+            <h3 data-lang-block="ja">Q. 今後のアップデート予定はあるのか</h3>
+            <h3 data-lang-block="en">Q. Are future updates planned?</h3>
+            <p data-lang-block="ja">発光テクスチャ欄の整理、MA Menu Installer 連携、既存設定読み込み、一括編集、プリセットなどを段階的に追加予定です。</p>
+            <p data-lang-block="en">Planned updates include Emission Texture UI refinement, MA Menu Installer integration, existing setup import, bulk editing, and presets.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -147,11 +1135,39 @@
       <div>© AudioLink Reactive</div>
       <div class="footer-links">
         <a href="#top">Top</a>
-        <a href="docs.html">Docs</a>
-        <a href="#contact">Contact</a>
+        <a href="#download"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
+        <a href="docs.html"><span data-lang="ja">使い方</span><span data-lang="en">Docs</span></a>
+        <a href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
+        <a href="#versions"><span data-lang="ja">バージョン</span><span data-lang="en">Versions</span></a>
       </div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const buttons = document.querySelectorAll('[data-set-lang]');
+      const saved = localStorage.getItem('alr-lang');
+      const browserLang = (navigator.language || '').toLowerCase();
+      const initial = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
+
+      function setLang(lang) {
+        html.setAttribute('lang', lang);
+        html.setAttribute('data-current-lang', lang);
+        localStorage.setItem('alr-lang', lang);
+        buttons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      setLang(initial);
+    })();
+  </script>
 </body>
 </html>
