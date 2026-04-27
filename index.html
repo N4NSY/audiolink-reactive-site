@@ -106,8 +106,8 @@
           <a class="page-card" href="download.html">
             <div class="icon">⇩</div>
             <h3>Download</h3>
-            <p data-lang-block="ja">VCC 経由での導入案内、対応環境、更新方法、配布ページへの導線をまとめています。</p>
-            <p data-lang-block="en">Entry point for VCC installation guidance, compatibility notes, update instructions, and distribution links.</p>
+            <p data-lang-block="ja">VCC経由での導入予定、対応環境、パッケージ情報、配布ページへの導線をまとめています。</p>
+            <p data-lang-block="en">Entry point for planned VCC installation, compatibility notes, package information, and distribution links.</p>
             <span class="linkline" data-lang-block="ja">Downloadページへ →</span>
             <span class="linkline" data-lang-block="en">Open Download Page →</span>
           </a>
@@ -137,21 +137,24 @@
       <div class="container">
         <div class="section-header">
           <h2><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></h2>
-          <p data-lang-block="ja">ここでは導入方法、動作確認環境、配布ページへの導線を案内します。</p>
+          <p data-lang-block="ja">導入方法、動作確認環境、配布ページへの導線を案内します。</p>
           <p data-lang-block="en">This section covers installation guidance, tested environment details, and links to the distribution page.</p>
         </div>
 
         <div class="split">
           <article class="card">
-            <h3 data-lang-block="ja">VCC で入れる</h3>
-            <h3 data-lang-block="en">Install via VCC</h3>
+            <h3 data-lang-block="ja">VCCでの導入予定</h3>
+            <h3 data-lang-block="en">Planned VCC Installation</h3>
             <ul class="timeline">
-              <li data-lang-block="ja"><strong>Step 1:</strong> VCC 用の配布ページを開く</li>
-              <li data-lang-block="en"><strong>Step 1:</strong> Open the VCC distribution page</li>
-              <li data-lang-block="ja"><strong>Step 2:</strong> リポジトリを VCC に追加する</li>
-              <li data-lang-block="en"><strong>Step 2:</strong> Add the repository to VCC</li>
+              <li data-lang-block="ja"><strong>Step 1:</strong> Downloadページを開く</li>
+              <li data-lang-block="en"><strong>Step 1:</strong> Open the Download page</li>
+
+              <li data-lang-block="ja"><strong>Step 2:</strong> 配布開始後、VCC用リポジトリを追加する</li>
+              <li data-lang-block="en"><strong>Step 2:</strong> Add the VCC repository after release</li>
+
               <li data-lang-block="ja"><strong>Step 3:</strong> Project に AudioLink Reactive を追加する</li>
               <li data-lang-block="en"><strong>Step 3:</strong> Add AudioLink Reactive to the project</li>
+
               <li data-lang-block="ja"><strong>Step 4:</strong> Unity の Tools メニューから AudioLink Reactive を開く</li>
               <li data-lang-block="en"><strong>Step 4:</strong> Open AudioLink Reactive from the Unity Tools menu</li>
             </ul>
@@ -167,31 +170,37 @@
             <ul class="checklist">
               <li data-lang-block="ja"><strong>Unity:</strong> 2022.3.22f1</li>
               <li data-lang-block="en"><strong>Unity:</strong> 2022.3.22f1</li>
+
               <li data-lang-block="ja"><strong>VRChat SDK:</strong> 3.10.3</li>
               <li data-lang-block="en"><strong>VRChat SDK:</strong> 3.10.3</li>
+
               <li data-lang-block="ja"><strong>Shader:</strong> lilToon 2.3.2</li>
               <li data-lang-block="en"><strong>Shader:</strong> lilToon 2.3.2</li>
+
               <li data-lang-block="ja"><strong>Avatar Setup:</strong> Modular Avatar + NDMF 前提</li>
               <li data-lang-block="en"><strong>Avatar Setup:</strong> Built around Modular Avatar + NDMF</li>
+
+              <li data-lang-block="ja"><strong>Package:</strong> com.n4nsy.audiolink-reactive</li>
+              <li data-lang-block="en"><strong>Package:</strong> com.n4nsy.audiolink-reactive</li>
             </ul>
           </article>
         </div>
 
-       <div class="notice">
-         <strong data-lang-block="ja">補足</strong>
-         <strong data-lang-block="en">Notes</strong>
-         <p data-lang-block="ja">
+        <div class="notice">
+          <strong data-lang-block="ja">補足</strong>
+          <strong data-lang-block="en">Notes</strong>
+          <p data-lang-block="ja">
             導入前に、Unity / VRChat SDK / lilToon / Modular Avatar / NDMF のバージョンをご確認ください。
             不具合報告や問い合わせの際は、使用環境と Console エラーを添えていただくと確認がスムーズです。
             詳しい操作手順は Docs を参照してください。
-         </p>
-         <p data-lang-block="en">
-          Before installation, please check your Unity, VRChat SDK, lilToon, Modular Avatar, and NDMF versions.
-          When reporting issues, including your environment and Console errors will make troubleshooting easier.
-          See Docs for detailed usage instructions.
-        </p>
+          </p>
+          <p data-lang-block="en">
+            Before installation, please check your Unity, VRChat SDK, lilToon, Modular Avatar, and NDMF versions.
+            When reporting issues, including your environment and Console errors will make troubleshooting easier.
+            See Docs for detailed usage instructions.
+          </p>
+        </div>
       </div>
-      
     </section>
 
     <section class="section" id="docs">
@@ -209,10 +218,13 @@
             <ul class="feature-list">
               <li data-lang-block="ja"><strong>1.</strong> Unity の Tools メニューから AudioLink Reactive を開く</li>
               <li data-lang-block="en"><strong>1.</strong> Open AudioLink Reactive from the Unity Tools menu</li>
+
               <li data-lang-block="ja"><strong>2.</strong> Avatar 欄に対象アバターを指定する</li>
               <li data-lang-block="en"><strong>2.</strong> Assign the target avatar in the Avatar field</li>
+
               <li data-lang-block="ja"><strong>3.</strong> レンダラー一覧から対象Rendererを追加する</li>
               <li data-lang-block="en"><strong>3.</strong> Add target renderers from the Renderer list</li>
+
               <li data-lang-block="ja"><strong>4.</strong> Materialごとに「光らせる」「膨らませる」を調整する</li>
               <li data-lang-block="en"><strong>4.</strong> Adjust Glow or Inflate settings per material</li>
             </ul>
@@ -227,16 +239,19 @@
                 <p data-lang-block="ja">音に合わせて発光色や発光テクスチャを変化させます。</p>
                 <p data-lang-block="en">Changes emission color and texture behavior based on audio.</p>
               </div>
+
               <div class="mini-card">
                 <strong><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></strong>
                 <p data-lang-block="ja">音に合わせてメッシュを膨らませるように動かします。</p>
                 <p data-lang-block="en">Moves the mesh as if it inflates in response to audio.</p>
               </div>
+
               <div class="mini-card">
                 <strong>Preview</strong>
                 <p data-lang-block="ja">Unity Editor上で見た目を確認しながら調整できます。</p>
                 <p data-lang-block="en">Preview the effect directly in the Unity Editor while adjusting values.</p>
               </div>
+
               <div class="mini-card">
                 <strong><span data-lang="ja">設定保存</span><span data-lang="en">Profiles</span></strong>
                 <p data-lang-block="ja">Material単位で設定を書き出し、別Materialへ読み込めます。</p>
@@ -253,8 +268,10 @@
             <ul class="checklist">
               <li data-lang-block="ja"><strong>目的ベース:</strong> 「光らせる」「膨らませる」から選んで調整できます</li>
               <li data-lang-block="en"><strong>Goal-based UI:</strong> Choose Glow or Inflate instead of searching through shader fields</li>
+
               <li data-lang-block="ja"><strong>Renderer一覧:</strong> Avatar配下の対象を一覧から選べます</li>
               <li data-lang-block="en"><strong>Renderer list:</strong> Select targets from renderers under the Avatar</li>
+
               <li data-lang-block="ja"><strong>Material単位:</strong> どのMaterialを編集しているか確認しながら設定できます</li>
               <li data-lang-block="en"><strong>Per-material:</strong> Configure settings while checking which material is being edited</li>
             </ul>
@@ -266,8 +283,10 @@
             <ul class="checklist">
               <li data-lang-block="ja"><strong>導入手順:</strong> 初回セットアップの流れを確認できます</li>
               <li data-lang-block="en"><strong>Setup:</strong> Check the first-time setup flow</li>
+
               <li data-lang-block="ja"><strong>各項目の意味:</strong> 反応音域、発光色、プレビュー量などを確認できます</li>
-              <li data-lang-block="en"><strong>Fields:</strong> Learn what band, emission color, preview amount, and other fields mean</li>
+              <li data-lang-block="en"><strong>Fields:</strong> Learn what reaction band, emission color, preview amount, and other fields mean</li>
+
               <li data-lang-block="ja"><strong>トラブルシュート:</strong> 表示や動作がおかしい時の確認項目を掲載します</li>
               <li data-lang-block="en"><strong>Troubleshooting:</strong> Check common points when display or behavior looks wrong</li>
             </ul>
@@ -294,8 +313,10 @@
             <ul class="contact-list">
               <li data-lang-block="ja"><strong>X / DM:</strong> <a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">@_N4NSY_</a> のプロフィールから連絡できます</li>
               <li data-lang-block="en"><strong>X / DM:</strong> Contact via the <a href="https://x.com/_N4NSY_" target="_blank" rel="noopener noreferrer">@_N4NSY_</a> profile</li>
+
               <li data-lang-block="ja"><strong>Booth Message:</strong> <a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">n4nsy.booth.pm</a> のショップページから確認できます</li>
               <li data-lang-block="en"><strong>Booth Message:</strong> Available from the <a href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer">n4nsy.booth.pm</a> shop page</li>
+
               <li data-lang-block="ja"><strong>Discord:</strong> ID は <strong>_N4NSY_</strong> です</li>
               <li data-lang-block="en"><strong>Discord:</strong> The ID is <strong>_N4NSY_</strong></li>
             </ul>
@@ -307,10 +328,13 @@
             <ul class="checklist">
               <li data-lang-block="ja"><strong>Unity バージョン</strong> を控える</li>
               <li data-lang-block="en"><strong>Unity version:</strong> Note it down first</li>
+
               <li data-lang-block="ja"><strong>lilToon / Modular Avatar / NDMF のバージョン</strong> を確認する</li>
               <li data-lang-block="en"><strong>lilToon / Modular Avatar / NDMF versions:</strong> Check them in advance</li>
+
               <li data-lang-block="ja"><strong>何をした時に起きたか</strong> を簡単にまとめる</li>
               <li data-lang-block="en"><strong>What happened and when:</strong> Summarize it briefly</li>
+
               <li data-lang-block="ja"><strong>Console のエラー</strong> があれば添える</li>
               <li data-lang-block="en"><strong>Console errors:</strong> Include them if available</li>
             </ul>
@@ -336,48 +360,173 @@
       <div class="container">
         <div class="section-header">
           <h2><span data-lang="ja">バージョン情報</span><span data-lang="en">Version Info</span></h2>
-          <p data-lang-block="ja">公開バージョンと更新履歴を確認できるページです。</p>
-          <p data-lang-block="en">This section shows the public version number and release history.</p>
+          <p data-lang-block="ja">公開バージョンと更新履歴を確認できます。</p>
+          <p data-lang-block="en">Check the public version and release history.</p>
         </div>
 
         <div class="version-grid">
           <article class="card version-current">
             <div>
-              <span class="version-badge"><span data-lang="ja">現在の公開予定バージョン</span><span data-lang="en">Planned Release Version</span></span>
+              <span class="version-badge">
+                <span data-lang="ja">現在の公開予定バージョン</span>
+                <span data-lang="en">Planned Release Version</span>
+              </span>
               <p class="big-version">v1.0.0</p>
             </div>
             <p class="version-note" data-lang-block="ja">
-              初回公開版です。専用WindowによるAvatar指定、Renderer一覧、Material単位設定、光らせる / 膨らませる、Preview、設定書き出し / 読み込みを中心に提供します。
+              初回公開版です。専用WindowによるAvatar指定、Renderer一覧、Material単位設定、
+              光らせる / 膨らませる、Preview、設定の書き出し / 読み込みを中心に提供します。
             </p>
             <p class="version-note" data-lang-block="en">
-              Initial release. It focuses on Avatar selection through the dedicated window, Renderer list workflow, per-material settings, Glow / Inflate, Preview, and setting export / import.
+              Initial public release. It focuses on Avatar selection through the dedicated window,
+              Renderer list workflow, per-material settings, Glow / Inflate, Preview, and setting export / import.
             </p>
           </article>
 
           <article class="card">
             <h3 data-lang-block="ja">更新履歴</h3>
             <h3 data-lang-block="en">Changelog</h3>
+
             <ul class="changelog-list">
               <li class="changelog-item">
                 <div class="changelog-head">
                   <strong>v1.0.0</strong>
-                  <span class="changelog-date">2026/5/1</span>
+                  <span class="changelog-date">
+                    <span data-lang="ja">2026年5月1日</span>
+                    <span data-lang="en">May 1, 2026</span>
+                  </span>
                 </div>
                 <ul data-lang-block="ja">
                   <li>AudioLink Reactive 初回公開版</li>
                   <li>専用WindowからAvatarを指定してセットアップできる機能を追加</li>
                   <li>Avatar配下のRenderer一覧表示と対象追加に対応</li>
                   <li>Material単位で「光らせる」「膨らませる」を設定可能</li>
-                  <li>Preview機能とプレビュー量の調整に対応</li>
+                  <li>Editor上で反応を確認できるPreview機能を追加</li>
                   <li>Material単位の設定書き出し / 読み込みに対応</li>
                 </ul>
                 <ul data-lang-block="en">
                   <li>Initial public release of AudioLink Reactive</li>
                   <li>Added Avatar setup through the dedicated window</li>
-                  <li>Added Renderer list display and target registration</li>
+                  <li>Added Renderer list display and target registration under the Avatar</li>
                   <li>Added per-material Glow and Inflate settings</li>
-                  <li>Added Preview and preview amount controls</li>
+                  <li>Added Preview for checking reactions in the Unity Editor</li>
                   <li>Added per-material setting export and import</li>
+                </ul>
+              </li>
+
+              <li class="changelog-item">
+                <div class="changelog-head">
+                  <strong>v0.5.0</strong>
+                  <span class="changelog-date">
+                    <span data-lang="ja">開発版</span>
+                    <span data-lang="en">Development</span>
+                  </span>
+                </div>
+                <ul data-lang-block="ja">
+                  <li>専用EditorWindow中心の操作へ移行</li>
+                  <li>Avatar欄指定による自動セットアップを追加</li>
+                  <li>レンダラー一覧から対象Rendererを選択・追加できるUIを追加</li>
+                  <li>Hierarchy選択とレンダラー一覧の連動表示を追加</li>
+                  <li>ToolsメニューからAudioLink Reactiveを開けるように変更</li>
+                </ul>
+                <ul data-lang-block="en">
+                  <li>Moved the workflow to a dedicated EditorWindow</li>
+                  <li>Added automatic setup from the Avatar field</li>
+                  <li>Added a UI for selecting and adding target renderers from the Renderer list</li>
+                  <li>Added linked selection display between the Hierarchy and Renderer list</li>
+                  <li>Changed the entry point to open AudioLink Reactive from the Tools menu</li>
+                </ul>
+              </li>
+
+              <li class="changelog-item">
+                <div class="changelog-head">
+                  <strong>v0.4.0</strong>
+                  <span class="changelog-date">
+                    <span data-lang="ja">開発版</span>
+                    <span data-lang="en">Development</span>
+                  </span>
+                </div>
+                <ul data-lang-block="ja">
+                  <li>Material単位の設定管理を整理</li>
+                  <li>対象Materialカードの表示を「Renderer名 / Material名」形式に変更</li>
+                  <li>内部識別用の_ALReactive_Slot表記をUI上から非表示化</li>
+                  <li>設定の書き出し / 読み込みをMaterial単位で扱う方針に変更</li>
+                  <li>カード内の重複表示を削減し、UIを簡略化</li>
+                </ul>
+                <ul data-lang-block="en">
+                  <li>Improved per-material setting management</li>
+                  <li>Changed target material card titles to the “Renderer name / Material name” format</li>
+                  <li>Hidden internal _ALReactive_Slot suffixes from the UI</li>
+                  <li>Changed export / import behavior to work per material</li>
+                  <li>Reduced duplicated information inside material cards</li>
+                </ul>
+              </li>
+
+              <li class="changelog-item">
+                <div class="changelog-head">
+                  <strong>v0.3.0</strong>
+                  <span class="changelog-date">
+                    <span data-lang="ja">開発版</span>
+                    <span data-lang="en">Development</span>
+                  </span>
+                </div>
+                <ul data-lang-block="ja">
+                  <li>「発光テクスチャ」「頂点」中心のUIを整理</li>
+                  <li>UI表記を「光らせる」「膨らませる」の目的ベースに変更</li>
+                  <li>「帯域」を「反応音域」に変更</li>
+                  <li>発光設定内の不要なマスク詳細表示を削減</li>
+                  <li>点滅、グラデーション、視差、蛍光などを詳細設定として整理</li>
+                </ul>
+                <ul data-lang-block="en">
+                  <li>Refined the UI around Emission Texture and Vertex features</li>
+                  <li>Changed UI wording to goal-based labels: Glow and Inflate</li>
+                  <li>Renamed Band to Reaction Band</li>
+                  <li>Reduced unnecessary mask-related details in glow settings</li>
+                  <li>Organized blink, gradient, parallax, and fluorescence as advanced settings</li>
+                </ul>
+              </li>
+
+              <li class="changelog-item">
+                <div class="changelog-head">
+                  <strong>v0.2.0</strong>
+                  <span class="changelog-date">
+                    <span data-lang="ja">開発版</span>
+                    <span data-lang="en">Development</span>
+                  </span>
+                </div>
+                <ul data-lang-block="ja">
+                  <li>Preview機能を追加</li>
+                  <li>プレビュー量による反応確認に対応</li>
+                  <li>Play Mode復帰後の表示更新に対応するため、更新操作を追加</li>
+                  <li>発光側と頂点側でPreview挙動を揃える方針に変更</li>
+                </ul>
+                <ul data-lang-block="en">
+                  <li>Added Preview functionality</li>
+                  <li>Added Preview Amount for checking reactions</li>
+                  <li>Added refresh behavior for window state after returning from Play Mode</li>
+                  <li>Aligned Preview behavior between Glow and Inflate workflows</li>
+                </ul>
+              </li>
+
+              <li class="changelog-item">
+                <div class="changelog-head">
+                  <strong>v0.1.0</strong>
+                  <span class="changelog-date">
+                    <span data-lang="ja">開発版</span>
+                    <span data-lang="en">Development</span>
+                  </span>
+                </div>
+                <ul data-lang-block="ja">
+                  <li>AudioLink Reactive の初期開発版</li>
+                  <li>lilToonのAudioLink設定を扱う基本構想を作成</li>
+                  <li>Renderer / Materialを対象にした非破壊的な設定管理を検討開始</li>
+                  <li>発光と頂点リアクティブを中心とした基本機能の実装を開始</li>
+                </ul>
+                <ul data-lang-block="en">
+                  <li>Initial development version of AudioLink Reactive</li>
+                  <li>Created the basic concept for managing lilToon AudioLink settings</li>
+                  <li>Started designing non-destructive setting management for Renderer / Material targets</li>
+                  <li>Started implementing core features around glow and vertex reactive behavior</li>
                 </ul>
               </li>
             </ul>
