@@ -11,17 +11,20 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top">
+      <a class="brand" href="index.html">
         <span class="brand-mark">A</span>
         <span>AudioLink Reactive</span>
       </a>
       <nav class="nav-links">
         <a href="#getting-started"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a>
-        <a href="#emission"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></a>
-        <a href="#vertex"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></a>
-        <a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a>
-        <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
-        <button class="lang-btn" type="button" data-set-lang="en">English</button>
+        <a href="#renderer"><span data-lang="ja">レンダラー一覧</span><span data-lang="en">Renderer List</span></a>
+        <a href="#material"><span data-lang="ja">マテリアル設定</span><span data-lang="en">Material Settings</span></a>
+        <a href="#preview"><span data-lang="ja">Preview</span><span data-lang="en">Preview</span></a>
+        <a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a>
+        <div class="lang-switch">
+          <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
+          <button class="lang-btn" type="button" data-set-lang="en">English</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -33,29 +36,37 @@
           <span class="eyebrow">Documentation</span>
           <h1>AudioLink Reactive</h1>
           <p class="lead" data-lang-block="ja">
-            このページは AudioLink Reactive の説明書ページです。導入の流れ、基本的な使い方、発光テクスチャと頂点の設定の考え方、よくある確認ポイントをまとめています。
+            このページは AudioLink Reactive の使い方をまとめた説明書です。
+            専用Windowの開き方、Avatar指定、Renderer一覧、Materialごとの設定、Preview、設定の書き出し / 読み込みについて説明します。
           </p>
           <p class="lead" data-lang-block="en">
-            This page is the documentation page for AudioLink Reactive. It covers the setup flow, basic usage, how to think about Emission Texture and Vertex settings, and common checkpoints.
+            This page explains how to use AudioLink Reactive.
+            It covers the dedicated window, Avatar selection, Renderer list, per-material settings, Preview, and setting export / import.
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#getting-started"><span data-lang="ja">まず読む</span><span data-lang="en">Start Here</span></a>
-            <a class="btn secondary" href="#emission"><span data-lang="ja">発光テクスチャを見る</span><span data-lang="en">See Emission Texture</span></a>
+            <a class="btn secondary" href="index.html"><span data-lang="ja">トップへ戻る</span><span data-lang="en">Back to Portal</span></a>
           </div>
         </div>
+
         <div class="side-stack">
           <div class="side-card">
-            <small data-lang-block="ja">動作確認環境</small>
-            <small data-lang-block="en">Tested Environment</small>
-            <strong>Unity 2022.3.22f1</strong>
-            <strong>VRChat SDK 3.10.3</strong>
-            <strong>lilToon 2.3.2</strong>
+            <small data-lang-block="ja">基本操作</small>
+            <small data-lang-block="en">Basic Workflow</small>
+            <strong data-lang-block="ja">Toolsメニューから専用Windowを開く</strong>
+            <strong data-lang-block="en">Open the dedicated window from the Tools menu</strong>
           </div>
           <div class="side-card">
-            <small data-lang-block="ja">前提</small>
-            <small data-lang-block="en">Prerequisites</small>
-            <strong data-lang-block="ja">lilToon / Modular Avatar / NDMF 前提</strong>
-            <strong data-lang-block="en">Built around lilToon / Modular Avatar / NDMF</strong>
+            <small data-lang-block="ja">主な設定単位</small>
+            <small data-lang-block="en">Main Editing Unit</small>
+            <strong data-lang-block="ja">Renderer / Material 単位で設定</strong>
+            <strong data-lang-block="en">Configure by Renderer / Material</strong>
+          </div>
+          <div class="side-card">
+            <small data-lang-block="ja">対応する反応</small>
+            <small data-lang-block="en">Supported Reactions</small>
+            <strong data-lang-block="ja">光らせる / 膨らませる</strong>
+            <strong data-lang-block="en">Glow / Inflate</strong>
           </div>
         </div>
       </div>
@@ -69,10 +80,14 @@
             <ul class="toc-list">
               <li><a href="#getting-started"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a></li>
               <li><a href="#basic-flow"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></a></li>
-              <li><a href="#emission"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></a></li>
-              <li><a href="#vertex"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></a></li>
+              <li><a href="#window"><span data-lang="ja">Windowの見方</span><span data-lang="en">Window Overview</span></a></li>
+              <li><a href="#renderer"><span data-lang="ja">レンダラー一覧</span><span data-lang="en">Renderer List</span></a></li>
+              <li><a href="#material"><span data-lang="ja">マテリアル設定</span><span data-lang="en">Material Settings</span></a></li>
+              <li><a href="#glow"><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></a></li>
+              <li><a href="#inflate"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></a></li>
               <li><a href="#preview"><span data-lang="ja">Preview</span><span data-lang="en">Preview</span></a></li>
-              <li><a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a></li>
+              <li><a href="#profile"><span data-lang="ja">設定保存</span><span data-lang="en">Profiles</span></a></li>
+              <li><a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a></li>
             </ul>
           </div>
         </aside>
@@ -81,24 +96,26 @@
           <section class="card" id="getting-started">
             <h2 class="section-title"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></h2>
             <p class="section-lead" data-lang-block="ja">
-              AudioLink Reactive は、lilToon の AudioLink 設定をまとめて扱いやすくするための Unity ツールです。まずは Controller を追加し、対象の Renderer をドラッグ＆ドロップして、必要な項目だけ有効にする流れになります。
+              AudioLink Reactive は、lilToon の AudioLink 表現を専用Windowから扱いやすくするための Unity Editor ツールです。
+              まずは Unity の Tools メニューからWindowを開き、Avatar欄に対象アバターを指定します。
             </p>
             <p class="section-lead" data-lang-block="en">
-              AudioLink Reactive is a Unity tool designed to make lilToon AudioLink settings easier to manage in one place. The basic flow is: add the Controller, drag and drop target renderers, then enable only the features you need.
+              AudioLink Reactive is a Unity Editor tool that makes lilToon AudioLink expressions easier to manage from a dedicated window.
+              Start by opening the window from the Unity Tools menu and assigning your target Avatar.
             </p>
 
             <div class="grid-2">
               <div class="mini">
                 <strong data-lang-block="ja">このツールでできること</strong>
                 <strong data-lang-block="en">What this tool does</strong>
-                <p data-lang-block="ja">複数 Renderer 管理、非破壊マテリアル複製、Preview、発光テクスチャ、頂点リアクティブを1つの流れで扱えます。</p>
-                <p data-lang-block="en">It lets you handle multi-renderer management, non-destructive material duplication, preview, emission texture, and vertex reactive features within one workflow.</p>
+                <p data-lang-block="ja">Avatar配下のRendererを一覧から選び、Material単位で「光らせる」「膨らませる」を設定できます。</p>
+                <p data-lang-block="en">Select renderers under an Avatar and configure Glow or Inflate behavior per material.</p>
               </div>
               <div class="mini">
                 <strong data-lang-block="ja">向いている人</strong>
                 <strong data-lang-block="en">Who it is for</strong>
-                <p data-lang-block="ja">lilToon を直接細かく触る前に、まず AudioLink リアクティブを導入しやすくしたい人に向いています。</p>
-                <p data-lang-block="en">It is suited for users who want an easier entry point into AudioLink reactive setups before working directly with every lilToon field.</p>
+                <p data-lang-block="ja">lilToonのAudioLink項目を直接探す前に、目的ベースでAudioLink表現を作りたい人向けです。</p>
+                <p data-lang-block="en">It is for users who want a goal-based way to set up AudioLink effects before editing lilToon fields directly.</p>
               </div>
             </div>
           </section>
@@ -106,136 +123,257 @@
           <section class="card" id="basic-flow">
             <h2 class="section-title"><span data-lang="ja">基本の流れ</span><span data-lang="en">Basic Flow</span></h2>
             <p class="section-lead" data-lang-block="ja">最初は次の順番で進めると分かりやすいです。</p>
-            <p class="section-lead" data-lang-block="en">This order is the easiest way to get started.</p>
+            <p class="section-lead" data-lang-block="en">This is the recommended order when using the tool for the first time.</p>
+
             <ol class="steps">
-              <li data-lang-block="ja"><strong>1.</strong> AudioLink Reactive Controller を追加する</li>
-              <li data-lang-block="en"><strong>1.</strong> Add AudioLink Reactive Controller</li>
-              <li data-lang-block="ja"><strong>2.</strong> Hierarchy から対象のオブジェクトをドラッグ＆ドロップする</li>
-              <li data-lang-block="en"><strong>2.</strong> Drag and drop the target object from the Hierarchy</li>
-              <li data-lang-block="ja"><strong>3.</strong> 一覧に出たマテリアルごとに、発光テクスチャや頂点を有効にする</li>
-              <li data-lang-block="en"><strong>3.</strong> Enable Emission Texture or Vertex for each listed material</li>
-              <li data-lang-block="ja"><strong>4.</strong> Preview を見ながら強さや色を調整する</li>
-              <li data-lang-block="en"><strong>4.</strong> Adjust strength and color while checking the Preview</li>
+              <li data-lang-block="ja"><strong>1.</strong> Unity上部メニューから <strong>Tools / N4NSY / AudioLink Reactive</strong> を開く</li>
+              <li data-lang-block="en"><strong>1.</strong> Open <strong>Tools / N4NSY / AudioLink Reactive</strong> from the Unity menu</li>
+
+              <li data-lang-block="ja"><strong>2.</strong> <strong>Avatar</strong> 欄に対象アバターを指定する</li>
+              <li data-lang-block="en"><strong>2.</strong> Assign your target avatar to the <strong>Avatar</strong> field</li>
+
+              <li data-lang-block="ja"><strong>3.</strong> レンダラー一覧から対象Rendererを選び、ALR対象に追加する</li>
+              <li data-lang-block="en"><strong>3.</strong> Select target renderers from the Renderer list and add them to ALR</li>
+
+              <li data-lang-block="ja"><strong>4.</strong> 対象Materialごとに「光らせる」「膨らませる」を設定する</li>
+              <li data-lang-block="en"><strong>4.</strong> Configure Glow or Inflate for each target material</li>
+
+              <li data-lang-block="ja"><strong>5.</strong> Previewで見た目を確認しながら調整する</li>
+              <li data-lang-block="en"><strong>5.</strong> Adjust values while checking the result with Preview</li>
             </ol>
 
             <div class="tip ok">
               <strong data-lang-block="ja">ポイント</strong>
               <strong data-lang-block="en">Tip</strong>
-              <p data-lang-block="ja">最初は 1つの Renderer、1つのマテリアルだけで試すと挙動を把握しやすいです。</p>
-              <p data-lang-block="en">Start with one renderer and one material first. It makes the behavior much easier to understand.</p>
+              <p data-lang-block="ja">最初は1つのRenderer、1つのMaterialだけで試すと、光り方や膨らみ方を確認しやすいです。</p>
+              <p data-lang-block="en">Start with one renderer and one material first. It makes Glow and Inflate behavior easier to understand.</p>
             </div>
           </section>
 
-          <section class="card" id="emission">
-            <h2 class="section-title"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></h2>
+          <section class="card" id="window">
+            <h2 class="section-title"><span data-lang="ja">Windowの見方</span><span data-lang="en">Window Overview</span></h2>
             <p class="section-lead" data-lang-block="ja">
-              発光テクスチャでは、音に反応して光る模様や色を設定します。基本は「どの音に反応するか」「どんな模様で光るか」「どんな色で光るか」を決めるイメージです。
+              ALRは専用Windowで設定します。Avatar、Preview、Renderer一覧、対象Materialの順に確認していくと分かりやすいです。
             </p>
             <p class="section-lead" data-lang-block="en">
-              Emission Texture controls the glow pattern and color that react to audio. The main idea is deciding which band reacts, what pattern glows, and what color it glows with.
+              ALR is configured from a dedicated window. Check Avatar, Preview, Renderer list, and target materials in that order.
             </p>
 
             <ul class="field-list">
-              <li data-lang-block="ja"><strong>帯域:</strong> どの音域に反応させるかを決めます。</li>
-              <li data-lang-block="en"><strong>Band:</strong> Chooses which audio band drives the effect.</li>
-              <li data-lang-block="ja"><strong>色 / マスク:</strong> 光る模様の元になるテクスチャです。</li>
-              <li data-lang-block="en"><strong>Color / Mask:</strong> Texture used as the glowing pattern source.</li>
-              <li data-lang-block="ja"><strong>発光色:</strong> 光る色の基準です。</li>
-              <li data-lang-block="en"><strong>Emission Color:</strong> The base color of the glow.</li>
-              <li data-lang-block="ja"><strong>合成モード:</strong> 光り方の重ね方です。通常は加算を基準に考えると分かりやすいです。</li>
-              <li data-lang-block="en"><strong>Blend Mode:</strong> Controls how the glow is combined. Add is usually the easiest starting point.</li>
-              <li data-lang-block="ja"><strong>点滅の強さ:</strong> 発光の明滅感を足したい時に使います。</li>
-              <li data-lang-block="en"><strong>Blink Strength:</strong> Adds blinking intensity to the glow.</li>
+              <li data-lang-block="ja"><strong>Avatar:</strong> 対象アバターを指定します。指定すると必要なALR設定が自動で準備されます。</li>
+              <li data-lang-block="en"><strong>Avatar:</strong> Assign the target avatar. Required ALR setup is prepared automatically.</li>
+
+              <li data-lang-block="ja"><strong>更新:</strong> Window表示が古くなった時やPlay Mode復帰後に、Avatar情報を再取得します。</li>
+              <li data-lang-block="en"><strong>Refresh:</strong> Rebinds Avatar information when the window display becomes outdated or after returning from Play Mode.</li>
+
+              <li data-lang-block="ja"><strong>プレビュー:</strong> Editor上で反応の見た目を確認するための項目です。</li>
+              <li data-lang-block="en"><strong>Preview:</strong> Used to check the effect directly in the Unity Editor.</li>
+
+              <li data-lang-block="ja"><strong>レンダラー一覧:</strong> Avatar配下のRenderer付きGameObjectを一覧表示します。</li>
+              <li data-lang-block="en"><strong>Renderer List:</strong> Shows GameObjects with renderers under the Avatar.</li>
+
+              <li data-lang-block="ja"><strong>対象Material:</strong> 追加したRendererのMaterialごとに設定を行います。</li>
+              <li data-lang-block="en"><strong>Target Materials:</strong> Configure each material from the renderers you added.</li>
             </ul>
-
-            <div class="grid-2">
-              <div class="mini">
-                <strong data-lang-block="ja">最初のおすすめ</strong>
-                <strong data-lang-block="en">Recommended first setup</strong>
-                <p data-lang-block="ja">まずは 帯域 / 色・マスク / 発光色 / 合成モード だけで組むと分かりやすいです。</p>
-                <p data-lang-block="en">Start with just Band, Color/Mask, Emission Color, and Blend Mode.</p>
-              </div>
-              <div class="mini">
-                <strong data-lang-block="ja">詳細設定</strong>
-                <strong data-lang-block="en">Advanced details</strong>
-                <p data-lang-block="ja">Tiling、Offset、角度、スクロールなどは、模様の見え方を詰めたい時に触ります。</p>
-                <p data-lang-block="en">Use Tiling, Offset, Angle, and Scroll when you want to fine-tune how the pattern looks.</p>
-              </div>
-            </div>
-
-            <div class="tip warn">
-              <strong data-lang-block="ja">注意</strong>
-              <strong data-lang-block="en">Note</strong>
-              <p data-lang-block="ja">最初から全部の項目を触るより、少ない項目で見た目を決めてから詳細に入る方が調整しやすいです。</p>
-              <p data-lang-block="en">It is usually easier to decide the overall look with a few key fields first, then move into advanced settings afterward.</p>
-            </div>
           </section>
 
-          <section class="card" id="vertex">
-            <h2 class="section-title"><span data-lang="ja">頂点の動き</span><span data-lang="en">Vertex</span></h2>
+          <section class="card" id="renderer">
+            <h2 class="section-title"><span data-lang="ja">レンダラー一覧</span><span data-lang="en">Renderer List</span></h2>
             <p class="section-lead" data-lang-block="ja">
-              頂点では、音に反応してメッシュがふくらむ動きを設定します。まずは「ふくらみの強さ」だけを見るのがおすすめです。
+              レンダラー一覧では、Avatar配下のRenderer付きGameObjectを確認し、ALRで編集したい対象を追加できます。
             </p>
             <p class="section-lead" data-lang-block="en">
-              Vertex settings control mesh inflation driven by audio. As a starting point, it is best to focus only on the inflation strength.
+              The Renderer list shows GameObjects with renderers under the Avatar and lets you add the targets you want to edit with ALR.
             </p>
 
             <ul class="field-list">
-              <li data-lang-block="ja"><strong>音域:</strong> どの帯域で動かすかを決めます。</li>
-              <li data-lang-block="en"><strong>Band:</strong> Chooses which audio band drives the motion.</li>
-              <li data-lang-block="ja"><strong>ふくらみの強さ:</strong> どれだけ膨らませるかの主な項目です。</li>
-              <li data-lang-block="en"><strong>Inflation Strength:</strong> Main field controlling how much the mesh inflates.</li>
-              <li data-lang-block="ja"><strong>サイズ自動補正:</strong> オブジェクトサイズに応じて強さを補正します。</li>
-              <li data-lang-block="en"><strong>Auto Size Correction:</strong> Adjusts strength based on object size.</li>
+              <li data-lang-block="ja"><strong>表示名:</strong> Rendererコンポーネントが付いているGameObject名で表示されます。</li>
+              <li data-lang-block="en"><strong>Display name:</strong> Uses the name of the GameObject that has the Renderer component.</li>
+
+              <li data-lang-block="ja"><strong>追加:</strong> 選択したRendererをALR対象に追加します。</li>
+              <li data-lang-block="en"><strong>Add:</strong> Adds the selected renderer to ALR targets.</li>
+
+              <li data-lang-block="ja"><strong>Hierarchy連動:</strong> 一覧の名前をクリックすると、Hierarchy上の該当GameObjectを選択できます。</li>
+              <li data-lang-block="en"><strong>Hierarchy link:</strong> Clicking a name in the list selects the matching GameObject in the Hierarchy.</li>
+
+              <li data-lang-block="ja"><strong>選択中表示:</strong> Hierarchyで選択中のRendererは、一覧側でも分かりやすく表示されます。</li>
+              <li data-lang-block="en"><strong>Selection highlight:</strong> A renderer selected in the Hierarchy is also highlighted in the Renderer list.</li>
             </ul>
 
             <div class="tip ok">
               <strong data-lang-block="ja">ポイント</strong>
               <strong data-lang-block="en">Tip</strong>
-              <p data-lang-block="ja">慣れるまでは moveDirection などの細かい値は触らず、基本項目だけで見た目を決める方が分かりやすいです。</p>
-              <p data-lang-block="en">Until you get used to it, it is easier to ignore detailed values like moveDirection and build the look with only the main fields.</p>
+              <p data-lang-block="ja">対象を増やしすぎる前に、まずは服や髪など分かりやすいRendererから1つずつ追加するのがおすすめです。</p>
+              <p data-lang-block="en">Before adding many targets, start with easy-to-recognize renderers such as clothes or hair.</p>
+            </div>
+          </section>
+
+          <section class="card" id="material">
+            <h2 class="section-title"><span data-lang="ja">マテリアル設定</span><span data-lang="en">Material Settings</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              追加したRendererのMaterialはカード形式で表示されます。カード見出しには「Renderer名 / Material名」が表示されます。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              Materials from added renderers are displayed as cards. The card title uses the format “Renderer name / Material name.”
+            </p>
+
+            <div class="grid-2">
+              <div class="mini">
+                <strong data-lang-block="ja">カード見出し</strong>
+                <strong data-lang-block="en">Card title</strong>
+                <p data-lang-block="ja">どのRendererのどのMaterialを編集しているかを確認できます。</p>
+                <p data-lang-block="en">Shows which renderer and material you are editing.</p>
+              </div>
+              <div class="mini">
+                <strong data-lang-block="ja">反応の仕方</strong>
+                <strong data-lang-block="en">Reaction type</strong>
+                <p data-lang-block="ja">「光らせる」「膨らませる」から、使いたい反応を選びます。</p>
+                <p data-lang-block="en">Choose the reaction you want to use: Glow or Inflate.</p>
+              </div>
+            </div>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>光らせる:</strong> 音に合わせて発光を変化させます。</li>
+              <li data-lang-block="en"><strong>Glow:</strong> Changes emission based on audio.</li>
+
+              <li data-lang-block="ja"><strong>膨らませる:</strong> 音に合わせてメッシュを膨らませるように動かします。</li>
+              <li data-lang-block="en"><strong>Inflate:</strong> Moves the mesh as if it inflates in response to audio.</li>
+
+              <li data-lang-block="ja"><strong>詳細設定:</strong> 慣れてきたら、点滅、グラデーション、視差、蛍光なども調整できます。</li>
+              <li data-lang-block="en"><strong>Advanced settings:</strong> Once you are used to the basics, adjust blink, gradient, parallax, fluorescence, and other details.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="glow">
+            <h2 class="section-title"><span data-lang="ja">光らせる</span><span data-lang="en">Glow</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              「光らせる」では、音に合わせてMaterialの発光を変化させます。最初は反応音域、発光色、色 / マスク、不透明度から触ると分かりやすいです。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              Glow changes material emission in response to audio. Start with reaction band, emission color, color / mask, and opacity.
+            </p>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>反応音域:</strong> どの音域に反応させるかを決めます。</li>
+              <li data-lang-block="en"><strong>Reaction Band:</strong> Chooses which audio band drives the effect.</li>
+
+              <li data-lang-block="ja"><strong>発光色:</strong> 光る色の基準です。</li>
+              <li data-lang-block="en"><strong>Emission Color:</strong> The base color of the glow.</li>
+
+              <li data-lang-block="ja"><strong>色 / マスク:</strong> 光らせる範囲や模様の元になるテクスチャです。</li>
+              <li data-lang-block="en"><strong>Color / Mask:</strong> Texture used for the glowing area or pattern.</li>
+
+              <li data-lang-block="ja"><strong>不透明度:</strong> 発光の見え方の強さを調整します。</li>
+              <li data-lang-block="en"><strong>Opacity:</strong> Adjusts how strongly the glow appears.</li>
+
+              <li data-lang-block="ja"><strong>詳細設定:</strong> 点滅の強さ、グラデーション、視差の強さ、蛍光などを調整できます。</li>
+              <li data-lang-block="en"><strong>Advanced settings:</strong> Adjust blink strength, gradient, parallax strength, fluorescence, and more.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="inflate">
+            <h2 class="section-title"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              「膨らませる」では、音に合わせてメッシュを膨らませるように動かします。最初は反応音域とふくらみの強さだけで十分です。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              Inflate moves the mesh as if it expands in response to audio. Start with reaction band and inflation strength.
+            </p>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>反応音域:</strong> どの音域で動かすかを決めます。</li>
+              <li data-lang-block="en"><strong>Reaction Band:</strong> Chooses which audio band drives the motion.</li>
+
+              <li data-lang-block="ja"><strong>ふくらみの強さ:</strong> どれだけ膨らませるかを調整します。</li>
+              <li data-lang-block="en"><strong>Inflation Strength:</strong> Controls how much the mesh inflates.</li>
+
+              <li data-lang-block="ja"><strong>Correction:</strong> 見た目の補正に使います。</li>
+              <li data-lang-block="en"><strong>Correction:</strong> Used to correct the visual result.</li>
+
+              <li data-lang-block="ja"><strong>サイズ自動補正:</strong> オブジェクトサイズに応じて強さを補正します。</li>
+              <li data-lang-block="en"><strong>Auto Size Correction:</strong> Adjusts strength based on object size.</li>
+            </ul>
+
+            <div class="tip warn">
+              <strong data-lang-block="ja">注意</strong>
+              <strong data-lang-block="en">Note</strong>
+              <p data-lang-block="ja">ふくらみの強さを上げすぎると、見た目が大きく崩れる場合があります。Previewを見ながら少しずつ調整してください。</p>
+              <p data-lang-block="en">If the inflation strength is too high, the visual result may become distorted. Adjust it gradually while checking Preview.</p>
             </div>
           </section>
 
           <section class="card" id="preview">
             <h2 class="section-title">Preview</h2>
             <p class="section-lead" data-lang-block="ja">
-              Preview は Editor 上で最大変形や発光の見え方を確認するための機能です。元のマテリアルを直接壊さず、一時的な複製マテリアルで表示します。
+              Previewは、Unity Editor上でALRの反応を確認するための機能です。見た目を確認しながら、光り方や膨らみ方を調整できます。
             </p>
             <p class="section-lead" data-lang-block="en">
-              Preview is used to check the maximum deformation or glow appearance in the Editor. It works with temporary duplicated materials instead of directly modifying the original materials.
+              Preview lets you check ALR reactions directly in the Unity Editor. Use it while adjusting glow or inflate behavior.
             </p>
 
             <ul class="bullet-list">
-              <li data-lang-block="ja"><strong>プレビュー有効:</strong> Preview を使うかどうかを切り替えます。</li>
+              <li data-lang-block="ja"><strong>プレビュー有効:</strong> Previewを使うかどうかを切り替えます。</li>
               <li data-lang-block="en"><strong>Preview Enabled:</strong> Toggles Preview on or off.</li>
-              <li data-lang-block="ja"><strong>プレビュー量:</strong> 0 から 1 の範囲で見え方を確認できます。</li>
-              <li data-lang-block="en"><strong>Preview Amount:</strong> Lets you preview the effect from 0 to 1.</li>
-              <li data-lang-block="ja"><strong>最大プレビュー:</strong> 最大状態をすぐ確認したい時に使います。</li>
-              <li data-lang-block="en"><strong>Max Preview:</strong> Quickly checks the maximum state.</li>
+
+              <li data-lang-block="ja"><strong>プレビュー量:</strong> 反応量を確認するための値です。</li>
+              <li data-lang-block="en"><strong>Preview Amount:</strong> Controls the amount used for checking the reaction.</li>
+
+              <li data-lang-block="ja"><strong>更新:</strong> Play Modeから戻った後など、表示が古くなった場合に再同期できます。</li>
+              <li data-lang-block="en"><strong>Refresh:</strong> Rebinds the window state if the display becomes outdated after returning from Play Mode.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="profile">
+            <h2 class="section-title"><span data-lang="ja">設定の書き出し / 読み込み</span><span data-lang="en">Export / Import Settings</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              ALRの設定はMaterial単位で書き出し / 読み込みできます。別のMaterialや別Avatarへ、設定値だけを流用したい時に使います。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              ALR settings can be exported and imported per material. Use this when you want to reuse values on another material or avatar.
+            </p>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>書き出し:</strong> どのMaterialの設定を保存するか選んで書き出します。</li>
+              <li data-lang-block="en"><strong>Export:</strong> Choose which material settings to save.</li>
+
+              <li data-lang-block="ja"><strong>読み込み:</strong> 読み込む設定を選び、どのMaterialへ適用するか選びます。</li>
+              <li data-lang-block="en"><strong>Import:</strong> Select a saved profile and choose which material to apply it to.</li>
+
+              <li data-lang-block="ja"><strong>保存されるもの:</strong> Avatar参照やRenderer参照ではなく、反応音域、色、強さなどの設定値です。</li>
+              <li data-lang-block="en"><strong>Saved data:</strong> Stores values such as reaction band, color, and strength, not Avatar or Renderer references.</li>
             </ul>
           </section>
 
           <section class="card" id="faq">
             <h2 class="section-title"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></h2>
+
             <div class="faq">
               <article class="faq-item">
-                <h3 data-lang-block="ja">Q. まずどこだけ触ればよいか</h3>
+                <h3 data-lang-block="ja">Q. まずどこだけ触ればよいですか？</h3>
                 <h3 data-lang-block="en">Q. What should I touch first?</h3>
-                <p data-lang-block="ja">発光テクスチャなら 帯域 / 色・マスク / 発光色 / 合成モード、頂点なら 音域 / ふくらみの強さ だけで十分です。</p>
-                <p data-lang-block="en">For Emission Texture, start with Band, Color/Mask, Emission Color, and Blend Mode. For Vertex, start with Band and Inflation Strength.</p>
+                <p data-lang-block="ja">光らせる場合は「反応音域」「発光色」「色 / マスク」「不透明度」から、膨らませる場合は「反応音域」「ふくらみの強さ」から触るのがおすすめです。</p>
+                <p data-lang-block="en">For Glow, start with Reaction Band, Emission Color, Color / Mask, and Opacity. For Inflate, start with Reaction Band and Inflation Strength.</p>
               </article>
+
               <article class="faq-item">
-                <h3 data-lang-block="ja">Q. lilToon を直接触るのと何が違うか</h3>
+                <h3 data-lang-block="ja">Q. Renderer一覧に対象が出ません。</h3>
+                <h3 data-lang-block="en">Q. The target does not appear in the Renderer list.</h3>
+                <p data-lang-block="ja">Avatar欄に正しいアバターRootが入っているか、対象オブジェクトにRendererまたはSkinnedMeshRendererが付いているか確認してください。</p>
+                <p data-lang-block="en">Check that the correct Avatar root is assigned and that the target object has a Renderer or SkinnedMeshRenderer.</p>
+              </article>
+
+              <article class="faq-item">
+                <h3 data-lang-block="ja">Q. Play Modeから戻ったら表示がおかしくなりました。</h3>
+                <h3 data-lang-block="en">Q. The window looks wrong after returning from Play Mode.</h3>
+                <p data-lang-block="ja">更新ボタンを押して、AvatarやRenderer情報を再取得してください。</p>
+                <p data-lang-block="en">Press Refresh to rebind Avatar and Renderer information.</p>
+              </article>
+
+              <article class="faq-item">
+                <h3 data-lang-block="ja">Q. lilToonを直接触るのと何が違いますか？</h3>
                 <h3 data-lang-block="en">Q. How is this different from editing lilToon directly?</h3>
-                <p data-lang-block="ja">複数対象管理、非破壊複製、Preview、将来的なメニュー導線まで含めて、導入と運用をまとめることが目的です。</p>
-                <p data-lang-block="en">The goal is to unify setup and operation, including multi-target management, non-destructive duplication, preview, and future menu workflow support.</p>
-              </article>
-              <article class="faq-item">
-                <h3 data-lang-block="ja">Q. 詳細設定はいつ触るべきか</h3>
-                <h3 data-lang-block="en">Q. When should I touch advanced settings?</h3>
-                <p data-lang-block="ja">基本項目だけで大まかな見た目を作ってからで十分です。最初から全部触る必要はありません。</p>
-                <p data-lang-block="en">After the overall look is built with the main fields. There is no need to touch everything from the start.</p>
+                <p data-lang-block="ja">ALRはRenderer一覧、Material単位設定、Preview、設定の書き出し / 読み込みを専用Windowにまとめ、AudioLink表現の導入と調整を扱いやすくするためのツールです。</p>
+                <p data-lang-block="en">ALR brings Renderer selection, per-material settings, Preview, and setting export / import into one dedicated window for easier AudioLink setup.</p>
               </article>
             </div>
           </section>
@@ -246,41 +384,32 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© AudioLink Reactive</div>
+      <span>© 2026 N4NSY / AudioLink Reactive</span>
       <div class="footer-links">
-        <a href="#top">Top</a>
-        <a href="#getting-started"><span data-lang="ja">はじめかた</span><span data-lang="en">Getting Started</span></a>
-        <a href="#emission"><span data-lang="ja">発光テクスチャ</span><span data-lang="en">Emission Texture</span></a>
-        <a href="#faq"><span data-lang="ja">よくある質問</span><span data-lang="en">FAQ</span></a>
+        <a href="index.html#download">Download</a>
+        <a href="index.html">Portal</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    (function () {
-      const html = document.documentElement;
-      const buttons = document.querySelectorAll('[data-set-lang]');
-      const saved = localStorage.getItem('alr-docs-lang');
-      const browserLang = (navigator.language || '').toLowerCase();
-      const initial = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
+    const root = document.documentElement;
+    const savedLang = localStorage.getItem("alr-lang") || "ja";
 
-      function setLang(lang) {
-        html.setAttribute('lang', lang);
-        html.setAttribute('data-current-lang', lang);
-        localStorage.setItem('alr-docs-lang', lang);
-        buttons.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
-        });
-      }
-
-      buttons.forEach(btn => {
-        btn.addEventListener('click', function () {
-          setLang(btn.getAttribute('data-set-lang'));
-        });
+    function setLang(lang) {
+      root.setAttribute("data-current-lang", lang);
+      localStorage.setItem("alr-lang", lang);
+      document.querySelectorAll("[data-set-lang]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.setLang === lang);
       });
+    }
 
-      setLang(initial);
-    })();
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLang(button.dataset.setLang));
+    });
+
+    setLang(savedLang);
   </script>
 </body>
 </html>
