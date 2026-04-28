@@ -417,6 +417,34 @@
 
                 <li class="changelog-item">
                   <div class="changelog-head">
+                    <strong>v0.6.0</strong>
+                    <span class="changelog-date">
+                      <span data-lang="ja">開発版</span>
+                      <span data-lang="en">Development</span>
+                    </span>
+                  </div>
+                  <ul data-lang-block="ja">
+                    <li>VPM / Packages 配置での動作確認を進行</li>
+                    <li>AudioLinkReactiveController をAvatar階層外のSettings Objectで管理する方式に変更</li>
+                    <li>VRC SDKのAuto Fix対象にならないよう、Avatar階層内にALRControllerを残さない構成へ調整</li>
+                    <li>1Avatarにつき1Settingsを維持しつつ、未使用Settingsを整理できる仕組みを追加</li>
+                    <li>Preview ONのままWindowを閉じた際にPreview用Materialが残る問題を修正</li>
+                    <li>Build / Upload後にMaterialがMissingになる問題への対策を追加</li>
+                    <li>Window内ボタンの幅挙動とアップロード反映チェックボックスの表示崩れを修正</li>
+                  </ul>
+                  <ul data-lang-block="en">
+                    <li>Continued testing with VPM / Packages-based placement</li>
+                    <li>Changed AudioLinkReactiveController management to use Settings Objects outside the Avatar hierarchy</li>
+                    <li>Adjusted the structure so ALRController does not remain inside the Avatar hierarchy and does not trigger VRC SDK Auto Fix</li>
+                    <li>Added unused Settings cleanup while keeping one Settings object per Avatar</li>
+                    <li>Fixed an issue where Preview materials remained after closing the window with Preview enabled</li>
+                    <li>Added fixes for Material references becoming Missing after Build / Upload</li>
+                    <li>Fixed inconsistent button width behavior and upload reflection checkbox layout issues in the Window</li>
+                  </ul>
+                </li>
+
+                <li class="changelog-item">
+                  <div class="changelog-head">
                     <strong>v0.5.0</strong>
                     <span class="changelog-date">
                       <span data-lang="ja">開発版</span>
