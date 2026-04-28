@@ -4,162 +4,332 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioLink Reactive | Download</title>
-  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">A</span>
-      <span>AudioLink Reactive</span>
-    </a>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">A</span>
+        <span>AudioLink Reactive</span>
+      </a>
 
-    <nav class="nav-links">
-      <a href="index.html">
-        <span data-lang="ja">はじめかた</span>
-        <span data-lang="en">Getting Started</span>
-      </a>
-      <a href="docs.html">
-        <span data-lang="ja">使い方</span>
-        <span data-lang="en">Docs</span>
-      </a>
-      <a href="download.html" aria-current="page">
-        <span data-lang="ja">ダウンロード</span>
-        <span data-lang="en">Download</span>
-      </a>
-      <div class="lang-switch">
-        <button class="lang-btn" data-set-lang="ja">日本語</button>
-        <button class="lang-btn" data-set-lang="en">English</button>
-      </div>
-    </nav>
+      <nav class="nav-links">
+        <a href="index.html">
+          <span data-lang="ja">トップ</span>
+          <span data-lang="en">Home</span>
+        </a>
+        <a href="download.html" aria-current="page">
+          <span data-lang="ja">ダウンロード</span>
+          <span data-lang="en">Download</span>
+        </a>
+        <a href="docs.html">
+          <span data-lang="ja">使い方</span>
+          <span data-lang="en">Docs</span>
+        </a>
+        <a href="index.html#contact">
+          <span data-lang="ja">問い合わせ</span>
+          <span data-lang="en">Contact</span>
+        </a>
+
+        <div class="lang-switch">
+          <button class="lang-btn" type="button" data-set-lang="ja">日本語</button>
+          <button class="lang-btn" type="button" data-set-lang="en">English</button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main class="page">
+  <main id="top">
     <section class="hero">
-      <p class="eyebrow">Download</p>
-      <h1>
-        <span data-lang="ja">ダウンロード</span>
-        <span data-lang="en">Download</span>
-      </h1>
-      <p class="lead" data-lang="ja">
-        AudioLink ReactiveをVCC経由で導入するためのページです。
-      </p>
-      <p class="lead" data-lang="en">
-        Install AudioLink Reactive through VCC.
-      </p>
-    </section>
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <span class="eyebrow">Download / VCC / VPM</span>
 
-    <section class="card">
-      <h2>
-        <span data-lang="ja">VCCに追加</span>
-        <span data-lang="en">Add to VCC</span>
-      </h2>
+          <h1>
+            <span data-lang="ja">ダウンロード</span>
+            <span data-lang="en">Download</span>
+          </h1>
 
-      <p data-lang="ja">
-        下のボタンから、AudioLink ReactiveのVPM RepositoryをVCCに追加できます。
-        追加後、VCCのManage ProjectからAudioLink Reactiveをプロジェクトへ導入してください。
-      </p>
-      <p data-lang="en">
-        Use the button below to add the AudioLink Reactive VPM Repository to VCC.
-        After adding it, install AudioLink Reactive from Manage Project in VCC.
-      </p>
+          <p class="lead" data-lang-block="ja">
+            AudioLink Reactive は、VCC経由で導入できます。
+            下のボタンからVPM Repositoryを追加し、VCCのManage ProjectからAudioLink Reactiveをプロジェクトへ追加してください。
+          </p>
 
-      <div class="button-row">
-        <a class="btn primary" href="vcc://vpm/addRepo?url=https://n4nsy.github.io/alr-vpm-repo/vpm.json">
-          <span data-lang="ja">VCCに追加</span>
-          <span data-lang="en">Add to VCC</span>
-        </a>
-        <a class="btn" href="https://n4nsy.github.io/alr-vpm-repo/vpm.json" target="_blank" rel="noopener">
-          <span data-lang="ja">vpm.jsonを開く</span>
-          <span data-lang="en">Open vpm.json</span>
-        </a>
+          <p class="lead" data-lang-block="en">
+            AudioLink Reactive can be installed through VCC.
+            Add the VPM Repository using the button below, then install AudioLink Reactive from Manage Project in VCC.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="vcc://vpm/addRepo?url=https://n4nsy.github.io/alr-vpm-repo/vpm.json">
+              <span data-lang="ja">VCCに追加</span>
+              <span data-lang="en">Add to VCC</span>
+            </a>
+
+            <a class="btn secondary" href="https://n4nsy.github.io/alr-vpm-repo/vpm.json" target="_blank" rel="noopener noreferrer">
+              <span data-lang="ja">vpm.jsonを開く</span>
+              <span data-lang="en">Open vpm.json</span>
+            </a>
+
+            <a class="btn secondary" href="docs.html">
+              <span data-lang="ja">使い方を見る</span>
+              <span data-lang="en">Read Docs</span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="tag">VPM</span>
+            <span class="tag">VCC</span>
+            <span class="tag">v0.6.1</span>
+            <span class="tag">Development</span>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="stat">
+            <div data-lang-block="ja">
+              <small>現在のバージョン</small>
+              <strong>v0.6.1</strong>
+            </div>
+            <div data-lang-block="en">
+              <small>Current Version</small>
+              <strong>v0.6.1</strong>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div data-lang-block="ja">
+              <small>パッケージ名</small>
+              <strong>com.n4nsy.audiolink-reactive</strong>
+            </div>
+            <div data-lang-block="en">
+              <small>Package Name</small>
+              <strong>com.n4nsy.audiolink-reactive</strong>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div data-lang-block="ja">
+              <small>配布形式</small>
+              <strong>VCC / VPM Repository</strong>
+            </div>
+            <div data-lang-block="en">
+              <small>Distribution</small>
+              <strong>VCC / VPM Repository</strong>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="grid two">
-      <article class="card">
-        <h2>
-          <span data-lang="ja">現在のバージョン</span>
-          <span data-lang="en">Current Version</span>
-        </h2>
-        <p class="version-large">v0.6.1</p>
-        <p data-lang="ja">
-          正式リリース前の開発版です。導入前にUnityプロジェクトのバックアップを作成してください。
-        </p>
-        <p data-lang="en">
-          This is a pre-release development version. Please back up your Unity project before installation.
-        </p>
-      </article>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            <span data-lang="ja">導入手順</span>
+            <span data-lang="en">Installation Steps</span>
+          </h2>
+          <p data-lang-block="ja">
+            VCCにRepositoryを追加した後、対象プロジェクトへAudioLink Reactiveを追加します。
+          </p>
+          <p data-lang-block="en">
+            Add the repository to VCC, then install AudioLink Reactive into your target project.
+          </p>
+        </div>
 
-      <article class="card">
-        <h2>
-          <span data-lang="ja">パッケージ名</span>
-          <span data-lang="en">Package Name</span>
-        </h2>
-        <code>com.n4nsy.audiolink-reactive</code>
-      </article>
+        <div class="split">
+          <article class="card">
+            <h3 data-lang-block="ja">VCCから追加する</h3>
+            <h3 data-lang-block="en">Install from VCC</h3>
+
+            <ul class="timeline">
+              <li data-lang-block="ja"><strong>Step 1:</strong> 「VCCに追加」ボタンを押します。</li>
+              <li data-lang-block="en"><strong>Step 1:</strong> Click the “Add to VCC” button.</li>
+
+              <li data-lang-block="ja"><strong>Step 2:</strong> VCCが開いたら、Repositoryの追加を許可します。</li>
+              <li data-lang-block="en"><strong>Step 2:</strong> When VCC opens, allow it to add the repository.</li>
+
+              <li data-lang-block="ja"><strong>Step 3:</strong> 対象のAvatar Projectを開きます。</li>
+              <li data-lang-block="en"><strong>Step 3:</strong> Open your target Avatar Project.</li>
+
+              <li data-lang-block="ja"><strong>Step 4:</strong> Manage ProjectからAudioLink Reactiveを追加します。</li>
+              <li data-lang-block="en"><strong>Step 4:</strong> Add AudioLink Reactive from Manage Project.</li>
+
+              <li data-lang-block="ja"><strong>Step 5:</strong> Unityで Tools / N4NSY / AudioLink Reactive から起動します。</li>
+              <li data-lang-block="en"><strong>Step 5:</strong> In Unity, open Tools / N4NSY / AudioLink Reactive.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 data-lang-block="ja">必要環境</h3>
+            <h3 data-lang-block="en">Requirements</h3>
+
+            <ul class="checklist">
+              <li><strong>Unity:</strong> 2022.3.22f1</li>
+              <li><strong>VRChat SDK - Avatars:</strong> 3.10.x</li>
+              <li><strong>lilToon:</strong> 2.3.x</li>
+              <li><strong>NDMF:</strong> 1.11.x</li>
+              <li><strong>Modular Avatar:</strong> 1.16.x</li>
+            </ul>
+
+            <div class="notice">
+              <strong data-lang-block="ja">補足</strong>
+              <strong data-lang-block="en">Note</strong>
+
+              <p data-lang-block="ja">
+                VCC側で依存パッケージが自動解決されない場合は、VRChat SDK、lilToon、NDMF、Modular Avatarを先に導入してください。
+              </p>
+              <p data-lang-block="en">
+                If VCC does not resolve dependencies automatically, install VRChat SDK, lilToon, NDMF, and Modular Avatar first.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>
-        <span data-lang="ja">導入手順</span>
-        <span data-lang="en">Installation Steps</span>
-      </h2>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            <span data-lang="ja">ダウンロード情報</span>
+            <span data-lang="en">Download Information</span>
+          </h2>
+          <p data-lang-block="ja">
+            Repository URLやパッケージ名を手動で確認したい場合はこちらを参照してください。
+          </p>
+          <p data-lang-block="en">
+            Use this section if you need to check the repository URL or package name manually.
+          </p>
+        </div>
 
-      <ol data-lang-block="ja">
-        <li>上の「VCCに追加」ボタンを押します。</li>
-        <li>VCCが開いたら、Repositoryの追加を許可します。</li>
-        <li>対象のAvatar Projectを開きます。</li>
-        <li>Manage ProjectからAudioLink Reactiveを追加します。</li>
-        <li>Unityを開き、Tools / N4NSY / AudioLink Reactive から起動します。</li>
-      </ol>
+        <div class="docs-grid">
+          <article class="card">
+            <h3>Repository URL</h3>
+            <ul class="field-list">
+              <li>
+                <strong>VPM Repository:</strong><br />
+                <code>https://n4nsy.github.io/alr-vpm-repo/vpm.json</code>
+              </li>
+              <li>
+                <strong>VCC Link:</strong><br />
+                <code>vcc://vpm/addRepo?url=https://n4nsy.github.io/alr-vpm-repo/vpm.json</code>
+              </li>
+            </ul>
+          </article>
 
-      <ol data-lang-block="en">
-        <li>Click the “Add to VCC” button above.</li>
-        <li>Allow VCC to add the repository.</li>
-        <li>Open your Avatar Project.</li>
-        <li>Add AudioLink Reactive from Manage Project.</li>
-        <li>Open Unity and launch it from Tools / N4NSY / AudioLink Reactive.</li>
-      </ol>
+          <article class="card">
+            <h3>
+              <span data-lang="ja">パッケージ情報</span>
+              <span data-lang="en">Package Info</span>
+            </h3>
+
+            <ul class="field-list">
+              <li><strong>Package:</strong> <code>com.n4nsy.audiolink-reactive</code></li>
+              <li><strong>Version:</strong> <code>0.6.1</code></li>
+              <li><strong>Author:</strong> <code>N4NSY</code></li>
+              <li><strong>Repository:</strong> <code>com.n4nsy.vpm</code></li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>
-        <span data-lang="ja">必要環境</span>
-        <span data-lang="en">Requirements</span>
-      </h2>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            <span data-lang="ja">注意事項</span>
+            <span data-lang="en">Notes</span>
+          </h2>
+          <p data-lang-block="ja">
+            現在は正式リリース前の開発版です。導入前に必ずUnityプロジェクトのバックアップを作成してください。
+          </p>
+          <p data-lang-block="en">
+            This is a pre-release development version. Please back up your Unity project before installation.
+          </p>
+        </div>
 
-      <ul>
-        <li>Unity 2022.3.22f1</li>
-        <li>VRChat SDK - Avatars 3.10.x</li>
-        <li>lilToon 2.3.x</li>
-        <li>NDMF 1.11.x</li>
-        <li>Modular Avatar 1.16.x</li>
-      </ul>
-    </section>
+        <div class="split">
+          <article class="card">
+            <h3 data-lang-block="ja">開発版について</h3>
+            <h3 data-lang-block="en">Development Version</h3>
 
-    <section class="card">
-      <h2>
-        <span data-lang="ja">注意事項</span>
-        <span data-lang="en">Notes</span>
-      </h2>
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>正式リリース前:</strong> 今後の更新で仕様や設定形式が変わる可能性があります。</li>
+              <li data-lang-block="en"><strong>Pre-release:</strong> Settings and behavior may change in future updates.</li>
 
-      <p data-lang="ja">
-        現在は開発版です。仕様変更や不具合修正により、今後のバージョンで設定形式が変わる可能性があります。
-      </p>
-      <p data-lang="en">
-        This is a development version. Settings or behavior may change in future versions due to updates and bug fixes.
-      </p>
+              <li data-lang-block="ja"><strong>バックアップ推奨:</strong> 導入前にUnityプロジェクトを複製しておくことを推奨します。</li>
+              <li data-lang-block="en"><strong>Backup recommended:</strong> Duplicate your Unity project before installation.</li>
+
+              <li data-lang-block="ja"><strong>動作確認:</strong> 導入後はPreviewとBuild / Uploadの確認を行ってください。</li>
+              <li data-lang-block="en"><strong>Check behavior:</strong> After installation, test Preview and Build / Upload.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 data-lang-block="ja">困ったとき</h3>
+            <h3 data-lang-block="en">Troubleshooting</h3>
+
+            <ul class="checklist">
+              <li data-lang-block="ja"><strong>VCCに表示されない:</strong> Repository追加後、VCCを再起動してください。</li>
+              <li data-lang-block="en"><strong>Not visible in VCC:</strong> Restart VCC after adding the repository.</li>
+
+              <li data-lang-block="ja"><strong>Unityでエラーが出る:</strong> 依存パッケージの導入状況を確認してください。</li>
+              <li data-lang-block="en"><strong>Unity errors:</strong> Check that all dependency packages are installed.</li>
+
+              <li data-lang-block="ja"><strong>使い方が分からない:</strong> Docsページを確認してください。</li>
+              <li data-lang-block="en"><strong>Need help:</strong> See the Docs page.</li>
+            </ul>
+
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn secondary" href="docs.html">
+                <span data-lang="ja">Docsを開く</span>
+                <span data-lang="en">Open Docs</span>
+              </a>
+              <a class="btn secondary" href="index.html#contact">
+                <span data-lang="ja">問い合わせ</span>
+                <span data-lang="en">Contact</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 N4NSY / AudioLink Reactive</p>
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 N4NSY / AudioLink Reactive</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    const root = document.documentElement;
+    const savedLang = localStorage.getItem("alr-lang") || "ja";
+
+    function setLang(lang) {
+      root.setAttribute("data-current-lang", lang);
+      localStorage.setItem("alr-lang", lang);
+      document.querySelectorAll("[data-set-lang]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.setLang === lang);
+      });
+    }
+
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLang(button.dataset.setLang));
+    });
+
+    setLang(savedLang);
+  </script>
 </body>
 </html>
