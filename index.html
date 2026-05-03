@@ -368,18 +368,20 @@
           <article class="card version-current">
             <div>
               <span class="version-badge">
-                <span data-lang="ja">現在の公開予定バージョン</span>
-                <span data-lang="en">Planned Release Version</span>
+                <span data-lang="ja">現在の公開バージョン</span>
+                <span data-lang="en">Current Public Version</span>
               </span>
               <p class="big-version">v1.0.0</p>
             </div>
             <p class="version-note" data-lang-block="ja">
-              初回公開版です。専用WindowによるAvatar指定、Renderer一覧、Material単位設定、
-              光らせる / 膨らませる、Preview、設定の書き出し / 読み込みを中心に提供します。
+              初回公開版です。BOOTHからUnityPackageをダウンロードして導入する形式に対応し、
+              専用WindowによるAvatar指定、Renderer一覧、Material単位設定、光らせる / 膨らませる、Preview、
+              設定の書き出し / 読み込み、既存MaterialからのAudioLink設定インポートを提供します。
             </p>
             <p class="version-note" data-lang-block="en">
-              Initial public release. It focuses on Avatar selection through the dedicated window,
-              Renderer list workflow, per-material settings, Glow / Inflate, Preview, and setting export / import.
+              Initial public release. It supports UnityPackage distribution through BOOTH and includes Avatar setup,
+              Renderer list workflow, per-material settings, Glow / Inflate, Preview, setting export / import,
+              and importing AudioLink settings from existing materials.
             </p>
           </article>
 
@@ -393,25 +395,39 @@
                   <div class="changelog-head">
                     <strong>v1.0.0</strong>
                     <span class="changelog-date">
-                      <span data-lang="ja">2026年5月1日</span>
-                      <span data-lang="en">May 1, 2026</span>
+                      <span data-lang="ja">2026年5月3日</span>
+                      <span data-lang="en">May 3, 2026</span>
                     </span>
                   </div>
                   <ul data-lang-block="ja">
                     <li>AudioLink Reactive 初回公開版</li>
-                    <li>専用WindowからAvatarを指定してセットアップできる機能を追加</li>
-                    <li>Avatar配下のRenderer一覧表示と対象追加に対応</li>
+                    <li>配布形式をBOOTHからのUnityPackageダウンロードに変更</li>
+                    <li>公式サイトの旧配布導線をBOOTH導線へ更新</li>
+                    <li>専用WindowからAvatarを指定し、Renderer一覧から対象を追加できる機能を追加</li>
                     <li>Material単位で「光らせる」「膨らませる」を設定可能</li>
                     <li>Editor上で反応を確認できるPreview機能を追加</li>
                     <li>Material単位の設定書き出し / 読み込みに対応</li>
+                    <li>既存MaterialからAudioLink設定を任意でインポートできる機能を追加</li>
+                    <li>インポート欄をデフォルトで閉じたFoldout表示に変更</li>
+                    <li>_AudioLinkDefaultValue.x が小さすぎる場合、Previewで反応が見えるよう内部補正する処理を追加</li>
+                    <li>Play Mode / GestureManager開始時にPreviewを強制停止し、Preview用Materialの二重cloneを防ぐ処理を追加</li>
+                    <li>Preview用Materialを一時cloneとして扱い、終了時に破棄して元Materialへ復元する処理を整理</li>
+                    <li>Preview処理とMaterialインポート処理の責務を分離し、元Materialや読み込み元Materialを直接変更しない方針に整理</li>
                   </ul>
                   <ul data-lang-block="en">
                     <li>Initial public release of AudioLink Reactive</li>
-                    <li>Added Avatar setup through the dedicated window</li>
-                    <li>Added Renderer list display and target registration under the Avatar</li>
+                    <li>Changed distribution to UnityPackage downloads from BOOTH</li>
+                    <li>Updated the official site from the previous installation guidance to the BOOTH download flow</li>
+                    <li>Added Avatar setup through the dedicated window and target registration from the Renderer list</li>
                     <li>Added per-material Glow and Inflate settings</li>
                     <li>Added Preview for checking reactions in the Unity Editor</li>
                     <li>Added per-material setting export and import</li>
+                    <li>Added optional import of AudioLink settings from existing materials</li>
+                    <li>Changed the import area to a collapsed Foldout by default</li>
+                    <li>Added internal correction when _AudioLinkDefaultValue.x is too small so Preview remains visible</li>
+                    <li>Added Preview shutdown before Play Mode / GestureManager starts to prevent duplicate Preview material clones</li>
+                    <li>Organized Preview materials as temporary clones that are destroyed on exit and restored to the original materials</li>
+                    <li>Separated Preview and material import responsibilities so original and source materials are not modified directly</li>
                   </ul>
                 </li>
 
