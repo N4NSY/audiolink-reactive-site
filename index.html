@@ -44,7 +44,7 @@
             Select an Avatar in the dedicated window, choose targets from the Renderer list, and adjust glow or inflate behavior per material.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="download.html"><span data-lang="ja">ダウンロード</span><span data-lang="en">Download</span></a>
+            <a class="btn primary" href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer"><span data-lang="ja">BOOTHでダウンロード</span><span data-lang="en">Download from BOOTH</span></a>
             <a class="btn secondary" href="docs.html"><span data-lang="ja">使い方を見る</span><span data-lang="en">Documentation</span></a>
             <a class="btn secondary" href="#contact"><span data-lang="ja">問い合わせ</span><span data-lang="en">Contact</span></a>
           </div>
@@ -106,8 +106,8 @@
           <a class="page-card" href="download.html">
             <div class="icon">⇩</div>
             <h3>Download</h3>
-            <p data-lang-block="ja">VCC経由での導入予定、対応環境、パッケージ情報、配布ページへの導線をまとめています。</p>
-            <p data-lang-block="en">Entry point for planned VCC installation, compatibility notes, package information, and distribution links.</p>
+            <p data-lang-block="ja">BOOTHからのUnityPackageダウンロード、対応環境、導入手順、配布ページへの導線をまとめています。</p>
+            <p data-lang-block="en">Entry point for BOOTH UnityPackage downloads, compatibility notes, installation steps, and distribution links.</p>
             <span class="linkline" data-lang-block="ja">Downloadページへ →</span>
             <span class="linkline" data-lang-block="en">Open Download Page →</span>
           </a>
@@ -143,23 +143,23 @@
 
         <div class="split">
           <article class="card">
-            <h3 data-lang-block="ja">VCCでの導入予定</h3>
-            <h3 data-lang-block="en">Planned VCC Installation</h3>
+            <h3 data-lang-block="ja">BOOTHから導入</h3>
+            <h3 data-lang-block="en">Install from BOOTH</h3>
             <ul class="timeline">
-              <li data-lang-block="ja"><strong>Step 1:</strong> Downloadページを開く</li>
-              <li data-lang-block="en"><strong>Step 1:</strong> Open the Download page</li>
+              <li data-lang-block="ja"><strong>Step 1:</strong> BOOTHページを開く</li>
+              <li data-lang-block="en"><strong>Step 1:</strong> Open the BOOTH page</li>
 
-              <li data-lang-block="ja"><strong>Step 2:</strong> 配布開始後、VCC用リポジトリを追加する</li>
-              <li data-lang-block="en"><strong>Step 2:</strong> Add the VCC repository after release</li>
+              <li data-lang-block="ja"><strong>Step 2:</strong> BOOTHページからUnityPackageをダウンロードする</li>
+              <li data-lang-block="en"><strong>Step 2:</strong> Download the UnityPackage from the BOOTH page</li>
 
-              <li data-lang-block="ja"><strong>Step 3:</strong> Project に AudioLink Reactive を追加する</li>
-              <li data-lang-block="en"><strong>Step 3:</strong> Add AudioLink Reactive to the project</li>
+              <li data-lang-block="ja"><strong>Step 3:</strong> 対象のUnityプロジェクトにUnityPackageをimportする</li>
+              <li data-lang-block="en"><strong>Step 3:</strong> Import the UnityPackage into the target Unity project</li>
 
               <li data-lang-block="ja"><strong>Step 4:</strong> Unity の Tools メニューから AudioLink Reactive を開く</li>
               <li data-lang-block="en"><strong>Step 4:</strong> Open AudioLink Reactive from the Unity Tools menu</li>
             </ul>
             <div class="hero-actions" style="margin-top:18px;">
-              <a class="btn primary" href="download.html"><span data-lang="ja">Downloadページへ</span><span data-lang="en">Open Download Page</span></a>
+              <a class="btn primary" href="https://n4nsy.booth.pm/" target="_blank" rel="noopener noreferrer"><span data-lang="ja">BOOTHでダウンロード</span><span data-lang="en">Download from BOOTH</span></a>
               <a class="btn secondary" href="docs.html"><span data-lang="ja">導入後の使い方を見る</span><span data-lang="en">Setup Guide</span></a>
             </div>
           </article>
@@ -424,17 +424,17 @@
     </span>
   </div>
   <ul data-lang-block="ja">
-    <li>VPM配布に向けた依存関係の見直しを開始</li>
+    <li>UnityPackage配布に向けた依存関係の見直しを開始</li>
     <li>VRCSDKの自動更新を促さない構成を検討</li>
     <li>AudioLink未導入時の依存追加方針を整理</li>
-    <li>DownloadページとVCC導入導線の準備を追加</li>
+    <li>Downloadページと配布導線の準備を追加</li>
     <li>更新履歴カードを内部スクロール表示に変更</li>
   </ul>
   <ul data-lang-block="en">
-    <li>Started reviewing dependencies for VPM distribution</li>
+    <li>Started reviewing dependencies for UnityPackage distribution</li>
     <li>Reviewed a setup that does not force VRCSDK updates</li>
     <li>Organized the dependency policy for projects without AudioLink</li>
-    <li>Added preparation for the Download page and VCC setup flow</li>
+    <li>Added preparation for the Download page and distribution flow</li>
     <li>Changed the changelog card to use internal scrolling</li>
   </ul>
 </li>
@@ -448,7 +448,7 @@
                     </span>
                   </div>
                   <ul data-lang-block="ja">
-                    <li>VPM / Packages 配置での動作確認を進行</li>
+                    <li>Packages配置での動作確認を進行</li>
                     <li>AudioLinkReactiveController をAvatar階層外のSettings Objectで管理する方式に変更</li>
                     <li>VRC SDKのAuto Fix対象にならないよう、Avatar階層内にALRControllerを残さない構成へ調整</li>
                     <li>1Avatarにつき1Settingsを維持しつつ、未使用Settingsを整理できる仕組みを追加</li>
@@ -457,7 +457,7 @@
                     <li>Window内ボタンの幅挙動とアップロード反映チェックボックスの表示崩れを修正</li>
                   </ul>
                   <ul data-lang-block="en">
-                    <li>Continued testing with VPM / Packages-based placement</li>
+                    <li>Continued testing with Packages-based placement</li>
                     <li>Changed AudioLinkReactiveController management to use Settings Objects outside the Avatar hierarchy</li>
                     <li>Adjusted the structure so ALRController does not remain inside the Avatar hierarchy and does not trigger VRC SDK Auto Fix</li>
                     <li>Added unused Settings cleanup while keeping one Settings object per Avatar</li>
