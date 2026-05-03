@@ -37,11 +37,11 @@
           <h1>AudioLink Reactive</h1>
           <p class="lead" data-lang-block="ja">
             このページは AudioLink Reactive の使い方をまとめた説明書です。
-            専用Windowの開き方、Avatar指定、Renderer一覧、Materialごとの設定、Preview、設定の書き出し / 読み込みについて説明します。
+            専用Windowの開き方、Avatar指定、Renderer一覧、Materialごとの設定、Preview、設定の書き出し / 読み込み、既存MaterialからのAudioLink設定インポートについて説明します。
           </p>
           <p class="lead" data-lang-block="en">
             This page explains how to use AudioLink Reactive.
-            It covers the dedicated window, Avatar selection, Renderer list, per-material settings, Preview, and setting export / import.
+            It covers the dedicated window, Avatar selection, Renderer list, per-material settings, Preview, setting export / import, and importing AudioLink settings from existing materials.
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="#getting-started"><span data-lang="ja">まず読む</span><span data-lang="en">Start Here</span></a>
@@ -87,6 +87,7 @@
               <li><a href="#inflate"><span data-lang="ja">膨らませる</span><span data-lang="en">Inflate</span></a></li>
               <li><a href="#preview"><span data-lang="ja">Preview</span><span data-lang="en">Preview</span></a></li>
               <li><a href="#profile"><span data-lang="ja">設定保存</span><span data-lang="en">Profiles</span></a></li>
+              <li><a href="#material-import"><span data-lang="ja">既存Materialから読み込み</span><span data-lang="en">Material Import</span></a></li>
               <li><a href="#faq"><span data-lang="ja">FAQ</span><span data-lang="en">FAQ</span></a></li>
             </ul>
           </div>
@@ -138,8 +139,11 @@
               <li data-lang-block="ja"><strong>4.</strong> 対象Materialごとに「光らせる」「膨らませる」を設定する</li>
               <li data-lang-block="en"><strong>4.</strong> Configure Glow or Inflate for each target material</li>
 
-              <li data-lang-block="ja"><strong>5.</strong> Previewで見た目を確認しながら調整する</li>
-              <li data-lang-block="en"><strong>5.</strong> Adjust values while checking the result with Preview</li>
+              <li data-lang-block="ja"><strong>5.</strong> 必要に応じて、既存MaterialからAudioLink設定をインポートする</li>
+              <li data-lang-block="en"><strong>5.</strong> Optionally import AudioLink settings from an existing material</li>
+
+              <li data-lang-block="ja"><strong>6.</strong> Previewで見た目を確認しながら調整する</li>
+              <li data-lang-block="en"><strong>6.</strong> Adjust values while checking the result with Preview</li>
             </ol>
 
             <div class="tip ok">
@@ -153,10 +157,10 @@
           <section class="card" id="window">
             <h2 class="section-title"><span data-lang="ja">Windowの見方</span><span data-lang="en">Window Overview</span></h2>
             <p class="section-lead" data-lang-block="ja">
-              ALRは専用Windowで設定します。Avatar、Preview、Renderer一覧、対象Materialの順に確認していくと分かりやすいです。
+              ALRは専用Windowで設定します。Avatar、Preview、Renderer一覧、対象Material、必要に応じた既存Materialからの読み込みの順に確認していくと分かりやすいです。
             </p>
             <p class="section-lead" data-lang-block="en">
-              ALR is configured from a dedicated window. Check Avatar, Preview, Renderer list, and target materials in that order.
+              ALR is configured from a dedicated window. Check Avatar, Preview, Renderer list, target materials, and optional material import in that order.
             </p>
 
             <ul class="field-list">
@@ -174,6 +178,9 @@
 
               <li data-lang-block="ja"><strong>対象Material:</strong> 追加したRendererのMaterialごとに設定を行います。</li>
               <li data-lang-block="en"><strong>Target Materials:</strong> Configure each material from the renderers you added.</li>
+
+              <li data-lang-block="ja"><strong>既存Materialから読み込み:</strong> 必要に応じて、AudioLink設定済みMaterialの値をALRへ取り込めます。</li>
+              <li data-lang-block="en"><strong>Import from Existing Material:</strong> Optionally import values from a material that already has AudioLink settings.</li>
             </ul>
           </section>
 
@@ -320,6 +327,12 @@
 
               <li data-lang-block="ja"><strong>更新:</strong> Play Modeから戻った後など、表示が古くなった場合に再同期できます。</li>
               <li data-lang-block="en"><strong>Refresh:</strong> Rebinds the window state if the display becomes outdated after returning from Play Mode.</li>
+
+              <li data-lang-block="ja"><strong>Previewの復元:</strong> Play ModeやGestureManager開始時はPreviewを停止し、元Materialへ戻します。</li>
+              <li data-lang-block="en"><strong>Preview Restore:</strong> Preview is stopped before Play Mode or GestureManager starts, then materials are restored.</li>
+
+              <li data-lang-block="ja"><strong>一時Material:</strong> Preview用Materialは一時的なcloneとして扱い、終了時に破棄します。</li>
+              <li data-lang-block="en"><strong>Temporary Materials:</strong> Preview materials are handled as temporary clones and destroyed when Preview ends.</li>
             </ul>
           </section>
 
@@ -341,6 +354,35 @@
 
               <li data-lang-block="ja"><strong>保存されるもの:</strong> Avatar参照やRenderer参照ではなく、反応音域、色、強さなどの設定値です。</li>
               <li data-lang-block="en"><strong>Saved data:</strong> Stores values such as reaction band, color, and strength, not Avatar or Renderer references.</li>
+            </ul>
+          </section>
+
+          <section class="card" id="material-import">
+            <h2 class="section-title"><span data-lang="ja">既存MaterialからAudioLink設定を読み込む</span><span data-lang="en">Import AudioLink Settings from Existing Materials</span></h2>
+            <p class="section-lead" data-lang-block="ja">
+              既にAudioLink設定が入っているMaterialを指定し、その値をALRの設定として取り込めます。
+              新規設定時は使わなくても問題ない任意機能です。
+            </p>
+            <p class="section-lead" data-lang-block="en">
+              You can select an existing material that already has AudioLink settings and import those values into ALR.
+              This is optional and can be skipped when setting up a new material from scratch.
+            </p>
+
+            <ul class="field-list">
+              <li data-lang-block="ja"><strong>読み込み元Material:</strong> 既存のAudioLink設定を持つMaterialを指定します。</li>
+              <li data-lang-block="en"><strong>Source Material:</strong> Assign a material that already contains AudioLink settings.</li>
+
+              <li data-lang-block="ja"><strong>任意機能:</strong> 新しくALRで設定する場合は、この欄を使わずに進められます。</li>
+              <li data-lang-block="en"><strong>Optional:</strong> You can skip this area when configuring ALR from scratch.</li>
+
+              <li data-lang-block="ja"><strong>Foldout表示:</strong> インポート欄は通常閉じた状態で表示されます。</li>
+              <li data-lang-block="en"><strong>Foldout:</strong> The import area is collapsed by default.</li>
+
+              <li data-lang-block="ja"><strong>Preview補正:</strong> _AudioLinkDefaultValue.x が小さすぎる場合、Previewで反応が見えるようALR側で補正します。</li>
+              <li data-lang-block="en"><strong>Preview Correction:</strong> If _AudioLinkDefaultValue.x is too small, ALR corrects it internally so Preview remains visible.</li>
+
+              <li data-lang-block="ja"><strong>非破壊:</strong> 読み込み元Materialや元Materialは直接変更しません。</li>
+              <li data-lang-block="en"><strong>Non-destructive:</strong> The source material and original materials are not modified directly.</li>
             </ul>
           </section>
 
@@ -372,8 +414,8 @@
               <article class="faq-item">
                 <h3 data-lang-block="ja">Q. lilToonを直接触るのと何が違いますか？</h3>
                 <h3 data-lang-block="en">Q. How is this different from editing lilToon directly?</h3>
-                <p data-lang-block="ja">ALRはRenderer一覧、Material単位設定、Preview、設定の書き出し / 読み込みを専用Windowにまとめ、AudioLink表現の導入と調整を扱いやすくするためのツールです。</p>
-                <p data-lang-block="en">ALR brings Renderer selection, per-material settings, Preview, and setting export / import into one dedicated window for easier AudioLink setup.</p>
+                <p data-lang-block="ja">ALRはRenderer一覧、Material単位設定、Preview、設定の書き出し / 読み込み、既存MaterialからのAudioLink設定インポートを専用Windowにまとめ、AudioLink表現の導入と調整を扱いやすくするためのツールです。</p>
+                <p data-lang-block="en">ALR brings Renderer selection, per-material settings, Preview, setting export / import, and importing AudioLink settings from existing materials into one dedicated window for easier AudioLink setup.</p>
               </article>
             </div>
           </section>
