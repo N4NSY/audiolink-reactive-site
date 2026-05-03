@@ -56,5 +56,4 @@ Related
 
 BOOTH: https://n4nsy.booth.pm/
 
-X: https://x.com/_N4NSY
-_
+X: https://x.com/_N4NSY_
